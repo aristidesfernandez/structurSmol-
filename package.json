@@ -1,0 +1,13 @@
+{
+  "name": "smolplus",
+  "version": "0.0.0",
+  "private": true,
+  "description": "smolplus",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=16.18.0"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ]
+}
