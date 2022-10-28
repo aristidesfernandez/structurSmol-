@@ -263,5 +263,16 @@
       "endOfLine" : "lf",
       "indentSize" : 2
     }
+  }, {
+    "module" : "zalando-problems",
+    "date" : "2022-10-28T15:55:32.936443644Z",
+    "properties" : {
+      "packageName" : "co.com.ies.smol",
+      "projectName" : "smolplus",
+      "baseName" : "smolplus",
+      "serverPort" : 8080,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
   } ]
 }
