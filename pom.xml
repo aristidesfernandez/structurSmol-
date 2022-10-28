@@ -37,6 +37,7 @@
     <reflections.version>0.10.2</reflections.version>
     <archunit-junit5.version>1.0.0</archunit-junit5.version>
     <liquibase.version>4.17.1</liquibase.version>
+    <springdoc-openapi.version>1.6.12</springdoc-openapi.version>
   </properties>
 
   <dependencyManagement>
@@ -128,6 +129,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>${springdoc-openapi.version}</version>
     </dependency>
 
     <dependency>
