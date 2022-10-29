@@ -3,7 +3,7 @@
     "module" : "init",
     "date" : "2022-10-28T15:55:31.841707418Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -14,7 +14,7 @@
     "module" : "infinitest-filters",
     "date" : "2022-10-28T15:55:32.002855966Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -25,7 +25,7 @@
     "module" : "maven-wrapper",
     "date" : "2022-10-28T15:55:32.017394027Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -36,7 +36,7 @@
     "module" : "maven-java",
     "date" : "2022-10-28T15:55:32.180260213Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -47,7 +47,7 @@
     "module" : "prettier",
     "date" : "2022-10-28T15:55:32.218967712Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -58,7 +58,7 @@
     "module" : "jacoco-check-min-coverage",
     "date" : "2022-10-28T15:55:32.235709473Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -69,7 +69,7 @@
     "module" : "java-base",
     "date" : "2022-10-28T15:55:32.260653483Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -80,7 +80,7 @@
     "module" : "jib",
     "date" : "2022-10-28T15:55:32.302312799Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -91,7 +91,7 @@
     "module" : "react-core",
     "date" : "2022-10-28T15:55:32.337752582Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -102,7 +102,7 @@
     "module" : "sonar-java-backend",
     "date" : "2022-10-28T15:55:32.382267792Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -113,7 +113,7 @@
     "module" : "frontend-maven-plugin",
     "date" : "2022-10-28T15:55:32.431304435Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -124,7 +124,7 @@
     "module" : "pagination-domain",
     "date" : "2022-10-28T15:55:32.457982972Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -135,7 +135,7 @@
     "module" : "spring-boot",
     "date" : "2022-10-28T15:55:32.528402864Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -146,7 +146,7 @@
     "module" : "ehcache-java-config",
     "date" : "2022-10-28T15:55:32.572793824Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -157,7 +157,7 @@
     "module" : "postgresql",
     "date" : "2022-10-28T15:55:32.625102371Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -168,7 +168,7 @@
     "module" : "spring-boot-async",
     "date" : "2022-10-28T15:55:32.657093789Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -179,7 +179,7 @@
     "module" : "spring-boot-cache",
     "date" : "2022-10-28T15:55:32.681354815Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -190,7 +190,7 @@
     "module" : "spring-boot-devtools",
     "date" : "2022-10-28T15:55:32.708079678Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -201,7 +201,7 @@
     "module" : "spring-boot-tomcat",
     "date" : "2022-10-28T15:55:32.744078035Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -212,7 +212,7 @@
     "module" : "java-archunit",
     "date" : "2022-10-28T15:55:32.778101735Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -223,7 +223,7 @@
     "module" : "jpa-pagination",
     "date" : "2022-10-28T15:55:32.803017592Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -234,7 +234,7 @@
     "module" : "liquibase",
     "date" : "2022-10-28T15:55:32.839020266Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -245,7 +245,7 @@
     "module" : "spring-boot-actuator",
     "date" : "2022-10-28T15:55:32.871900445Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -256,7 +256,7 @@
     "module" : "springdoc-mvc-openapi",
     "date" : "2022-10-28T15:55:32.902446800Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -267,7 +267,7 @@
     "module" : "zalando-problems",
     "date" : "2022-10-28T15:55:32.936443644Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -278,7 +278,7 @@
     "module" : "rest-pagination",
     "date" : "2022-10-28T15:55:32.966598982Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -289,7 +289,7 @@
     "module" : "spring-boot-oauth2",
     "date" : "2022-10-28T15:55:33.036261777Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,
@@ -300,7 +300,18 @@
     "module" : "spring-boot-oauth2-account",
     "date" : "2022-10-28T15:55:33.083789721Z",
     "properties" : {
-      "packageName" : "co.com.ies.smol",
+      "packageName" : "co.com.ies.smolplus",
+      "projectName" : "smolplus",
+      "baseName" : "smolplus",
+      "serverPort" : 8080,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
+  }, {
+    "module" : "springdoc-oauth2",
+    "date" : "2022-10-28T15:55:33.134077584Z",
+    "properties" : {
+      "packageName" : "co.com.ies.smolplus",
       "projectName" : "smolplus",
       "baseName" : "smolplus",
       "serverPort" : 8080,

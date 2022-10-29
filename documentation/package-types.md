@@ -9,5 +9,5 @@ To mark a package you have to add a `package-info.java` file at the package root
 
 ```java
 @{{ basePackage }}.SharedKernel
-package co.com.ies.smol;
+package co.com.ies.smolplus;
 ```
