@@ -1,39 +1,20 @@
-package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventdevice;
+package co.com.ies.smolplus.context.moduleeventmanager.domain.model;
 
-import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventtype.EventTypeEntity;
-import java.io.Serializable;
 import java.time.ZonedDateTime;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-@Entity
-@Table(name = "event_device")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class EventDeviceEntity implements Serializable {
+public class EventDevice {
 
-  @Id
-  @GeneratedValue
-  @Column(name = "id")
   private Long id;
 
-  @Column(name = "createdAt")
   private ZonedDateTime createdAt;
 
-  @Column(name = "theoreticalPercentage")
   private Boolean theoreticalPercentage;
 
-  @Column(name = "moneyDenomination")
   private Double moneyDenomination;
 
-  @ManyToOne(optional = false)
-  @NotNull
-  private EstablishmentEntity establishment; //Definir entidad en su respectivo modulo o enum?
+  private Establishment establishment; //Definir modelo o enum?
 
-  @ManyToOne(optional = false)
-  @NotNull
-  private EventTypeEntity deviceCategory;
+  private EventType deviceCategory;
 
   public Long getId() {
     return id;
@@ -67,19 +48,19 @@ public class EventDeviceEntity implements Serializable {
     this.moneyDenomination = moneyDenomination;
   }
 
-  public EstablishmentEntity getEstablishment() {
+  public Establishment getEstablishment() {
     return establishment;
   }
 
-  public void setEstablishment(EstablishmentEntity establishment) {
+  public void setEstablishment(Establishment establishment) {
     this.establishment = establishment;
   }
 
-  public EventTypeEntity getDeviceCategory() {
+  public EventType getDeviceCategory() {
     return deviceCategory;
   }
 
-  public void setDeviceCategory(EventTypeEntity deviceCategory) {
+  public void setDeviceCategory(EventType deviceCategory) {
     this.deviceCategory = deviceCategory;
   }
 
@@ -101,7 +82,7 @@ public class EventDeviceEntity implements Serializable {
     if (this == obj) return true;
     if (obj == null) return false;
     if (getClass() != obj.getClass()) return false;
-    EventDeviceEntity other = (EventDeviceEntity) obj;
+    EventDevice other = (EventDevice) obj;
     if (id == null) {
       if (other.id != null) return false;
     } else if (!id.equals(other.id)) return false;
