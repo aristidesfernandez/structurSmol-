@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class EventDeviceDTO {
 
-  private Long id;
+  private UUID id;
 
   private ZonedDateTime createdAt;
 
@@ -17,11 +17,11 @@ public class EventDeviceDTO {
 
   private EventTypeDTO eventTypeDTO;
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

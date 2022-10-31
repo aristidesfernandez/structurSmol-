@@ -1,10 +1,12 @@
 package co.com.ies.smolplus.context.moduleeventmanager.domain.counterevent;
 
+import java.util.UUID;
+
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventdevice.EventDevice;
 
 public class CounterEvent {
 
-  private Long id;
+  private UUID id;
 
   private Long valueCounter;
 
@@ -14,11 +16,11 @@ public class CounterEvent {
 
   private EventDevice eventDevice;
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

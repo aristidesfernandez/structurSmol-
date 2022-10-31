@@ -7,7 +7,7 @@ import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventType
 
 public class EventDevice {
 
-  private Long id;
+  private UUID id;
 
   private ZonedDateTime createdAt;
 
@@ -19,11 +19,11 @@ public class EventDevice {
 
   private EventType deviceCategory;
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

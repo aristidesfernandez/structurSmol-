@@ -1,8 +1,10 @@
 package co.com.ies.smolplus.dto;
 
+import java.util.UUID;
+
 public class CounterEventDTO {
 
-  private Long id;
+  private UUID id;
 
   private Long valueCounter;
 
@@ -12,11 +14,11 @@ public class CounterEventDTO {
 
   private EventDeviceDTO eventDevice;
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
