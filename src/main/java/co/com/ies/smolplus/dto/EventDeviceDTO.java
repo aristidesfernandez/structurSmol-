@@ -15,7 +15,7 @@ public class EventDeviceDTO {
 
   private UUID deviceEstablishmentId; 
 
-  private EventTypeDTO deviceCategory;
+  private EventTypeDTO eventTypeDTO;
 
   public Long getId() {
     return id;
@@ -50,11 +50,11 @@ public class EventDeviceDTO {
   }
 
   public EventTypeDTO getDeviceCategory() {
-    return deviceCategory;
+    return eventTypeDTO;
   }
 
-  public void setDeviceCategory(EventTypeDTO deviceCategory) {
-    this.deviceCategory = deviceCategory;
+  public void setDeviceCategory(EventTypeDTO eventTypeDTO) {
+    this.eventTypeDTO = eventTypeDTO;
   }
 
   public UUID getDeviceEstablishmentId() {
@@ -69,7 +69,7 @@ public class EventDeviceDTO {
   public String toString() {
     return "EventDeviceDTO [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
         + ", moneyDenomination=" + moneyDenomination + ", deviceEstablishmentId=" + deviceEstablishmentId
-        + ", deviceCategory=" + deviceCategory + "]";
+        + ", deviceCategory=" + eventTypeDTO + "]";
   }
   
 }
