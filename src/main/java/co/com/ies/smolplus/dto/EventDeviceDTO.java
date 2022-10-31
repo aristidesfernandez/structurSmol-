@@ -1,6 +1,7 @@
 package co.com.ies.smolplus.dto;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 public class EventDeviceDTO {
 
@@ -12,7 +13,7 @@ public class EventDeviceDTO {
 
   private Double moneyDenomination;
 
-  private EstablishmentDTO establishment; //Definir modelo o enum?
+  private UUID deviceEstablishmentId; 
 
   private EventTypeDTO deviceCategory;
 
@@ -48,14 +49,6 @@ public class EventDeviceDTO {
     this.moneyDenomination = moneyDenomination;
   }
 
-  public EstablishmentDTO getEstablishment() {
-    return establishment;
-  }
-
-  public void setEstablishment(EstablishmentDTO establishment) {
-    this.establishment = establishment;
-  }
-
   public EventTypeDTO getDeviceCategory() {
     return deviceCategory;
   }
@@ -64,62 +57,19 @@ public class EventDeviceDTO {
     this.deviceCategory = deviceCategory;
   }
 
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
-    result = prime * result + ((theoreticalPercentage == null) ? 0 : theoreticalPercentage.hashCode());
-    result = prime * result + ((moneyDenomination == null) ? 0 : moneyDenomination.hashCode());
-    result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
-    result = prime * result + ((deviceCategory == null) ? 0 : deviceCategory.hashCode());
-    return result;
+  public UUID getDeviceEstablishmentId() {
+    return deviceEstablishmentId;
   }
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
-    EventDeviceDTO other = (EventDeviceDTO) obj;
-    if (id == null) {
-      if (other.id != null) return false;
-    } else if (!id.equals(other.id)) return false;
-    if (createdAt == null) {
-      if (other.createdAt != null) return false;
-    } else if (!createdAt.equals(other.createdAt)) return false;
-    if (theoreticalPercentage == null) {
-      if (other.theoreticalPercentage != null) return false;
-    } else if (!theoreticalPercentage.equals(other.theoreticalPercentage)) return false;
-    if (moneyDenomination == null) {
-      if (other.moneyDenomination != null) return false;
-    } else if (!moneyDenomination.equals(other.moneyDenomination)) return false;
-    if (establishment == null) {
-      if (other.establishment != null) return false;
-    } else if (!establishment.equals(other.establishment)) return false;
-    if (deviceCategory == null) {
-      if (other.deviceCategory != null) return false;
-    } else if (!deviceCategory.equals(other.deviceCategory)) return false;
-    return true;
+  public void setDeviceEstablishmentId(UUID deviceEstablishmentId) {
+    this.deviceEstablishmentId = deviceEstablishmentId;
   }
 
   @Override
   public String toString() {
-    return (
-      "EventDeviceDTO [id=" +
-      id +
-      ", createdAt=" +
-      createdAt +
-      ", theoreticalPercentage=" +
-      theoreticalPercentage +
-      ", moneyDenomination=" +
-      moneyDenomination +
-      ", establishment=" +
-      establishment +
-      ", deviceCategory=" +
-      deviceCategory +
-      "]"
-    );
+    return "EventDeviceDTO [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
+        + ", moneyDenomination=" + moneyDenomination + ", deviceEstablishmentId=" + deviceEstablishmentId
+        + ", deviceCategory=" + deviceCategory + "]";
   }
+  
 }

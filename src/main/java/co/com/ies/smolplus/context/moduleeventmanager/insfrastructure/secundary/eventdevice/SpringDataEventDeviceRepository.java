@@ -1,10 +1,11 @@
 package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventdevice;
 
-import co.com.ies.smolplus.context.moduleeventmanager.domain.EventManagerRepository;
 import org.springframework.stereotype.Repository;
 
+import co.com.ies.smolplus.context.moduleeventmanager.domain.eventdevice.EventDeviceRepository;
+
 @Repository
-public class SpringDataEventDeviceRepository implements EventManagerRepository {
+public class SpringDataEventDeviceRepository implements EventDeviceRepository {
 
   private final JpaEventDeviceRepository jpaEventDeviceRepository;
 

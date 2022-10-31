@@ -1,6 +1,8 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.context.moduleeventmanager.domain.counterevent;
 
-public class CounterEventDTO {
+import co.com.ies.smolplus.context.moduleeventmanager.domain.eventdevice.EventDevice;
+
+public class CounterEvent {
 
   private Long id;
 
@@ -8,9 +10,9 @@ public class CounterEventDTO {
 
   private Float denominationSale;
 
-  private String counterCode; 
+  private String counterCode;
 
-  private EventDeviceDTO eventDevice;
+  private EventDevice eventDevice;
 
   public Long getId() {
     return id;
@@ -44,18 +46,18 @@ public class CounterEventDTO {
     this.counterCode = counterCode;
   }
 
-  public EventDeviceDTO getEventDevice() {
+  public EventDevice getEventDevice() {
     return eventDevice;
   }
 
-  public void setEventDevice(EventDeviceDTO eventDevice) {
+  public void setEventDevice(EventDevice eventDevice) {
     this.eventDevice = eventDevice;
   }
 
   @Override
   public String toString() {
-    return "CounterEventDTO [id=" + id + ", valueCounter=" + valueCounter + ", denominationSale=" + denominationSale
+    return "CounterEvent [id=" + id + ", valueCounter=" + valueCounter + ", denominationSale=" + denominationSale
         + ", counterCode=" + counterCode + ", eventDevice=" + eventDevice + "]";
   }
-  
+
 }

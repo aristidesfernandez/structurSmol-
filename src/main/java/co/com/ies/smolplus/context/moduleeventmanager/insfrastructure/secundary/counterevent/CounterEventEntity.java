@@ -1,127 +1,142 @@
 package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.counterevent;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventdevice.EventDeviceEntity;
+
 import java.io.Serializable;
+import java.util.UUID;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+/**
+ * A CounterEvent.
+ */
 @Entity
 @Table(name = "counter_event")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class CounterEventEntity implements Serializable {
 
-  @Id
-  @GeneratedValue
-  @Column(name = "id")
-  private Long id;
+    private static final long serialVersionUID = 1L;
 
-  @Column(name = "valueCounter")
-  private Long valueCounter;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private UUID id;
 
-  @Column(name = "denominationSale")
-  private Float denominationSale;
+    @Column(name = "value_counter")
+    private Long valueCounter;
 
-  @ManyToOne(optional = false)
-  @NotNull
-  private CounterTypeEntity counterType; //Definir entidad en su respectivo modulo
+    @Column(name = "denomination_sale")
+    private Float denominationSale;
 
-  @ManyToOne(optional = false)
-  @NotNull
-  private EventDeviceEntity eventDevice;
+    @NotNull
+    @Size(max = 2)
+    @Column(name = "counter_code", length = 2, nullable = false)
+    private String counterCode;
 
-  public Long getId() {
-    return id;
-  }
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties(value = { "deviceEstablishment", "eventType" }, allowSetters = true)
+    private EventDeviceEntity eventDevice;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    // jhipster-needle-entity-add-field - JHipster will add fields here
 
-  public Long getValueCounter() {
-    return valueCounter;
-  }
+    public UUID getId() {
+        return this.id;
+    }
 
-  public void setValueCounter(Long valueCounter) {
-    this.valueCounter = valueCounter;
-  }
+    public CounterEventEntity id(UUID id) {
+        this.setId(id);
+        return this;
+    }
 
-  public Float getDenominationSale() {
-    return denominationSale;
-  }
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-  public void setDenominationSale(Float denominationSale) {
-    this.denominationSale = denominationSale;
-  }
+    public Long getValueCounter() {
+        return this.valueCounter;
+    }
 
-  public CounterTypeEntity getCounterType() {
-    return counterType;
-  }
+    public CounterEventEntity valueCounter(Long valueCounter) {
+        this.setValueCounter(valueCounter);
+        return this;
+    }
 
-  public void setCounterType(CounterTypeEntity counterType) {
-    this.counterType = counterType;
-  }
+    public void setValueCounter(Long valueCounter) {
+        this.valueCounter = valueCounter;
+    }
 
-  public EventDeviceEntity getEventDevice() {
-    return eventDevice;
-  }
+    public Float getDenominationSale() {
+        return this.denominationSale;
+    }
 
-  public void setEventDevice(EventDeviceEntity eventDevice) {
-    this.eventDevice = eventDevice;
-  }
+    public CounterEventEntity denominationSale(Float denominationSale) {
+        this.setDenominationSale(denominationSale);
+        return this;
+    }
 
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((valueCounter == null) ? 0 : valueCounter.hashCode());
-    result = prime * result + ((denominationSale == null) ? 0 : denominationSale.hashCode());
-    result = prime * result + ((counterType == null) ? 0 : counterType.hashCode());
-    result = prime * result + ((eventDevice == null) ? 0 : eventDevice.hashCode());
-    return result;
-  }
+    public void setDenominationSale(Float denominationSale) {
+        this.denominationSale = denominationSale;
+    }
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
-    CounterEventEntity other = (CounterEventEntity) obj;
-    if (id == null) {
-      if (other.id != null) return false;
-    } else if (!id.equals(other.id)) return false;
-    if (valueCounter == null) {
-      if (other.valueCounter != null) return false;
-    } else if (!valueCounter.equals(other.valueCounter)) return false;
-    if (denominationSale == null) {
-      if (other.denominationSale != null) return false;
-    } else if (!denominationSale.equals(other.denominationSale)) return false;
-    if (counterType == null) {
-      if (other.counterType != null) return false;
-    } else if (!counterType.equals(other.counterType)) return false;
-    if (eventDevice == null) {
-      if (other.eventDevice != null) return false;
-    } else if (!eventDevice.equals(other.eventDevice)) return false;
-    return true;
-  }
+    public String getCounterCode() {
+        return this.counterCode;
+    }
 
-  @Override
-  public String toString() {
-    return (
-      "CounterEventEntity [id=" +
-      id +
-      ", valueCounter=" +
-      valueCounter +
-      ", denominationSale=" +
-      denominationSale +
-      ", counterType=" +
-      counterType +
-      ", eventDevice=" +
-      eventDevice +
-      "]"
-    );
-  }
+    public CounterEventEntity counterCode(String counterCode) {
+        this.setCounterCode(counterCode);
+        return this;
+    }
+
+    public void setCounterCode(String counterCode) {
+        this.counterCode = counterCode;
+    }
+
+    public EventDeviceEntity getEventDevice() {
+        return this.eventDevice;
+    }
+
+    public void setEventDevice(EventDeviceEntity eventDevice) {
+        this.eventDevice = eventDevice;
+    }
+
+    public CounterEventEntity eventDevice(EventDeviceEntity eventDevice) {
+        this.setEventDevice(eventDevice);
+        return this;
+    }
+
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CounterEventEntity)) {
+            return false;
+        }
+        return id != null && id.equals(((CounterEventEntity) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+        return getClass().hashCode();
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+        return "CounterEvent{" +
+            "id=" + getId() +
+            ", valueCounter=" + getValueCounter() +
+            ", denominationSale=" + getDenominationSale() +
+            ", counterCode='" + getCounterCode() + "'" +
+            "}";
+    }
 }

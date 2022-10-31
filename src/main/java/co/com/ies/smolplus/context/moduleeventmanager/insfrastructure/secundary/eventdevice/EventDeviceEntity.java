@@ -1,144 +1,138 @@
 package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventdevice;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventtype.EventTypeEntity;
+
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.UUID;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+/**
+ * A EventDevice.  
+ */
+//TODO: pendiente validar nueva Version
 @Entity
 @Table(name = "event_device")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@SuppressWarnings("common-java:DuplicatedBlocks")
 public class EventDeviceEntity implements Serializable {
 
-  @Id
-  @GeneratedValue
-  @Column(name = "id")
-  private Long id;
+    private static final long serialVersionUID = 1L;
 
-  @Column(name = "createdAt")
-  private ZonedDateTime createdAt;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private UUID id;
 
-  @Column(name = "theoreticalPercentage")
-  private Boolean theoreticalPercentage;
+    @Column(name = "created_at")
+    private ZonedDateTime createdAt;
 
-  @Column(name = "moneyDenomination")
-  private Double moneyDenomination;
+    @Column(name = "theoretical_percentage")
+    private Boolean theoreticalPercentage;
 
-  @ManyToOne(optional = false)
-  @NotNull
-  private EstablishmentEntity establishment; //Definir entidad en su respectivo modulo o enum?
+    @Column(name = "money_denomination")
+    private Double moneyDenomination;
 
-  @ManyToOne(optional = false)
-  @NotNull
-  private EventTypeEntity deviceCategory;
+    @NotNull
+    @Column(name = "device_establishment_id")
+    private  UUID deviceEstablishmentId;
 
-  public Long getId() {
-    return id;
-  }
+    @ManyToOne(optional = false)
+    @NotNull
+    private EventTypeEntity eventTypeEntity;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    // jhipster-needle-entity-add-field - JHipster will add fields here
 
-  public ZonedDateTime getCreatedAt() {
-    return createdAt;
-  }
+    public UUID getId() {
+        return this.id;
+    }
 
-  public void setCreatedAt(ZonedDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
+    public EventDeviceEntity id(UUID id) {
+        this.setId(id);
+        return this;
+    }
 
-  public Boolean getTheoreticalPercentage() {
-    return theoreticalPercentage;
-  }
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-  public void setTheoreticalPercentage(Boolean theoreticalPercentage) {
-    this.theoreticalPercentage = theoreticalPercentage;
-  }
+    public ZonedDateTime getCreatedAt() {
+        return this.createdAt;
+    }
 
-  public Double getMoneyDenomination() {
-    return moneyDenomination;
-  }
+    public EventDeviceEntity createdAt(ZonedDateTime createdAt) {
+        this.setCreatedAt(createdAt);
+        return this;
+    }
 
-  public void setMoneyDenomination(Double moneyDenomination) {
-    this.moneyDenomination = moneyDenomination;
-  }
+    public void setCreatedAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
-  public EstablishmentEntity getEstablishment() {
-    return establishment;
-  }
+    public Boolean getTheoreticalPercentage() {
+        return this.theoreticalPercentage;
+    }
 
-  public void setEstablishment(EstablishmentEntity establishment) {
-    this.establishment = establishment;
-  }
+    public EventDeviceEntity theoreticalPercentage(Boolean theoreticalPercentage) {
+        this.setTheoreticalPercentage(theoreticalPercentage);
+        return this;
+    }
 
-  public EventTypeEntity getDeviceCategory() {
-    return deviceCategory;
-  }
+    public void setTheoreticalPercentage(Boolean theoreticalPercentage) {
+        this.theoreticalPercentage = theoreticalPercentage;
+    }
 
-  public void setDeviceCategory(EventTypeEntity deviceCategory) {
-    this.deviceCategory = deviceCategory;
-  }
+    public Double getMoneyDenomination() {
+        return this.moneyDenomination;
+    }
 
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
-    result = prime * result + ((theoreticalPercentage == null) ? 0 : theoreticalPercentage.hashCode());
-    result = prime * result + ((moneyDenomination == null) ? 0 : moneyDenomination.hashCode());
-    result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
-    result = prime * result + ((deviceCategory == null) ? 0 : deviceCategory.hashCode());
-    return result;
-  }
+    public EventDeviceEntity moneyDenomination(Double moneyDenomination) {
+        this.setMoneyDenomination(moneyDenomination);
+        return this;
+    }
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
-    EventDeviceEntity other = (EventDeviceEntity) obj;
-    if (id == null) {
-      if (other.id != null) return false;
-    } else if (!id.equals(other.id)) return false;
-    if (createdAt == null) {
-      if (other.createdAt != null) return false;
-    } else if (!createdAt.equals(other.createdAt)) return false;
-    if (theoreticalPercentage == null) {
-      if (other.theoreticalPercentage != null) return false;
-    } else if (!theoreticalPercentage.equals(other.theoreticalPercentage)) return false;
-    if (moneyDenomination == null) {
-      if (other.moneyDenomination != null) return false;
-    } else if (!moneyDenomination.equals(other.moneyDenomination)) return false;
-    if (establishment == null) {
-      if (other.establishment != null) return false;
-    } else if (!establishment.equals(other.establishment)) return false;
-    if (deviceCategory == null) {
-      if (other.deviceCategory != null) return false;
-    } else if (!deviceCategory.equals(other.deviceCategory)) return false;
-    return true;
-  }
+    public void setMoneyDenomination(Double moneyDenomination) {
+        this.moneyDenomination = moneyDenomination;
+    }
 
-  @Override
-  public String toString() {
-    return (
-      "EventDeviceEntity [id=" +
-      id +
-      ", createdAt=" +
-      createdAt +
-      ", theoreticalPercentage=" +
-      theoreticalPercentage +
-      ", moneyDenomination=" +
-      moneyDenomination +
-      ", establishment=" +
-      establishment +
-      ", deviceCategory=" +
-      deviceCategory +
-      "]"
-    );
-  }
+  
+
+  
+    public EventTypeEntity getEventType() {
+        return this.eventTypeEntity;
+    }
+
+    public void setEventType(EventTypeEntity eventTypeEntity) {
+        this.eventTypeEntity = eventTypeEntity;
+    }
+
+    public EventDeviceEntity eventType(EventTypeEntity eventTypeEntity) {
+        this.setEventType(eventTypeEntity);
+        return this;
+    }
+
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof EventDeviceEntity)) {
+            return false;
+        }
+        return id != null && id.equals(((EventDeviceEntity) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+ 
 }

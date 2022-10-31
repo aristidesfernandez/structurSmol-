@@ -1,4 +1,4 @@
-package co.com.ies.smolplus.context.moduleeventmanager.domain.model;
+package co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype;
 
 public class EventType {
 

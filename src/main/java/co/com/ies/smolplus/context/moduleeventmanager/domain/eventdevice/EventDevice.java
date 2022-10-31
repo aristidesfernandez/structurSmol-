@@ -1,6 +1,9 @@
-package co.com.ies.smolplus.context.moduleeventmanager.domain.model;
+package co.com.ies.smolplus.context.moduleeventmanager.domain.eventdevice;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
+
+import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventType;
 
 public class EventDevice {
 
@@ -12,7 +15,7 @@ public class EventDevice {
 
   private Double moneyDenomination;
 
-  private Establishment establishment; //Definir modelo o enum?
+  private UUID establishment; 
 
   private EventType deviceCategory;
 
@@ -48,13 +51,6 @@ public class EventDevice {
     this.moneyDenomination = moneyDenomination;
   }
 
-  public Establishment getEstablishment() {
-    return establishment;
-  }
-
-  public void setEstablishment(Establishment establishment) {
-    this.establishment = establishment;
-  }
 
   public EventType getDeviceCategory() {
     return deviceCategory;
@@ -62,6 +58,14 @@ public class EventDevice {
 
   public void setDeviceCategory(EventType deviceCategory) {
     this.deviceCategory = deviceCategory;
+  }
+
+  public UUID getEstablishment() {
+    return establishment;
+  }
+
+  public void setEstablishment(UUID establishment) {
+    this.establishment = establishment;
   }
 
   @Override
@@ -77,32 +81,7 @@ public class EventDevice {
     return result;
   }
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
-    EventDevice other = (EventDevice) obj;
-    if (id == null) {
-      if (other.id != null) return false;
-    } else if (!id.equals(other.id)) return false;
-    if (createdAt == null) {
-      if (other.createdAt != null) return false;
-    } else if (!createdAt.equals(other.createdAt)) return false;
-    if (theoreticalPercentage == null) {
-      if (other.theoreticalPercentage != null) return false;
-    } else if (!theoreticalPercentage.equals(other.theoreticalPercentage)) return false;
-    if (moneyDenomination == null) {
-      if (other.moneyDenomination != null) return false;
-    } else if (!moneyDenomination.equals(other.moneyDenomination)) return false;
-    if (establishment == null) {
-      if (other.establishment != null) return false;
-    } else if (!establishment.equals(other.establishment)) return false;
-    if (deviceCategory == null) {
-      if (other.deviceCategory != null) return false;
-    } else if (!deviceCategory.equals(other.deviceCategory)) return false;
-    return true;
-  }
+
 
   @Override
   public String toString() {
@@ -122,4 +101,6 @@ public class EventDevice {
       "]"
     );
   }
+
+
 }
