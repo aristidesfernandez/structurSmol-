@@ -20,9 +20,4 @@ public class CounterEventResource {
     this.eventManagerService = eventManagerService;
   }  
 
-   //post event
-   void createCounter(CounterEventDTO request){
-    eventManagerService.create(request);
-  }
-
 }

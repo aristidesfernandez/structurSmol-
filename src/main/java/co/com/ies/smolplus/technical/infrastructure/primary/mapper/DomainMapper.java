@@ -4,11 +4,11 @@ import java.util.List;
 
 
 public interface DomainMapper<D, E> {
-    E toEntity(D dto);
+    E toDomain(D dto);
 
     D toDto(E entity);
 
-    List<E> toEntity(List<D> dtoList);
+    List<E> toDomain(List<D> dtoList);
 
     List<D> toDto(List<E> entityList);
    
