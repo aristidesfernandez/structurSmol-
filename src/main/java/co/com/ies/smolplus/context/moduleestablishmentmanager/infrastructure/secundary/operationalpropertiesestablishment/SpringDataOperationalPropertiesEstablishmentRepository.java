@@ -1,0 +1,16 @@
+package co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.secundary.operationalpropertiesestablishment;
+
+import org.springframework.stereotype.Repository;
+
+import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operationalpropertiesestablishment.OperationalPropertiesEstablishmentRepository;
+
+
+@Repository
+public class SpringDataOperationalPropertiesEstablishmentRepository implements OperationalPropertiesEstablishmentRepository {
+
+  private final JpaOperationalPropertiesEstablishmentRepository jpaOperationalPropertiesEstablishmentRepo;
+
+  public SpringDataOperationalPropertiesEstablishmentRepository(JpaOperationalPropertiesEstablishmentRepository jpaOperationalPropertiesEstablishmentRepo) {
+    this.jpaOperationalPropertiesEstablishmentRepo = jpaOperationalPropertiesEstablishmentRepo;
+  }
+}

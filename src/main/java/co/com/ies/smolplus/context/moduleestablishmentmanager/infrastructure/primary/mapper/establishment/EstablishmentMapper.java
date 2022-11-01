@@ -2,7 +2,7 @@ package co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.pr
 
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.country.Country;
-import co.com.ies.smolplus.dto.CountryDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.CountryDTO;
 import co.com.ies.smolplus.technical.infrastructure.primary.mapper.DomainMapper;
 import org.mapstruct.*;
 

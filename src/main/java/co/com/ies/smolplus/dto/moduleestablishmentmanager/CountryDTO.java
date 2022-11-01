@@ -1,7 +1,6 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.dto.moduleestablishmentmanager;
 
-
-public class MunicipalityDTO {
+public class CountryDTO {
     
     private Long id;
 
@@ -9,9 +8,9 @@ public class MunicipalityDTO {
 
     private String name;
 
-    private String daneCode;
+    private String identifier;
 
-    private ProvinceDTO provinceDTO;
+    private String defaultLanguage;
 
     public Long getId() {
         return id;
@@ -37,20 +36,20 @@ public class MunicipalityDTO {
         this.name = name;
     }
 
-    public String getDaneCode() {
-        return daneCode;
+    public String getIdentifier() {
+        return identifier;
     }
 
-    public void setDaneCode(String daneCode) {
-        this.daneCode = daneCode;
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 
-    public ProvinceDTO getProvinceDTO() {
-        return provinceDTO;
+    public String getDefaultLanguage() {
+        return defaultLanguage;
     }
 
-    public void setProvinceDTO(ProvinceDTO provinceDTO) {
-        this.provinceDTO = provinceDTO;
+    public void setDefaultLanguage(String defaultLanguage) {
+        this.defaultLanguage = defaultLanguage;
     }
 
     @Override
@@ -60,8 +59,8 @@ public class MunicipalityDTO {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
-        result = prime * result + ((provinceDTO == null) ? 0 : provinceDTO.hashCode());
+        result = prime * result + ((identifier == null) ? 0 : identifier.hashCode());
+        result = prime * result + ((defaultLanguage == null) ? 0 : defaultLanguage.hashCode());
         return result;
     }
 
@@ -73,7 +72,7 @@ public class MunicipalityDTO {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        MunicipalityDTO other = (MunicipalityDTO) obj;
+        CountryDTO other = (CountryDTO) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -89,24 +88,23 @@ public class MunicipalityDTO {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (daneCode == null) {
-            if (other.daneCode != null)
+        if (identifier == null) {
+            if (other.identifier != null)
                 return false;
-        } else if (!daneCode.equals(other.daneCode))
+        } else if (!identifier.equals(other.identifier))
             return false;
-        if (provinceDTO == null) {
-            if (other.provinceDTO != null)
+        if (defaultLanguage == null) {
+            if (other.defaultLanguage != null)
                 return false;
-        } else if (!provinceDTO.equals(other.provinceDTO))
+        } else if (!defaultLanguage.equals(other.defaultLanguage))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "MunicipalityDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode
-                + ", provinceDTO=" + provinceDTO + "]";
+        return "CountryDTO [id=" + id + ", code=" + code + ", name=" + name + ", identifier=" + identifier
+                + ", defaultLanguage=" + defaultLanguage + "]";
     }
 
-    
 }

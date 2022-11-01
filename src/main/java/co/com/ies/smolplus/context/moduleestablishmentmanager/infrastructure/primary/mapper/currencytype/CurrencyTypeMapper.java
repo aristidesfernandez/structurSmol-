@@ -3,7 +3,7 @@ package co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.pr
 
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.currencytype.CurrencyType;
-import co.com.ies.smolplus.dto.CurrencyTypeDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.CurrencyTypeDTO;
 import co.com.ies.smolplus.technical.infrastructure.primary.mapper.DomainMapper;
 import org.mapstruct.*;
 

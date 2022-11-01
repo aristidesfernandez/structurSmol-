@@ -1,7 +1,7 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.dto.moduleestablishmentmanager;
 
 
-public class ProvinceDTO {
+public class MunicipalityDTO {
     
     private Long id;
 
@@ -11,9 +11,7 @@ public class ProvinceDTO {
 
     private String daneCode;
 
-    private String phoneId;
-
-    private CountryDTO countryDTO;
+    private ProvinceDTO provinceDTO;
 
     public Long getId() {
         return id;
@@ -47,20 +45,12 @@ public class ProvinceDTO {
         this.daneCode = daneCode;
     }
 
-    public String getPhoneId() {
-        return phoneId;
+    public ProvinceDTO getProvinceDTO() {
+        return provinceDTO;
     }
 
-    public void setPhoneId(String phoneId) {
-        this.phoneId = phoneId;
-    }
-
-    public CountryDTO getCountryDTO() {
-        return countryDTO;
-    }
-
-    public void setCountryDTO(CountryDTO countryDTO) {
-        this.countryDTO = countryDTO;
+    public void setProvinceDTO(ProvinceDTO provinceDTO) {
+        this.provinceDTO = provinceDTO;
     }
 
     @Override
@@ -71,8 +61,7 @@ public class ProvinceDTO {
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
-        result = prime * result + ((phoneId == null) ? 0 : phoneId.hashCode());
-        result = prime * result + ((countryDTO == null) ? 0 : countryDTO.hashCode());
+        result = prime * result + ((provinceDTO == null) ? 0 : provinceDTO.hashCode());
         return result;
     }
 
@@ -84,7 +73,7 @@ public class ProvinceDTO {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ProvinceDTO other = (ProvinceDTO) obj;
+        MunicipalityDTO other = (MunicipalityDTO) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -105,23 +94,18 @@ public class ProvinceDTO {
                 return false;
         } else if (!daneCode.equals(other.daneCode))
             return false;
-        if (phoneId == null) {
-            if (other.phoneId != null)
+        if (provinceDTO == null) {
+            if (other.provinceDTO != null)
                 return false;
-        } else if (!phoneId.equals(other.phoneId))
-            return false;
-        if (countryDTO == null) {
-            if (other.countryDTO != null)
-                return false;
-        } else if (!countryDTO.equals(other.countryDTO))
+        } else if (!provinceDTO.equals(other.provinceDTO))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "ProvinceDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode + ", phoneId="
-                + phoneId + ", countryDTO=" + countryDTO + "]";
+        return "MunicipalityDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode
+                + ", provinceDTO=" + provinceDTO + "]";
     }
 
     

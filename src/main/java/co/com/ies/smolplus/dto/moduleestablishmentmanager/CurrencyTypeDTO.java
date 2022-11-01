@@ -1,4 +1,4 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.dto.moduleestablishmentmanager;
 
 
 public class CurrencyTypeDTO {
