@@ -1,4 +1,4 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.dto.moduleeventmanager;
 
 public class EventTypeDTO {
 

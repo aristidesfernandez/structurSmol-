@@ -1,4 +1,4 @@
-package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.primary;
+package co.com.ies.smolplus.context.moduleorchestrator.moduleeventmanager.insfrastructure.primary;
 
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
 import org.slf4j.Logger;

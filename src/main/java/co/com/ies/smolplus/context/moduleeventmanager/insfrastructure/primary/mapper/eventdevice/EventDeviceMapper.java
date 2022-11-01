@@ -2,7 +2,7 @@ package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.primary.m
 
 
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventdevice.EventDevice;
-import co.com.ies.smolplus.dto.EventDeviceDTO;
+import co.com.ies.smolplus.dto.moduleeventmanager.EventDeviceDTO;
 import co.com.ies.smolplus.technical.infrastructure.primary.mapper.DomainMapper;
 import org.mapstruct.*;
 
