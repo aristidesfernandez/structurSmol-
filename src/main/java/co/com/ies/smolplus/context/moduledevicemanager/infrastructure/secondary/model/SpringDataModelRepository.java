@@ -9,15 +9,12 @@ import co.com.ies.smolplus.context.moduledevicemanager.domain.model.ModelReposit
 @Repository
 public class SpringDataModelRepository implements ModelRepository {  
 
-  private final JpaModelRepository jpaDeviceRepository;
+  private final JpaModelRepository jpaModelRepository;
 
-  
- 
-  public SpringDataModelRepository(JpaModelRepository jpaDeviceRepository) {
-    this.jpaDeviceRepository = jpaDeviceRepository;
 
+  public SpringDataModelRepository(JpaModelRepository jpaModelRepository) {
+    this.jpaModelRepository = jpaModelRepository;
   }
-
 
  
 }

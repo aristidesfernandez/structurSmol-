@@ -9,12 +9,11 @@ import co.com.ies.smolplus.context.moduledevicemanager.domain.manufacturer.Manuf
 @Repository
 public class SpringDataManufacturerRepository implements ManufacturerRepository {  
 
-  private final JpaManufacturerRepository jpaDeviceRepository;
+  private final JpaManufacturerRepository jpaManufacturerRepository;
   
  
-  public SpringDataManufacturerRepository(JpaManufacturerRepository jpaDeviceRepository) {
-    this.jpaDeviceRepository = jpaDeviceRepository;
-
+  public SpringDataManufacturerRepository(JpaManufacturerRepository jpaManufacturerRepository) {
+    this.jpaManufacturerRepository = jpaManufacturerRepository;
   }
  
 }
