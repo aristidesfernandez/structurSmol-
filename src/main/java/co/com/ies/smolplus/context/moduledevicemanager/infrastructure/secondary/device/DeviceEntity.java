@@ -1,6 +1,12 @@
 package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.device;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.devicecategory.DeviceCategoryEntity;
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.devicetype.DeviceTypeEntity;
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.formula.FormulaEntity;
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.model.ModelEntity;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;

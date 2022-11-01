@@ -1,3 +1,8 @@
 package co.com.ies.smolplus.context.moduleeventmanager.application;
 
-public interface EventManagerService {}
+import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
+
+public interface EventManagerService {
+
+    void create(CounterEventDTO request);
+}

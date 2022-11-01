@@ -1,4 +1,4 @@
-package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary;
+package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,6 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.formula.FormulaEntity;
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.manufacturer.ManufacturerEntity;
 
 /**
  * A Model.

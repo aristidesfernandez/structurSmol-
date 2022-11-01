@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
+import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
 
 @RestController
 @RequestMapping("/api")
@@ -18,5 +19,10 @@ public class CounterEventResource {
   public CounterEventResource(EventManagerService eventManagerService) {
     this.eventManagerService = eventManagerService;
   }  
+
+   //post event
+   void createCounter(CounterEventDTO request){
+    eventManagerService.create(request);
+  }
 
 }

@@ -1,6 +1,9 @@
 package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.deviceestablishment;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.device.DeviceEntity;
+
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.UUID;

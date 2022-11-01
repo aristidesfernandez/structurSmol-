@@ -1,4 +1,4 @@
-package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary;
+package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.formula;
 
 import java.io.Serializable;
 import javax.persistence.*;
