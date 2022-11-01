@@ -2,7 +2,12 @@ package co.com.ies.smolplus.context.moduleorchestrator.moduleusermanager.applica
 
 import co.com.ies.smolplus.context.moduleorchestrator.moduleusermanager.application.UserInternalRequest;
 import co.com.ies.smolplus.context.moduleusermanager.application.UserManagerService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+
+@Service
+@Transactional
 public class UserInternalRequestImpl implements UserInternalRequest {
 
     private final UserManagerService userManagerService;
