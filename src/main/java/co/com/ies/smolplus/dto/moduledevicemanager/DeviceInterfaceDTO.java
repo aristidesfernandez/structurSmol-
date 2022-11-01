@@ -2,6 +2,8 @@ package co.com.ies.smolplus.dto.moduledevicemanager;
 
 import java.time.ZonedDateTime;
 
+import co.com.ies.smolplus.context.moduledevicemanager.domain.enumeration.DeviceInterfaceStatus;
+
 
 public class DeviceInterfaceDTO {
 
