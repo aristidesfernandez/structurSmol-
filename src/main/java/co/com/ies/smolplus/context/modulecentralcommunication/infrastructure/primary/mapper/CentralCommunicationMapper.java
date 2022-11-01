@@ -4,7 +4,7 @@ package co.com.ies.smolplus.context.modulecentralcommunication.infrastructure.pr
 import org.mapstruct.*;
 
 import co.com.ies.smolplus.context.modulecentralcommunication.domain.CentralCommunication;
-import co.com.ies.smolplus.context.modulecentralcommunication.infrastructure.primary.dto.CentralCommunicationDTO;
+import co.com.ies.smolplus.dto.modulecentralcommunication.CentralCommunicationDTO;
 import co.com.ies.smolplus.technical.infrastructure.primary.mapper.DomainMapper;
 
 
