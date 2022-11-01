@@ -60,20 +60,20 @@ public class EventDeviceResource {
   @PutMapping("/events-device/{id}")
   public ResponseEntity<EventDeviceDTO> updateEventDevice(
       @PathVariable(value = "id", required = false) final UUID id,
-      @Valid @RequestBody EventDeviceDTO EventDeviceDTO) throws URISyntaxException {
-    log.debug("REST request to update EventDevice : {}, {}", id, EventDeviceDTO);
-    if (EventDeviceDTO.getId() == null) {
+      @Valid @RequestBody EventDeviceDTO eventDeviceDTO) throws URISyntaxException {
+    log.debug("REST request to update EventDevice : {}, {}", id, eventDeviceDTO);
+    if (eventDeviceDTO.getId() == null) {
       throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
     }
-    if (!Objects.equals(id, EventDeviceDTO.getId())) {
+    if (!Objects.equals(id, eventDeviceDTO.getId())) {
       throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
     }
 
-    EventDeviceDTO result = eventManagerService.update(EventDeviceDTO);
+    EventDeviceDTO result = eventManagerService.update(eventDeviceDTO);
     return ResponseEntity
         .ok()
         .headers(
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, EventDeviceDTO.getId().toString()))
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, eventDeviceDTO.getId().toString()))
         .body(result);
   }
 
@@ -85,8 +85,8 @@ public class EventDeviceResource {
   @GetMapping("/events-device/{id}")
   public ResponseEntity<EventDeviceDTO> getEventDevice(@PathVariable UUID id) {
     log.debug("REST request to get EventDevice : {}", id);
-    Optional<EventDeviceDTO> EventDeviceDTO = eventManagerService.findOneEventDeviceDTO(id);
-    return ResponseUtil.wrapOrNotFound(EventDeviceDTO);
+    Optional<EventDeviceDTO> eventDeviceDTO = eventManagerService.findOneEventDeviceDTO(id);
+    return ResponseUtil.wrapOrNotFound(eventDeviceDTO);
   }
 
   @DeleteMapping("/events-device/{id}")

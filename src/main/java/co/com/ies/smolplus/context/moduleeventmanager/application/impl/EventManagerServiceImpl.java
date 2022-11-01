@@ -43,6 +43,12 @@ public class EventManagerServiceImpl implements EventManagerService {
     }
 
     @Override
+    public void delete(Long id) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
     public EventDeviceDTO save(@Valid EventDeviceDTO eventDeviceDTO) {
         // TODO Auto-generated method stub
         return null;
@@ -73,7 +79,7 @@ public class EventManagerServiceImpl implements EventManagerService {
     }
 
     @Override
-    public Optional<EventTypeModelDTO> findOneEventTypeModelDTO(UUID id) {
+    public Optional<EventTypeModelDTO> findOneEventTypeModelDTO(Long id) {
         // TODO Auto-generated method stub
         return Optional.empty();
     }
@@ -91,9 +97,11 @@ public class EventManagerServiceImpl implements EventManagerService {
     }
 
     @Override
-    public Optional<EventTypeDTO> findOneEventEventTypeDTO(UUID id) {
+    public Optional<EventTypeDTO> findOneEventEventTypeDTO(Long id) {
         // TODO Auto-generated method stub
         return Optional.empty();
     }
+
+    
 
 }

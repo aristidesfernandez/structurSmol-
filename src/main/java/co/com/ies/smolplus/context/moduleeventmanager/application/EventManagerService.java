@@ -20,6 +20,8 @@ public interface EventManagerService {
 
     void delete(UUID id);
 
+    void delete(Long id);
+
 
     EventDeviceDTO save(@Valid EventDeviceDTO eventDeviceDTO);
 
@@ -32,13 +34,13 @@ public interface EventManagerService {
 
     EventTypeModelDTO update(@Valid EventTypeModelDTO eventTypeModelDTO);
 
-    Optional<EventTypeModelDTO> findOneEventTypeModelDTO(UUID id);
+    Optional<EventTypeModelDTO> findOneEventTypeModelDTO(Long id);
 
 
     EventTypeDTO save(@Valid EventTypeDTO eventTypeDTO);
 
     EventTypeDTO update(@Valid EventTypeDTO eventTypeDTO);
 
-    Optional<EventTypeDTO> findOneEventEventTypeDTO(UUID id);
+    Optional<EventTypeDTO> findOneEventEventTypeDTO(Long id);
 
 }

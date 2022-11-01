@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.UUID;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,13 +43,13 @@ public class EventTypeResource {
   }
 
   @PostMapping("/events-type")
-  public ResponseEntity<EventTypeDTO> createEventType(@Valid @RequestBody EventTypeDTO EventTypeDTO)
+  public ResponseEntity<EventTypeDTO> createEventType(@Valid @RequestBody EventTypeDTO eventTypeDTO)
       throws URISyntaxException {
-    log.debug("REST request to save EventType : {}", EventTypeDTO);
-    if (EventTypeDTO.getId() != null) {
+    log.debug("REST request to save EventType : {}", eventTypeDTO);
+    if (eventTypeDTO.getId() != null) {
       throw new BadRequestAlertException("A new EventType cannot already have an ID", ENTITY_NAME, "idexists");
     }
-    EventTypeDTO result = eventManagerService.save(EventTypeDTO);
+    EventTypeDTO result = eventManagerService.save(eventTypeDTO);
     return ResponseEntity
         .created(new URI("/api/events-type/" + result.getId()))
         .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -58,21 +58,21 @@ public class EventTypeResource {
 
   @PutMapping("/events-type/{id}")
   public ResponseEntity<EventTypeDTO> updateEventType(
-      @PathVariable(value = "id", required = false) final UUID id,
-      @Valid @RequestBody EventTypeDTO EventTypeDTO) throws URISyntaxException {
-    log.debug("REST request to update EventType : {}, {}", id, EventTypeDTO);
-    if (EventTypeDTO.getId() == null) {
+      @PathVariable(value = "id", required = false) final Long id,
+      @Valid @RequestBody EventTypeDTO eventTypeDTO) throws URISyntaxException {
+    log.debug("REST request to update EventType : {}, {}", id, eventTypeDTO);
+    if (eventTypeDTO.getId() == null) {
       throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
     }
-    if (!Objects.equals(id, EventTypeDTO.getId())) {
+    if (!Objects.equals(id, eventTypeDTO.getId())) {
       throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
     }
 
-    EventTypeDTO result = eventManagerService.update(EventTypeDTO);
+    EventTypeDTO result = eventManagerService.update(eventTypeDTO);
     return ResponseEntity
         .ok()
         .headers(
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, EventTypeDTO.getId().toString()))
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, eventTypeDTO.getId().toString()))
         .body(result);
   }
 
@@ -82,14 +82,14 @@ public class EventTypeResource {
   }
 
   @GetMapping("/events-type/{id}")
-  public ResponseEntity<EventTypeDTO> getEventType(@PathVariable UUID id) {
+  public ResponseEntity<EventTypeDTO> getEventType(@PathVariable Long id) {
     log.debug("REST request to get EventType : {}", id);
-    Optional<EventTypeDTO> EventTypeDTO = eventManagerService.findOneEventEventTypeDTO(id);
-    return ResponseUtil.wrapOrNotFound(EventTypeDTO);
+    Optional<EventTypeDTO> eventTypeDTO = eventManagerService.findOneEventEventTypeDTO(id);
+    return ResponseUtil.wrapOrNotFound(eventTypeDTO);
   }
 
   @DeleteMapping("/events-type/{id}")
-  public ResponseEntity<Void> deleteEventType(@PathVariable UUID id) {
+  public ResponseEntity<Void> deleteEventType(@PathVariable Long id) {
     log.debug("REST request to delete EventType : {}", id);
     eventManagerService.delete(id);
     return ResponseEntity
