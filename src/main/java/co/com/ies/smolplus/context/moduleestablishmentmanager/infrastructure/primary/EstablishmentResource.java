@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.com.ies.smolplus.context.moduleestablishmentmanager.application.EstablishmentManagementService;
+import co.com.ies.smolplus.context.moduleestablishmentmanager.application.EstablishmentManagerService;
 
 @RestController
 @RequestMapping("/api")
@@ -13,9 +13,9 @@ public class EstablishmentResource {
     
     private final Logger log = LoggerFactory.getLogger(EstablishmentResource.class);
 
-    private final EstablishmentManagementService establishmentManagementService;
+    private final EstablishmentManagerService establishmentManagementService;
   
-    public EstablishmentResource(EstablishmentManagementService establishmentManagementService) {
+    public EstablishmentResource(EstablishmentManagerService establishmentManagementService) {
       this.establishmentManagementService = establishmentManagementService;
     }
 }
