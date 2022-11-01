@@ -6,6 +6,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
+import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeModelDTO;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import co.com.ies.smolplus.technical.infrastructure.primary.exception.HeaderUtil;
+import co.com.ies.smolplus.technical.infrastructure.primary.exception.ResponseUtil;
+import javax.validation.Valid;
+import co.com.ies.smolplus.technical.infrastructure.primary.exception.BadRequestAlertException;
 
 @RestController
 @RequestMapping("/api")
@@ -15,7 +34,67 @@ public class EventTypeModelResource {
 
   private final EventManagerService eventManagerService;
 
+  private String applicationName;
+
+  private static final String ENTITY_NAME = "EventTypeModel";
+
   public EventTypeModelResource(EventManagerService eventManagerService) {
     this.eventManagerService = eventManagerService;
-  }  
+  }
+
+  @PostMapping("/events-type-model")
+  public ResponseEntity<EventTypeModelDTO> createEventTypeModel(@Valid @RequestBody EventTypeModelDTO EventTypeModelDTO)
+      throws URISyntaxException {
+    log.debug("REST request to save EventTypeModel: {}", EventTypeModelDTO);
+    if (EventTypeModelDTO.getId() != null) {
+      throw new BadRequestAlertException("A new EventTypeModel cannot already have an ID", ENTITY_NAME, "idexists");
+    }
+    EventTypeModelDTO result = eventManagerService.save(EventTypeModelDTO);
+    return ResponseEntity
+        .created(new URI("/api/events-type-model/" + result.getId()))
+        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+        .body(result);
+  }
+
+  @PutMapping("/events-type-model/{id}")
+  public ResponseEntity<EventTypeModelDTO> updateEventTypeModel(
+      @PathVariable(value = "id", required = false) final UUID id,
+      @Valid @RequestBody EventTypeModelDTO EventTypeModelDTO) throws URISyntaxException {
+    log.debug("REST request to update EventTypeModel : {}, {}", id, EventTypeModelDTO);
+    if (EventTypeModelDTO.getId() == null) {
+      throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+    }
+    if (!Objects.equals(id, EventTypeModelDTO.getId())) {
+      throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
+    }
+
+    EventTypeModelDTO result = eventManagerService.update(EventTypeModelDTO);
+    return ResponseEntity
+        .ok()
+        .headers(
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, EventTypeModelDTO.getId().toString()))
+        .body(result);
+  }
+
+  @GetMapping("/events-type-model")
+  public ResponseEntity<List<EventTypeModelDTO>> getAllEventTypeModels() {
+    return null;
+  }
+
+  @GetMapping("/events-type-model/{id}")
+  public ResponseEntity<EventTypeModelDTO> getEventTypeModel(@PathVariable UUID id) {
+    log.debug("REST request to get EventTypeModel : {}", id);
+    Optional<EventTypeModelDTO> EventTypeModelDTO = eventManagerService.findOneEventTypeModelDTO(id);
+    return ResponseUtil.wrapOrNotFound(EventTypeModelDTO);
+  }
+
+  @DeleteMapping("/events-type-model/{id}")
+  public ResponseEntity<Void> deleteEventTypeModel(@PathVariable UUID id) {
+    log.debug("REST request to delete EventTypeModel : {}", id);
+    eventManagerService.delete(id);
+    return ResponseEntity
+        .noContent()
+        .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+        .build();
+  }
 }

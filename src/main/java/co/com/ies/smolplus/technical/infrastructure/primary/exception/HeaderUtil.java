@@ -56,4 +56,16 @@ public static HttpHeaders createAlert(String applicationName, String message, St
     }
     return headers;
   }
+
+  public static HttpHeaders createEntityUpdateAlert(String applicationName, boolean enableTranslation, String entityName, String param) {
+    String message = enableTranslation ? applicationName + "." + entityName + ".updated"
+        : "A " + entityName + " is updated with identifier " + param;
+    return createAlert(applicationName, message, param);
+  }
+
+  public static HttpHeaders createEntityDeletionAlert(String applicationName, boolean enableTranslation, String entityName, String param) {
+    String message = enableTranslation ? applicationName + "." + entityName + ".deleted"
+        : "A " + entityName + " is deleted with identifier " + param;
+    return createAlert(applicationName, message, param);
+  }
 }
