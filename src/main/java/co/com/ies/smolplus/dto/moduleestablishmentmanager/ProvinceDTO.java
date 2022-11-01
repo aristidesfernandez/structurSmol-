@@ -1,6 +1,7 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.dto.moduleestablishmentmanager;
 
-public class CountryDTO {
+
+public class ProvinceDTO {
     
     private Long id;
 
@@ -8,9 +9,11 @@ public class CountryDTO {
 
     private String name;
 
-    private String identifier;
+    private String daneCode;
 
-    private String defaultLanguage;
+    private String phoneId;
+
+    private CountryDTO countryDTO;
 
     public Long getId() {
         return id;
@@ -36,20 +39,28 @@ public class CountryDTO {
         this.name = name;
     }
 
-    public String getIdentifier() {
-        return identifier;
+    public String getDaneCode() {
+        return daneCode;
     }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
+    public void setDaneCode(String daneCode) {
+        this.daneCode = daneCode;
     }
 
-    public String getDefaultLanguage() {
-        return defaultLanguage;
+    public String getPhoneId() {
+        return phoneId;
     }
 
-    public void setDefaultLanguage(String defaultLanguage) {
-        this.defaultLanguage = defaultLanguage;
+    public void setPhoneId(String phoneId) {
+        this.phoneId = phoneId;
+    }
+
+    public CountryDTO getCountryDTO() {
+        return countryDTO;
+    }
+
+    public void setCountryDTO(CountryDTO countryDTO) {
+        this.countryDTO = countryDTO;
     }
 
     @Override
@@ -59,8 +70,9 @@ public class CountryDTO {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((identifier == null) ? 0 : identifier.hashCode());
-        result = prime * result + ((defaultLanguage == null) ? 0 : defaultLanguage.hashCode());
+        result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
+        result = prime * result + ((phoneId == null) ? 0 : phoneId.hashCode());
+        result = prime * result + ((countryDTO == null) ? 0 : countryDTO.hashCode());
         return result;
     }
 
@@ -72,7 +84,7 @@ public class CountryDTO {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        CountryDTO other = (CountryDTO) obj;
+        ProvinceDTO other = (ProvinceDTO) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -88,23 +100,29 @@ public class CountryDTO {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (identifier == null) {
-            if (other.identifier != null)
+        if (daneCode == null) {
+            if (other.daneCode != null)
                 return false;
-        } else if (!identifier.equals(other.identifier))
+        } else if (!daneCode.equals(other.daneCode))
             return false;
-        if (defaultLanguage == null) {
-            if (other.defaultLanguage != null)
+        if (phoneId == null) {
+            if (other.phoneId != null)
                 return false;
-        } else if (!defaultLanguage.equals(other.defaultLanguage))
+        } else if (!phoneId.equals(other.phoneId))
+            return false;
+        if (countryDTO == null) {
+            if (other.countryDTO != null)
+                return false;
+        } else if (!countryDTO.equals(other.countryDTO))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "CountryDTO [id=" + id + ", code=" + code + ", name=" + name + ", identifier=" + identifier
-                + ", defaultLanguage=" + defaultLanguage + "]";
+        return "ProvinceDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode + ", phoneId="
+                + phoneId + ", countryDTO=" + countryDTO + "]";
     }
 
+    
 }

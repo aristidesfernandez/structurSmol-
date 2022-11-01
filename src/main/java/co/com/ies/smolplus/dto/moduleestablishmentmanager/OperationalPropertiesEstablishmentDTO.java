@@ -1,13 +1,13 @@
-package co.com.ies.smolplus.dto;
+package co.com.ies.smolplus.dto.moduleestablishmentmanager;
 
 
-public class IsleDTO {
+public class OperationalPropertiesEstablishmentDTO {
     
     private Long id;
 
-    private String description;
+    private String value;
 
-    private String name;
+    private KeyOperatingPropertyDTO keyOperatingPropertyDTO;
 
     private EstablishmentDTO establishmentDTO;
 
@@ -19,20 +19,20 @@ public class IsleDTO {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getValue() {
+        return value;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    public String getName() {
-        return name;
+    public KeyOperatingPropertyDTO getKeyOperatingPropertyDTO() {
+        return keyOperatingPropertyDTO;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setKeyOperatingPropertyDTO(KeyOperatingPropertyDTO keyOperatingPropertyDTO) {
+        this.keyOperatingPropertyDTO = keyOperatingPropertyDTO;
     }
 
     public EstablishmentDTO getEstablishmentDTO() {
@@ -48,8 +48,8 @@ public class IsleDTO {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((value == null) ? 0 : value.hashCode());
+        result = prime * result + ((keyOperatingPropertyDTO == null) ? 0 : keyOperatingPropertyDTO.hashCode());
         result = prime * result + ((establishmentDTO == null) ? 0 : establishmentDTO.hashCode());
         return result;
     }
@@ -62,21 +62,21 @@ public class IsleDTO {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        IsleDTO other = (IsleDTO) obj;
+        OperationalPropertiesEstablishmentDTO other = (OperationalPropertiesEstablishmentDTO) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (description == null) {
-            if (other.description != null)
+        if (value == null) {
+            if (other.value != null)
                 return false;
-        } else if (!description.equals(other.description))
+        } else if (!value.equals(other.value))
             return false;
-        if (name == null) {
-            if (other.name != null)
+        if (keyOperatingPropertyDTO == null) {
+            if (other.keyOperatingPropertyDTO != null)
                 return false;
-        } else if (!name.equals(other.name))
+        } else if (!keyOperatingPropertyDTO.equals(other.keyOperatingPropertyDTO))
             return false;
         if (establishmentDTO == null) {
             if (other.establishmentDTO != null)
@@ -88,8 +88,9 @@ public class IsleDTO {
 
     @Override
     public String toString() {
-        return "IsleDTO [id=" + id + ", description=" + description + ", name=" + name + ", establishmentDTO="
-                + establishmentDTO + "]";
+        return "OperationalPropertiesEstablishmentDTO [id=" + id + ", value=" + value + ", keyOperatingPropertyDTO="
+                + keyOperatingPropertyDTO + ", establishmentDTO=" + establishmentDTO + "]";
     }
 
+    
 }

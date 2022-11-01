@@ -1,7 +1,7 @@
 package co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.primary.mapper.keyoperatingproperty;
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.keyoperatingproperty.KeyOperatingProperty;
-import co.com.ies.smolplus.dto.KeyOperatingPropertyDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.KeyOperatingPropertyDTO;
 import co.com.ies.smolplus.technical.infrastructure.primary.mapper.DomainMapper;
 import org.mapstruct.*;
 
