@@ -1,7 +1,5 @@
 package co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventdevice;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.secundary.eventtype.EventTypeEntity;
 
 import java.io.Serializable;
@@ -39,8 +37,8 @@ public class EventDeviceEntity implements Serializable {
     private Double moneyDenomination;
 
     @NotNull
-    @Column(name = "device_establishment_id")
-    private  UUID deviceEstablishmentId;
+    @Column(name = "device_id")
+    private  UUID deviceId;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -83,6 +81,14 @@ public class EventDeviceEntity implements Serializable {
         return this;
     }
 
+    public UUID getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(UUID deviceId) {
+        this.deviceId = deviceId;
+    }
+
     public void setTheoreticalPercentage(Boolean theoreticalPercentage) {
         this.theoreticalPercentage = theoreticalPercentage;
     }
@@ -100,9 +106,6 @@ public class EventDeviceEntity implements Serializable {
         this.moneyDenomination = moneyDenomination;
     }
 
-  
-
-  
     public EventTypeEntity getEventType() {
         return this.eventTypeEntity;
     }
@@ -115,6 +118,8 @@ public class EventDeviceEntity implements Serializable {
         this.setEventType(eventTypeEntity);
         return this;
     }
+
+    
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -134,5 +139,12 @@ public class EventDeviceEntity implements Serializable {
         return getClass().hashCode();
     }
 
+    @Override
+    public String toString() {
+        return "EventDeviceEntity [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage="
+                + theoreticalPercentage + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId
+                + ", eventTypeEntity=" + eventTypeEntity + "]";
+    }
+  
  
 }

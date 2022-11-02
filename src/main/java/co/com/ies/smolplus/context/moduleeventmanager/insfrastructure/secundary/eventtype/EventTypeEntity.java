@@ -13,7 +13,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class EventTypeEntity implements Serializable {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+  @SequenceGenerator(name = "sequenceGenerator")
   @Column(name = "id")
   private Long id;
 

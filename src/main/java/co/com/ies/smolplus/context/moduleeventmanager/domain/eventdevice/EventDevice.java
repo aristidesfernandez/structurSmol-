@@ -15,7 +15,7 @@ public class EventDevice {
 
   private Double moneyDenomination;
 
-  private UUID establishment; 
+  private UUID deviceId; 
 
   private EventType deviceCategory;
 
@@ -60,47 +60,19 @@ public class EventDevice {
     this.deviceCategory = deviceCategory;
   }
 
-  public UUID getEstablishment() {
-    return establishment;
+  public UUID getDeviceId() {
+    return deviceId;
   }
 
-  public void setEstablishment(UUID establishment) {
-    this.establishment = establishment;
+  public void setDeviceId(UUID deviceId) {
+    this.deviceId = deviceId;
   }
-
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
-    result = prime * result + ((theoreticalPercentage == null) ? 0 : theoreticalPercentage.hashCode());
-    result = prime * result + ((moneyDenomination == null) ? 0 : moneyDenomination.hashCode());
-    result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
-    result = prime * result + ((deviceCategory == null) ? 0 : deviceCategory.hashCode());
-    return result;
-  }
-
-
 
   @Override
   public String toString() {
-    return (
-      "EventDeviceEntity [id=" +
-      id +
-      ", createdAt=" +
-      createdAt +
-      ", theoreticalPercentage=" +
-      theoreticalPercentage +
-      ", moneyDenomination=" +
-      moneyDenomination +
-      ", establishment=" +
-      establishment +
-      ", deviceCategory=" +
-      deviceCategory +
-      "]"
-    );
+    return "EventDevice [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
+        + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId + ", deviceCategory=" + deviceCategory
+        + "]";
   }
-
 
 }

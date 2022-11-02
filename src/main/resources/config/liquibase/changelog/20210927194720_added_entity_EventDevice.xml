@@ -23,6 +23,9 @@
             <column name="money_denomination" type="decimal(15,4)">
                 <constraints nullable="true" />
             </column>
+            <column name="device_id" type="${uuidType}">
+                <constraints nullable="true" />
+            </column>
             <column name="event_type_id" type="smallInt">
                 <constraints nullable="false" />
             </column>
