@@ -12,8 +12,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +34,7 @@ public class EventTypeResource {
 
   private final EventManagerService eventManagerService;
 
+  @Value("${jhipster.clientApp.name}")
   private String applicationName;
 
   private static final String ENTITY_NAME = "EventType";
