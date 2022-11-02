@@ -1,11 +1,17 @@
 package co.com.ies.smolplus.context.moduleeventmanager.application.eventtype.impl;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import co.com.ies.smolplus.context.moduleeventmanager.application.eventtype.EventTypeService;
-import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeDTO;
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.CreateEventType;
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventTypeRepository;
 import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.primary.mapper.eventtype.EventTypeMapper;
+import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeDTO;
 
+
+@Service
+@Transactional
 public class EventTypeServiceImpl implements EventTypeService {
 
     private final EventTypeMapper eventTypeMapper;
