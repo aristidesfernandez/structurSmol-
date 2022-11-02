@@ -1,120 +1,33 @@
 package co.com.ies.smolplus.context.moduleeventmanager.application.impl;
 
-import java.util.Optional;
-import java.util.UUID;
-
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
+import co.com.ies.smolplus.context.moduleeventmanager.application.eventtype.EventTypeService;
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.CreateEventType;
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventTypeRepository;
 import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.primary.mapper.eventtype.EventTypeMapper;
-import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
-import co.com.ies.smolplus.dto.moduleeventmanager.EventDeviceDTO;
+
 import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeDTO;
-import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeModelDTO;
 
 @Service
 @Transactional
 public class EventManagerServiceImpl implements EventManagerService {
 
 
-    private final EventTypeMapper eventTypeMapper;
-    private final CreateEventType createEventType;
-    private final EventTypeRepository eventTypeRepository;
+    private final EventTypeService eventTypeService;
 
-    public EventManagerServiceImpl(EventTypeMapper eventTypeMapper, EventTypeRepository eventTypeRepository) {
-        this.eventTypeMapper = eventTypeMapper;
-        this.eventTypeRepository = eventTypeRepository;
-        this.createEventType = new CreateEventType(eventTypeRepository);
+    public EventManagerServiceImpl(EventTypeService eventTypeService) {
+        this.eventTypeService = eventTypeService;
     }
+   
 
     @Override
-    public CounterEventDTO save(@Valid CounterEventDTO counterEventDTO) {
-        // TODO Auto-generated method stub
-        return null;
+    public EventTypeDTO createEventType(EventTypeDTO eventTypeDTO) {
+        return eventTypeService.createEventType(eventTypeDTO);
     }
 
-    @Override
-    public CounterEventDTO update(@Valid CounterEventDTO counterEventDTO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Optional<CounterEventDTO> findOneCounterEventDTO(UUID id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
-    }
-
-    @Override
-    public void delete(UUID id) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void delete(Long id) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public EventDeviceDTO save(@Valid EventDeviceDTO eventDeviceDTO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public EventDeviceDTO update(@Valid EventDeviceDTO eventDeviceDTO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Optional<EventDeviceDTO> findOneEventDeviceDTO(UUID id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
-    }
-
-    @Override
-    public EventTypeModelDTO save(@Valid EventTypeModelDTO eventTypeModelDTO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public EventTypeModelDTO update(@Valid EventTypeModelDTO eventTypeModelDTO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Optional<EventTypeModelDTO> findOneEventTypeModelDTO(Long id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
-    }
-
-    @Override
-    public EventTypeDTO save(EventTypeDTO eventTypeDTO) {
-        return eventTypeMapper.toDto(createEventType.create((eventTypeMapper.toDomain(eventTypeDTO))));
-    }
-
-    @Override
-    public EventTypeDTO update(@Valid EventTypeDTO eventTypeDTO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Optional<EventTypeDTO> findOneEventEventTypeDTO(Long id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
-    }
-
-    
+   
 
 }
