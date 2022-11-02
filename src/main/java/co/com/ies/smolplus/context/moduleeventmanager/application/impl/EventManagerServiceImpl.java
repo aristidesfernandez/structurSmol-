@@ -5,10 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
 import co.com.ies.smolplus.context.moduleeventmanager.application.eventtype.EventTypeService;
-import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.CreateEventType;
-import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventTypeRepository;
-import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.primary.mapper.eventtype.EventTypeMapper;
-
 import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeDTO;
 
 @Service
