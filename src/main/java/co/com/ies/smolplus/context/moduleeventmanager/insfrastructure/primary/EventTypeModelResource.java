@@ -49,11 +49,11 @@ public class EventTypeModelResource {
     if (eventTypeModelDTO.getId() != null) {
       throw new BadRequestAlertException("A new EventTypeModel cannot already have an ID", ENTITY_NAME, "idexists");
     }
-    EventTypeModelDTO result = eventManagerService.save(eventTypeModelDTO);
+    //EventTypeModelDTO result = eventManagerService.save(eventTypeModelDTO);
     return ResponseEntity
-        .created(new URI("/api/events-type-model/" + result.getId()))
-        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-        .body(result);
+        .created(new URI("/api/events-type-model/" + 1L))
+        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, "result.getId().toString()"))
+        .body(null);
   }
 
   @PutMapping("/events-type-model/{id}")
@@ -68,12 +68,12 @@ public class EventTypeModelResource {
       throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
     }
 
-    EventTypeModelDTO result = eventManagerService.update(eventTypeModelDTO);
+    //EventTypeModelDTO result = eventManagerService.update(eventTypeModelDTO);
     return ResponseEntity
         .ok()
         .headers(
             HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, eventTypeModelDTO.getId().toString()))
-        .body(result);
+        .body(null);
   }
 
   @GetMapping("/events-type-model")
@@ -84,14 +84,14 @@ public class EventTypeModelResource {
   @GetMapping("/events-type-model/{id}")
   public ResponseEntity<EventTypeModelDTO> getEventTypeModel(@PathVariable Long id) {
     log.debug("REST request to get EventTypeModel : {}", id);
-    Optional<EventTypeModelDTO> eventTypeModelDTO = eventManagerService.findOneEventTypeModelDTO(id);
-    return ResponseUtil.wrapOrNotFound(eventTypeModelDTO);
+    //Optional<EventTypeModelDTO> eventTypeModelDTO = eventManagerService.findOneEventTypeModelDTO(id);
+    return ResponseUtil.wrapOrNotFound(null);
   }
 
   @DeleteMapping("/events-type-model/{id}")
   public ResponseEntity<Void> deleteEventTypeModel(@PathVariable Long id) {
     log.debug("REST request to delete EventTypeModel : {}", id);
-    eventManagerService.delete(id);
+    //eventManagerService.delete(id);
     return ResponseEntity
         .noContent()
         .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

@@ -49,7 +49,7 @@ public class EventTypeResource {
     if (eventTypeDTO.getId() != null) {
       throw new BadRequestAlertException("A new EventType cannot already have an ID", ENTITY_NAME, "idexists");
     }
-    EventTypeDTO result = eventManagerService.save(eventTypeDTO);
+    EventTypeDTO result = eventManagerService.createEventType(eventTypeDTO);
     return ResponseEntity
         .created(new URI("/api/events-type/" + result.getId()))
         .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -68,12 +68,12 @@ public class EventTypeResource {
       throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
     }
 
-    EventTypeDTO result = eventManagerService.update(eventTypeDTO);
+    //EventTypeDTO result = eventManagerService.update(eventTypeDTO);
     return ResponseEntity
         .ok()
         .headers(
             HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, eventTypeDTO.getId().toString()))
-        .body(result);
+        .body(null);
   }
 
   @GetMapping("/events-type")
@@ -84,14 +84,14 @@ public class EventTypeResource {
   @GetMapping("/events-type/{id}")
   public ResponseEntity<EventTypeDTO> getEventType(@PathVariable Long id) {
     log.debug("REST request to get EventType : {}", id);
-    Optional<EventTypeDTO> eventTypeDTO = eventManagerService.findOneEventEventTypeDTO(id);
-    return ResponseUtil.wrapOrNotFound(eventTypeDTO);
+    //Optional<EventTypeDTO> eventTypeDTO = eventManagerService.findOneEventEventTypeDTO(id);
+    return ResponseUtil.wrapOrNotFound(null);
   }
 
   @DeleteMapping("/events-type/{id}")
   public ResponseEntity<Void> deleteEventType(@PathVariable Long id) {
     log.debug("REST request to delete EventType : {}", id);
-    eventManagerService.delete(id);
+   // eventManagerService.delete(id);
     return ResponseEntity
         .noContent()
         .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

@@ -50,11 +50,11 @@ public class EventDeviceResource {
     if (EventDeviceDTO.getId() != null) {
       throw new BadRequestAlertException("A new EventDevice cannot already have an ID", ENTITY_NAME, "idexists");
     }
-    EventDeviceDTO result = eventManagerService.save(EventDeviceDTO);
+    //EventDeviceDTO result = eventManagerService.save(EventDeviceDTO);
     return ResponseEntity
-        .created(new URI("/api/events-device/" + result.getId()))
-        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-        .body(result);
+        .created(new URI("/api/events-device/" + 1L))
+        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, "result.getId().toString()"))
+        .body(null);
   }
 
   @PutMapping("/events-device/{id}")
@@ -69,12 +69,12 @@ public class EventDeviceResource {
       throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
     }
 
-    EventDeviceDTO result = eventManagerService.update(eventDeviceDTO);
+    //EventDeviceDTO result = eventManagerService.update(eventDeviceDTO);
     return ResponseEntity
         .ok()
         .headers(
             HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, eventDeviceDTO.getId().toString()))
-        .body(result);
+        .body(null);
   }
 
   @GetMapping("/events-device")
@@ -85,14 +85,14 @@ public class EventDeviceResource {
   @GetMapping("/events-device/{id}")
   public ResponseEntity<EventDeviceDTO> getEventDevice(@PathVariable UUID id) {
     log.debug("REST request to get EventDevice : {}", id);
-    Optional<EventDeviceDTO> eventDeviceDTO = eventManagerService.findOneEventDeviceDTO(id);
-    return ResponseUtil.wrapOrNotFound(eventDeviceDTO);
+    //Optional<EventDeviceDTO> eventDeviceDTO = eventManagerService.findOneEventDeviceDTO(id);
+    return ResponseUtil.wrapOrNotFound(null);
   }
 
   @DeleteMapping("/events-device/{id}")
   public ResponseEntity<Void> deleteEventDevice(@PathVariable UUID id) {
     log.debug("REST request to delete EventDevice : {}", id);
-    eventManagerService.delete(id);
+    //eventManagerService.delete(id);
     return ResponseEntity
         .noContent()
         .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

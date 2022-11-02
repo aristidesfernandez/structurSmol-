@@ -49,11 +49,11 @@ public class CounterEventResource {
     if (counterEventDTO.getId() != null) {
       throw new BadRequestAlertException("A new counterEvent cannot already have an ID", ENTITY_NAME, "idexists");
     }
-    CounterEventDTO result = eventManagerService.save(counterEventDTO);
+    //CounterEventDTO result = eventManagerService.save(counterEventDTO);
     return ResponseEntity
-        .created(new URI("/api/counter-events/" + result.getId()))
-        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-        .body(result);
+        .created(new URI("/api/counter-events/" + 1L))
+        .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, "result.getId().toString()"))
+        .body(null);
   }
 
   @PutMapping("/counter-events/{id}")
@@ -68,12 +68,12 @@ public class CounterEventResource {
       throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
     }
 
-    CounterEventDTO result = eventManagerService.update(counterEventDTO);
+    //CounterEventDTO result = eventManagerService.update(counterEventDTO);
     return ResponseEntity
         .ok()
         .headers(
             HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, counterEventDTO.getId().toString()))
-        .body(result);
+        .body(null);
   }
 
   @GetMapping("/counter-events")
@@ -84,14 +84,14 @@ public class CounterEventResource {
   @GetMapping("/counter-events/{id}")
   public ResponseEntity<CounterEventDTO> getCounterEvent(@PathVariable UUID id) {
     log.debug("REST request to get CounterEvent : {}", id);
-    Optional<CounterEventDTO> counterEventDTO = eventManagerService.findOneCounterEventDTO(id);
-    return ResponseUtil.wrapOrNotFound(counterEventDTO);
+    //Optional<CounterEventDTO> counterEventDTO = eventManagerService.findOneCounterEventDTO(id);
+    return ResponseUtil.wrapOrNotFound(null);
   }
 
   @DeleteMapping("/counter-events/{id}")
   public ResponseEntity<Void> deleteCounterEvent(@PathVariable UUID id) {
     log.debug("REST request to delete CounterEvent : {}", id);
-    eventManagerService.delete(id);
+    //eventManagerService.delete(id);
     return ResponseEntity
         .noContent()
         .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
