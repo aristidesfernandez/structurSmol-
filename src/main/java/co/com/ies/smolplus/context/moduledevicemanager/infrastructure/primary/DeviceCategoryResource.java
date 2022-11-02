@@ -35,7 +35,6 @@ public class DeviceCategoryResource {
 
     private static final String ENTITY_NAME = "deviceCategory";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

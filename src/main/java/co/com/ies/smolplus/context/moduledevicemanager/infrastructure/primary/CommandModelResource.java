@@ -35,7 +35,6 @@ public class CommandModelResource {
 
     private static final String ENTITY_NAME = "commandModel";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

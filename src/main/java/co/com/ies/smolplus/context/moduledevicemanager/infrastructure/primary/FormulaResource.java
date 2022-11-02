@@ -35,7 +35,6 @@ public class FormulaResource {
 
     private static final String ENTITY_NAME = "formula";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

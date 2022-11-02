@@ -35,7 +35,6 @@ public class CommandDeviceResource {
 
     private static final String ENTITY_NAME = "commandDevice";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

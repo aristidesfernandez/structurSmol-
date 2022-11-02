@@ -36,7 +36,6 @@ public class DeviceEstablishmentResource {
 
     private static final String ENTITY_NAME = "deviceEstablishment";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

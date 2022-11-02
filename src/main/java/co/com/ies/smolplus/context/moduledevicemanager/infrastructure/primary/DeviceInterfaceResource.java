@@ -33,7 +33,6 @@ public class DeviceInterfaceResource {
 
     private static final String ENTITY_NAME = "deviceInterface";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

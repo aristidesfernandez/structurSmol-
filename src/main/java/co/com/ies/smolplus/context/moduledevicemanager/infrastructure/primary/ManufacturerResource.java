@@ -35,7 +35,6 @@ public class ManufacturerResource {
 
     private static final String ENTITY_NAME = "manufacturer";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

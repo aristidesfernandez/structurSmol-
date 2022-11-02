@@ -34,7 +34,6 @@ public class EventTypeResource {
 
   private final EventManagerService eventManagerService;
 
-  @Value("${jhipster.clientApp.name}")
   private String applicationName;
 
   private static final String ENTITY_NAME = "EventType";

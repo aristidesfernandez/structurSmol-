@@ -36,7 +36,6 @@ public class CounterDeviceResource {
 
     private static final String ENTITY_NAME = "counterDevice";
 
-    @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
     private final DeviceManagerService deviceManagerService;

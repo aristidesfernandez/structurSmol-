@@ -35,7 +35,6 @@ public class CounterEventResource {
 
   private final EventManagerService eventManagerService;
 
-  @Value("${jhipster.clientApp.name}")
   private String applicationName;
 
   private static final String ENTITY_NAME = "counterEvent";
