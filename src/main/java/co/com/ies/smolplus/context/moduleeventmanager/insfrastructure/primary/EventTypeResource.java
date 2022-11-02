@@ -50,6 +50,7 @@ public class EventTypeResource {
       throw new BadRequestAlertException("A new EventType cannot already have an ID", ENTITY_NAME, "idexists");
     }
     EventTypeDTO result = eventManagerService.createEventType(eventTypeDTO);
+    log.debug("REST response saved EventType is : {}", result);
     return ResponseEntity
         .created(new URI("/api/events-type/" + result.getId()))
         .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
