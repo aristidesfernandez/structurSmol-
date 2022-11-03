@@ -13,7 +13,7 @@ public class ProvinceDTO {
 
     private String phoneId;
 
-    private CountryDTO countryDTO;
+    private CountryDTO country;
 
     public Long getId() {
         return id;
@@ -55,12 +55,12 @@ public class ProvinceDTO {
         this.phoneId = phoneId;
     }
 
-    public CountryDTO getCountryDTO() {
-        return countryDTO;
+    public CountryDTO getCountry() {
+        return country;
     }
 
-    public void setCountryDTO(CountryDTO countryDTO) {
-        this.countryDTO = countryDTO;
+    public void setCountry(CountryDTO country) {
+        this.country = country;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class ProvinceDTO {
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
         result = prime * result + ((phoneId == null) ? 0 : phoneId.hashCode());
-        result = prime * result + ((countryDTO == null) ? 0 : countryDTO.hashCode());
+        result = prime * result + ((country == null) ? 0 : country.hashCode());
         return result;
     }
 
@@ -110,10 +110,10 @@ public class ProvinceDTO {
                 return false;
         } else if (!phoneId.equals(other.phoneId))
             return false;
-        if (countryDTO == null) {
-            if (other.countryDTO != null)
+        if (country == null) {
+            if (other.country != null)
                 return false;
-        } else if (!countryDTO.equals(other.countryDTO))
+        } else if (!country.equals(other.country))
             return false;
         return true;
     }
@@ -121,7 +121,7 @@ public class ProvinceDTO {
     @Override
     public String toString() {
         return "ProvinceDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode + ", phoneId="
-                + phoneId + ", countryDTO=" + countryDTO + "]";
+                + phoneId + ", countryDTO=" + country + "]";
     }
 
     

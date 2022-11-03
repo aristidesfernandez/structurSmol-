@@ -21,7 +21,7 @@ public class OperatorDTO {
 
     private String brand;
 
-    private MunicipalityDTO municipalityDTO;
+    private MunicipalityDTO municipality;
 
     public Long getId() {
         return id;
@@ -87,12 +87,12 @@ public class OperatorDTO {
         this.brand = brand;
     }
 
-    public MunicipalityDTO getMunicipalityDTO() {
-        return municipalityDTO;
+    public MunicipalityDTO getMunicipality() {
+        return municipality;
     }
 
-    public void setMunicipalityDTO(MunicipalityDTO municipalityDTO) {
-        this.municipalityDTO = municipalityDTO;
+    public void setMunicipality(MunicipalityDTO municipality) {
+        this.municipality = municipality;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class OperatorDTO {
         result = prime * result + ((contractNumber == null) ? 0 : contractNumber.hashCode());
         result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
         result = prime * result + ((brand == null) ? 0 : brand.hashCode());
-        result = prime * result + ((municipalityDTO == null) ? 0 : municipalityDTO.hashCode());
+        result = prime * result + ((municipality == null) ? 0 : municipality.hashCode());
         return result;
     }
 
@@ -160,10 +160,10 @@ public class OperatorDTO {
                 return false;
         } else if (!brand.equals(other.brand))
             return false;
-        if (municipalityDTO == null) {
-            if (other.municipalityDTO != null)
+        if (municipality == null) {
+            if (other.municipality != null)
                 return false;
-        } else if (!municipalityDTO.equals(other.municipalityDTO))
+        } else if (!municipality.equals(other.municipality))
             return false;
         return true;
     }
@@ -172,7 +172,7 @@ public class OperatorDTO {
     public String toString() {
         return "OperatorDTO [id=" + id + ", permitDescription=" + permitDescription + ", startDate=" + startDate
                 + ", endDate=" + endDate + ", nit=" + nit + ", contractNumber=" + contractNumber + ", companyName="
-                + companyName + ", brand=" + brand + ", municipalityDTO=" + municipalityDTO + "]";
+                + companyName + ", brand=" + brand + ", municipalityDTO=" + municipality + "]";
     }
 
     

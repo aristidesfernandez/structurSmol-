@@ -6,7 +6,7 @@ public class EventTypeModelDTO {
 
     private Integer modelId;
 
-    private EventTypeDTO eventTypeDTO;
+    private EventTypeDTO eventType;
 
     public Long getId() {
         return id;
@@ -24,12 +24,12 @@ public class EventTypeModelDTO {
         this.modelId = modelId;
     }
 
-    public EventTypeDTO getEventTypeDTO() {
-        return eventTypeDTO;
+    public EventTypeDTO getEventType() {
+        return eventType;
     }
 
-    public void setEventTypeDTO(EventTypeDTO eventTypeDTO) {
-        this.eventTypeDTO = eventTypeDTO;
+    public void setEventType(EventTypeDTO eventType) {
+        this.eventType = eventType;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class EventTypeModelDTO {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((modelId == null) ? 0 : modelId.hashCode());
-        result = prime * result + ((eventTypeDTO == null) ? 0 : eventTypeDTO.hashCode());
+        result = prime * result + ((eventType == null) ? 0 : eventType.hashCode());
         return result;
     }
 
@@ -61,17 +61,17 @@ public class EventTypeModelDTO {
                 return false;
         } else if (!modelId.equals(other.modelId))
             return false;
-        if (eventTypeDTO == null) {
-            if (other.eventTypeDTO != null)
+        if (eventType == null) {
+            if (other.eventType != null)
                 return false;
-        } else if (!eventTypeDTO.equals(other.eventTypeDTO))
+        } else if (!eventType.equals(other.eventType))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "EventTypeModelDTO [id=" + id + ", modelId=" + modelId + ", eventTypeDTO=" + eventTypeDTO + "]";
+        return "EventTypeModelDTO [id=" + id + ", modelId=" + modelId + ", eventTypeDTO=" + eventType + "]";
     }
 
     

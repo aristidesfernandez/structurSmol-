@@ -11,7 +11,7 @@ public class MunicipalityDTO {
 
     private String daneCode;
 
-    private ProvinceDTO provinceDTO;
+    private ProvinceDTO province;
 
     public Long getId() {
         return id;
@@ -45,12 +45,12 @@ public class MunicipalityDTO {
         this.daneCode = daneCode;
     }
 
-    public ProvinceDTO getProvinceDTO() {
-        return provinceDTO;
+    public ProvinceDTO getProvince() {
+        return province;
     }
 
-    public void setProvinceDTO(ProvinceDTO provinceDTO) {
-        this.provinceDTO = provinceDTO;
+    public void setProvince(ProvinceDTO province) {
+        this.province = province;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class MunicipalityDTO {
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
-        result = prime * result + ((provinceDTO == null) ? 0 : provinceDTO.hashCode());
+        result = prime * result + ((province == null) ? 0 : province.hashCode());
         return result;
     }
 
@@ -94,10 +94,10 @@ public class MunicipalityDTO {
                 return false;
         } else if (!daneCode.equals(other.daneCode))
             return false;
-        if (provinceDTO == null) {
-            if (other.provinceDTO != null)
+        if (province == null) {
+            if (other.province != null)
                 return false;
-        } else if (!provinceDTO.equals(other.provinceDTO))
+        } else if (!province.equals(other.province))
             return false;
         return true;
     }
@@ -105,7 +105,7 @@ public class MunicipalityDTO {
     @Override
     public String toString() {
         return "MunicipalityDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode
-                + ", provinceDTO=" + provinceDTO + "]";
+                + ", provinceDTO=" + province + "]";
     }
 
     

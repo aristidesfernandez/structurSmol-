@@ -9,7 +9,7 @@ public class IsleDTO {
 
     private String name;
 
-    private EstablishmentDTO establishmentDTO;
+    private EstablishmentDTO establishment;
 
     public Long getId() {
         return id;
@@ -35,12 +35,12 @@ public class IsleDTO {
         this.name = name;
     }
 
-    public EstablishmentDTO getEstablishmentDTO() {
-        return establishmentDTO;
+    public EstablishmentDTO getEstablishment() {
+        return establishment;
     }
 
-    public void setEstablishmentDTO(EstablishmentDTO establishmentDTO) {
-        this.establishmentDTO = establishmentDTO;
+    public void setEstablishment(EstablishmentDTO establishment) {
+        this.establishment = establishment;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class IsleDTO {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((establishmentDTO == null) ? 0 : establishmentDTO.hashCode());
+        result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
         return result;
     }
 
@@ -78,10 +78,10 @@ public class IsleDTO {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (establishmentDTO == null) {
-            if (other.establishmentDTO != null)
+        if (establishment == null) {
+            if (other.establishment != null)
                 return false;
-        } else if (!establishmentDTO.equals(other.establishmentDTO))
+        } else if (!establishment.equals(other.establishment))
             return false;
         return true;
     }
@@ -89,7 +89,7 @@ public class IsleDTO {
     @Override
     public String toString() {
         return "IsleDTO [id=" + id + ", description=" + description + ", name=" + name + ", establishmentDTO="
-                + establishmentDTO + "]";
+                + establishment + "]";
     }
 
 }

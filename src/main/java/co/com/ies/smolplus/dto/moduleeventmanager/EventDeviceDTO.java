@@ -15,7 +15,7 @@ public class EventDeviceDTO {
 
   private UUID deviceId; 
 
-  private EventTypeDTO eventTypeDTO;
+  private EventTypeDTO eventType;
 
   public UUID getId() {
     return id;
@@ -49,14 +49,6 @@ public class EventDeviceDTO {
     this.moneyDenomination = moneyDenomination;
   }
 
-  public EventTypeDTO getDeviceCategory() {
-    return eventTypeDTO;
-  }
-
-  public void setDeviceCategory(EventTypeDTO eventTypeDTO) {
-    this.eventTypeDTO = eventTypeDTO;
-  }
-
   public UUID getDeviceId() {
     return deviceId;
   }
@@ -64,6 +56,15 @@ public class EventDeviceDTO {
   public void setDeviceId(UUID deviceId) {
     this.deviceId = deviceId;
   }
+
+  public EventTypeDTO getEventType() {
+    return eventType;
+  }
+
+  public void setEventType(EventTypeDTO eventType) {
+    this.eventType = eventType;
+  }
+
 
   @Override
   public int hashCode() {
@@ -74,7 +75,7 @@ public class EventDeviceDTO {
     result = prime * result + ((theoreticalPercentage == null) ? 0 : theoreticalPercentage.hashCode());
     result = prime * result + ((moneyDenomination == null) ? 0 : moneyDenomination.hashCode());
     result = prime * result + ((deviceId == null) ? 0 : deviceId.hashCode());
-    result = prime * result + ((eventTypeDTO == null) ? 0 : eventTypeDTO.hashCode());
+    result = prime * result + ((eventType == null) ? 0 : eventType.hashCode());
     return result;
   }
 
@@ -112,10 +113,10 @@ public class EventDeviceDTO {
         return false;
     } else if (!deviceId.equals(other.deviceId))
       return false;
-    if (eventTypeDTO == null) {
-      if (other.eventTypeDTO != null)
+    if (eventType == null) {
+      if (other.eventType != null)
         return false;
-    } else if (!eventTypeDTO.equals(other.eventTypeDTO))
+    } else if (!eventType.equals(other.eventType))
       return false;
     return true;
   }
@@ -124,7 +125,7 @@ public class EventDeviceDTO {
   public String toString() {
     return "EventDeviceDTO [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
         + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId
-        + ", deviceCategory=" + eventTypeDTO + "]";
+        + ", deviceCategory=" + eventType + "]";
   }
   
 }
