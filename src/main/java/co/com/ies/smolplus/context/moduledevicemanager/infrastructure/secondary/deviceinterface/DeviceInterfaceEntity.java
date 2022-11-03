@@ -1,19 +1,27 @@
 package co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.deviceinterface;
 
+import java.io.Serializable;
+import java.time.ZonedDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import co.com.ies.smolplus.context.moduledevicemanager.domain.device.Device;
 import co.com.ies.smolplus.context.moduledevicemanager.domain.enumeration.DeviceInterfaceStatus;
 import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.device.DeviceEntity;
 import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.interfaceboard.InterfaceBoardEntity;
-
-import java.io.Serializable;
-import java.time.ZonedDateTime;
-import java.util.UUID;
-import javax.persistence.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A DeviceInterface.

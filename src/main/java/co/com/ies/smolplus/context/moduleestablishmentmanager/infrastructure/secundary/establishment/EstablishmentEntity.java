@@ -74,7 +74,7 @@ public class EstablishmentEntity implements Serializable{
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "municipality" }, allowSetters = true)
-    private OperatorEntity operatorEntity;
+    private OperatorEntity operator;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -177,12 +177,12 @@ public class EstablishmentEntity implements Serializable{
         this.mercantileRegistration = mercantileRegistration;
     }
 
-    public OperatorEntity getOperatorEntity() {
-        return operatorEntity;
+    public OperatorEntity getOperator() {
+        return operator;
     }
 
-    public void setOperatorEntity(OperatorEntity operatorEntity) {
-        this.operatorEntity = operatorEntity;
+    public void setOperator(OperatorEntity operator) {
+        this.operator = operator;
     }
 
     public MunicipalityEntity getMunicipalityEntity() {
@@ -209,7 +209,7 @@ public class EstablishmentEntity implements Serializable{
         result = prime * result + ((longitude == null) ? 0 : longitude.hashCode());
         result = prime * result + ((latitude == null) ? 0 : latitude.hashCode());
         result = prime * result + ((mercantileRegistration == null) ? 0 : mercantileRegistration.hashCode());
-        result = prime * result + ((operatorEntity == null) ? 0 : operatorEntity.hashCode());
+        result = prime * result + ((operator == null) ? 0 : operator.hashCode());
         result = prime * result + ((municipalityEntity == null) ? 0 : municipalityEntity.hashCode());
         return result;
     }
@@ -280,10 +280,10 @@ public class EstablishmentEntity implements Serializable{
                 return false;
         } else if (!mercantileRegistration.equals(other.mercantileRegistration))
             return false;
-        if (operatorEntity == null) {
-            if (other.operatorEntity != null)
+        if (operator == null) {
+            if (other.operator != null)
                 return false;
-        } else if (!operatorEntity.equals(other.operatorEntity))
+        } else if (!operator.equals(other.operator))
             return false;
         if (municipalityEntity == null) {
             if (other.municipalityEntity != null)
@@ -298,7 +298,7 @@ public class EstablishmentEntity implements Serializable{
         return "EstablishmentEntity [id=" + id + ", liquidationTime=" + liquidationTime + ", name=" + name + ", type="
                 + type + ", neighborhood=" + neighborhood + ", address=" + address + ", coljuegosCode=" + coljuegosCode
                 + ", startTime=" + startTime + ", closeTime=" + closeTime + ", longitude=" + longitude + ", latitude="
-                + latitude + ", mercantileRegistration=" + mercantileRegistration + ", operatorEntity=" + operatorEntity
+                + latitude + ", mercantileRegistration=" + mercantileRegistration + ", operatorEntity=" + operator
                 + ", municipalityEntity=" + municipalityEntity + "]";
     }
 
