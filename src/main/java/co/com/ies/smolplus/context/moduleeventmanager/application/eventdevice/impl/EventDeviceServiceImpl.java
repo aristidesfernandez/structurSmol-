@@ -1,8 +1,10 @@
 package co.com.ies.smolplus.context.moduleeventmanager.application.eventdevice.impl;
 
-import co.com.ies.smolplus.context.moduleeventmanager.application.counterevent.CounterEventService;
+import org.springframework.stereotype.Service;
+
+import co.com.ies.smolplus.context.moduleeventmanager.application.eventdevice.EventDeviceService;
 
 @Service
-public class EventDeviceServiceImpl implements CounterEventService {
+public class EventDeviceServiceImpl implements EventDeviceService {
     
 }
