@@ -25,7 +25,7 @@ public class CurrencyTypeDTO {
 
     private String description;
 
-    private EstablishmentDTO establishmentDTO;
+    private EstablishmentDTO establishment;
 
     public Long getId() {
         return id;
@@ -115,12 +115,12 @@ public class CurrencyTypeDTO {
         this.description = description;
     }
 
-    public EstablishmentDTO getEstablishmentDTO() {
-        return establishmentDTO;
+    public EstablishmentDTO getEstablishmen() {
+        return establishment;
     }
 
-    public void setEstablishmentDTO(EstablishmentDTO establishmentDTO) {
-        this.establishmentDTO = establishmentDTO;
+    public void setEstablishment(EstablishmentDTO establishment) {
+        this.establishment = establishment;
     }
 
     @Override
@@ -138,7 +138,7 @@ public class CurrencyTypeDTO {
         result = prime * result + ((decimalSeparator == null) ? 0 : decimalSeparator.hashCode());
         result = prime * result + ((thousandSeparator == null) ? 0 : thousandSeparator.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + ((establishmentDTO == null) ? 0 : establishmentDTO.hashCode());
+        result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
         return result;
     }
 
@@ -206,10 +206,10 @@ public class CurrencyTypeDTO {
                 return false;
         } else if (!description.equals(other.description))
             return false;
-        if (establishmentDTO == null) {
-            if (other.establishmentDTO != null)
+        if (establishment == null) {
+            if (other.establishment != null)
                 return false;
-        } else if (!establishmentDTO.equals(other.establishmentDTO))
+        } else if (!establishment.equals(other.establishment))
             return false;
         return true;
     }
@@ -219,7 +219,7 @@ public class CurrencyTypeDTO {
         return "CurrencyTypeDTO [id=" + id + ", name=" + name + ", code=" + code + ", symbol=" + symbol
                 + ", isPriority=" + isPriority + ", location=" + location + ", exchangeRate=" + exchangeRate
                 + ", decimalPlaces=" + decimalPlaces + ", decimalSeparator=" + decimalSeparator + ", thousandSeparator="
-                + thousandSeparator + ", description=" + description + ", establishmentDTO=" + establishmentDTO + "]";
+                + thousandSeparator + ", description=" + description + ", establishment=" + establishment + "]";
     }
 
     

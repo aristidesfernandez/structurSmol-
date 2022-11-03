@@ -14,7 +14,7 @@ public class EstablishmentDTO {
 
     private String name;
 
-    private EstablishmentType typeD;
+    private EstablishmentType type;
 
     private String neighborhood;
 
@@ -32,9 +32,9 @@ public class EstablishmentDTO {
 
     private String mercantileRegistration;
 
-    private OperatorDTO operatorDTO;
+    private OperatorDTO operator;
 
-    private MunicipalityDTO municipalityDTO;
+    private MunicipalityDTO municipality;
 
     public Long getId() {
         return id;
@@ -60,12 +60,12 @@ public class EstablishmentDTO {
         this.name = name;
     }
 
-    public EstablishmentType getTypeD() {
-        return typeD;
+    public EstablishmentType getType() {
+        return type;
     }
 
-    public void setTypeD(EstablishmentType typeD) {
-        this.typeD = typeD;
+    public void setType(EstablishmentType type) {
+        this.type = type;
     }
 
     public String getNeighborhood() {
@@ -132,29 +132,29 @@ public class EstablishmentDTO {
         this.mercantileRegistration = mercantileRegistration;
     }
 
-    public OperatorDTO getOperatorDTO() {
-        return operatorDTO;
+    public OperatorDTO getOperator() {
+        return operator;
     }
 
-    public void setOperatorDTO(OperatorDTO operatorDTO) {
-        this.operatorDTO = operatorDTO;
+    public void setOperator(OperatorDTO operator) {
+        this.operator = operator;
     }
 
-    public MunicipalityDTO getMunicipalityDTO() {
-        return municipalityDTO;
+    public MunicipalityDTO getMunicipality() {
+        return municipality;
     }
 
-    public void setMunicipalityDTO(MunicipalityDTO municipalityDTO) {
-        this.municipalityDTO = municipalityDTO;
+    public void setMunicipality(MunicipalityDTO municipality) {
+        this.municipality = municipality;
     }
 
     @Override
     public String toString() {
-        return "EstablishmentDTO [id=" + id + ", liquidationTime=" + liquidationTime + ", name=" + name + ", typeD="
-                + typeD + ", neighborhood=" + neighborhood + ", address=" + address + ", coljuegosCode=" + coljuegosCode
+        return "EstablishmentDTO [id=" + id + ", liquidationTime=" + liquidationTime + ", name=" + name + ", type="
+                + type + ", neighborhood=" + neighborhood + ", address=" + address + ", coljuegosCode=" + coljuegosCode
                 + ", startTime=" + startTime + ", closeTime=" + closeTime + ", longitude=" + longitude + ", latitude="
-                + latitude + ", mercantileRegistration=" + mercantileRegistration + ", operatorDTO=" + operatorDTO
-                + ", municipalityDTO=" + municipalityDTO + "]";
+                + latitude + ", mercantileRegistration=" + mercantileRegistration + ", operatorDTO=" + operator
+                + ", municipalityDTO=" + municipality + "]";
     }
 
 }

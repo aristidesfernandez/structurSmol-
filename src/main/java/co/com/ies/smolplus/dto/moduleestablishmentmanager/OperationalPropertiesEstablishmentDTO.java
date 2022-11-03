@@ -7,9 +7,9 @@ public class OperationalPropertiesEstablishmentDTO {
 
     private String value;
 
-    private KeyOperatingPropertyDTO keyOperatingPropertyDTO;
+    private KeyOperatingPropertyDTO keyOperatingProperty;
 
-    private EstablishmentDTO establishmentDTO;
+    private EstablishmentDTO establishment;
 
     public Long getId() {
         return id;
@@ -27,20 +27,20 @@ public class OperationalPropertiesEstablishmentDTO {
         this.value = value;
     }
 
-    public KeyOperatingPropertyDTO getKeyOperatingPropertyDTO() {
-        return keyOperatingPropertyDTO;
+    public KeyOperatingPropertyDTO getKeyOperatingProperty() {
+        return keyOperatingProperty;
     }
 
-    public void setKeyOperatingPropertyDTO(KeyOperatingPropertyDTO keyOperatingPropertyDTO) {
-        this.keyOperatingPropertyDTO = keyOperatingPropertyDTO;
+    public void setKeyOperatingProperty(KeyOperatingPropertyDTO keyOperatingProperty) {
+        this.keyOperatingProperty = keyOperatingProperty;
     }
 
-    public EstablishmentDTO getEstablishmentDTO() {
-        return establishmentDTO;
+    public EstablishmentDTO getEstablishment() {
+        return establishment;
     }
 
-    public void setEstablishmentDTO(EstablishmentDTO establishmentDTO) {
-        this.establishmentDTO = establishmentDTO;
+    public void setEstablishment(EstablishmentDTO establishment) {
+        this.establishment = establishment;
     }
 
     @Override
@@ -49,8 +49,8 @@ public class OperationalPropertiesEstablishmentDTO {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((value == null) ? 0 : value.hashCode());
-        result = prime * result + ((keyOperatingPropertyDTO == null) ? 0 : keyOperatingPropertyDTO.hashCode());
-        result = prime * result + ((establishmentDTO == null) ? 0 : establishmentDTO.hashCode());
+        result = prime * result + ((keyOperatingProperty == null) ? 0 : keyOperatingProperty.hashCode());
+        result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
         return result;
     }
 
@@ -73,23 +73,23 @@ public class OperationalPropertiesEstablishmentDTO {
                 return false;
         } else if (!value.equals(other.value))
             return false;
-        if (keyOperatingPropertyDTO == null) {
-            if (other.keyOperatingPropertyDTO != null)
+        if (keyOperatingProperty == null) {
+            if (other.keyOperatingProperty != null)
                 return false;
-        } else if (!keyOperatingPropertyDTO.equals(other.keyOperatingPropertyDTO))
+        } else if (!keyOperatingProperty.equals(other.keyOperatingProperty))
             return false;
-        if (establishmentDTO == null) {
-            if (other.establishmentDTO != null)
+        if (establishment == null) {
+            if (other.establishment != null)
                 return false;
-        } else if (!establishmentDTO.equals(other.establishmentDTO))
+        } else if (!establishment.equals(other.establishment))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "OperationalPropertiesEstablishmentDTO [id=" + id + ", value=" + value + ", keyOperatingPropertyDTO="
-                + keyOperatingPropertyDTO + ", establishmentDTO=" + establishmentDTO + "]";
+        return "OperationalPropertiesEstablishmentDTO [id=" + id + ", value=" + value + ", keyOperatingProperty="
+                + keyOperatingProperty + ", establishment=" + establishment + "]";
     }
 
     
