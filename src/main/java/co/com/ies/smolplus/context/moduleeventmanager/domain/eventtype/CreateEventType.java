@@ -10,7 +10,7 @@ public class CreateEventType {
         this.eventTypeRepository = eventTypeRepository;
     }
 
-    public EventType create(EventType  device) {         
+    public EventType create(EventType  device) { 
         return eventTypeRepository.create(device);
     }
     

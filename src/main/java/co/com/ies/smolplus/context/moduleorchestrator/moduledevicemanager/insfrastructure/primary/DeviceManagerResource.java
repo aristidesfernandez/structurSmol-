@@ -18,4 +18,5 @@ public class DeviceManagerResource {
   public DeviceManagerResource(UserManagerRequest userManagerRequest) {
     this.userManagerRequest = userManagerRequest;
   }
+
 }

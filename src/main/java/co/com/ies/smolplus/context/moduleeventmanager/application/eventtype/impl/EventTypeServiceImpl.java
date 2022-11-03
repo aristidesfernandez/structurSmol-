@@ -8,6 +8,7 @@ import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.CreateEve
 import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventTypeRepository;
 import co.com.ies.smolplus.context.moduleeventmanager.insfrastructure.primary.mapper.eventtype.EventTypeMapper;
 import co.com.ies.smolplus.dto.moduleeventmanager.EventTypeDTO;
+import co.com.ies.smolplus.context.moduleeventmanager.domain.eventtype.EventType;
 
 
 @Service
@@ -27,7 +28,11 @@ public class EventTypeServiceImpl implements EventTypeService {
 
     @Override
     public EventTypeDTO createEventType(EventTypeDTO eventTypeDTO) {
-        return eventTypeMapper.toDto(createEventType.create((eventTypeMapper.toDomain(eventTypeDTO))));
+
+        EventType eventType = eventTypeMapper.toDomain(eventTypeDTO);
+        EventType eventTypeCreated = createEventType.create(eventType);
+
+        return eventTypeMapper.toDto(eventTypeCreated);
     }
     
 }
