@@ -17,7 +17,7 @@ public class EventDevice {
 
   private UUID deviceId; 
 
-  private EventType deviceCategory;
+  private EventType eventType;
 
   public UUID getId() {
     return id;
@@ -51,15 +51,6 @@ public class EventDevice {
     this.moneyDenomination = moneyDenomination;
   }
 
-
-  public EventType getDeviceCategory() {
-    return deviceCategory;
-  }
-
-  public void setDeviceCategory(EventType deviceCategory) {
-    this.deviceCategory = deviceCategory;
-  }
-
   public UUID getDeviceId() {
     return deviceId;
   }
@@ -68,11 +59,21 @@ public class EventDevice {
     this.deviceId = deviceId;
   }
 
+  public EventType getEventType() {
+    return eventType;
+  }
+
+  public void setEventType(EventType eventType) {
+    this.eventType = eventType;
+  }
+
   @Override
   public String toString() {
     return "EventDevice [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
-        + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId + ", deviceCategory=" + deviceCategory
+        + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId + ", eventType=" + eventType
         + "]";
   }
+
+ 
 
 }

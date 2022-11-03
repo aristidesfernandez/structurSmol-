@@ -41,7 +41,7 @@ public class CounterEventEntity implements Serializable {
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "deviceEstablishment", "eventType" }, allowSetters = true)
-    private EventDeviceEntity eventDeviceEntity;
+    private EventDeviceEntity eventDevice;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -98,11 +98,11 @@ public class CounterEventEntity implements Serializable {
     }
 
     public EventDeviceEntity getEventDevice() {
-        return this.eventDeviceEntity;
+        return this.eventDevice;
     }
 
-    public void setEventDevice(EventDeviceEntity eventDeviceEntity) {
-        this.eventDeviceEntity = eventDeviceEntity;
+    public void setEventDevice(EventDeviceEntity eventDevice) {
+        this.eventDevice = eventDevice;
     }
 
     public CounterEventEntity eventDevice(EventDeviceEntity eventDevice) {

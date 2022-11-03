@@ -42,7 +42,7 @@ public class EventDeviceEntity implements Serializable {
 
     @ManyToOne(optional = false)
     @NotNull
-    private EventTypeEntity eventTypeEntity;
+    private EventTypeEntity eventType;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -107,11 +107,11 @@ public class EventDeviceEntity implements Serializable {
     }
 
     public EventTypeEntity getEventType() {
-        return this.eventTypeEntity;
+        return this.eventType;
     }
 
-    public void setEventType(EventTypeEntity eventTypeEntity) {
-        this.eventTypeEntity = eventTypeEntity;
+    public void setEventType(EventTypeEntity eventType) {
+        this.eventType = eventType;
     }
 
     public EventDeviceEntity eventType(EventTypeEntity eventTypeEntity) {
@@ -143,7 +143,7 @@ public class EventDeviceEntity implements Serializable {
     public String toString() {
         return "EventDeviceEntity [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage="
                 + theoreticalPercentage + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId
-                + ", eventTypeEntity=" + eventTypeEntity + "]";
+                + ", eventType=" + eventType + "]";
     }
   
  

@@ -90,12 +90,9 @@ public class EventTypeModelEntity implements Serializable {
         return getClass().hashCode();
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
-        return "EventTypeModel{" +
-            "id=" + getId() +
-            ", modelId=" + getModelId() +
-            "}";
+        return "EventTypeModelEntity [id=" + id + ", modelId=" + modelId + ", eventType=" + eventType + "]";
     }
+
 }
