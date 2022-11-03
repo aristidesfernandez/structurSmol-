@@ -67,7 +67,7 @@ public class CurrencyTypeEntity implements Serializable{
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "operator", "municipality" }, allowSetters = true)
-    private EstablishmentEntity establishmentEntity;
+    private EstablishmentEntity establishment;
 
     public Long getId() {
         return id;
@@ -158,11 +158,11 @@ public class CurrencyTypeEntity implements Serializable{
     }
 
     public EstablishmentEntity getEstablishmentEntity() {
-        return establishmentEntity;
+        return establishment;
     }
 
-    public void setEstablishmentEntity(EstablishmentEntity establishmentEntity) {
-        this.establishmentEntity = establishmentEntity;
+    public void setEstablishmentEntity(EstablishmentEntity establishment) {
+        this.establishment = establishment;
     }
 
     @Override
@@ -180,7 +180,7 @@ public class CurrencyTypeEntity implements Serializable{
         result = prime * result + ((decimalSeparator == null) ? 0 : decimalSeparator.hashCode());
         result = prime * result + ((thousandSeparator == null) ? 0 : thousandSeparator.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + ((establishmentEntity == null) ? 0 : establishmentEntity.hashCode());
+        result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
         return result;
     }
 
@@ -248,10 +248,10 @@ public class CurrencyTypeEntity implements Serializable{
                 return false;
         } else if (!description.equals(other.description))
             return false;
-        if (establishmentEntity == null) {
-            if (other.establishmentEntity != null)
+        if (establishment == null) {
+            if (other.establishment != null)
                 return false;
-        } else if (!establishmentEntity.equals(other.establishmentEntity))
+        } else if (!establishment.equals(other.establishment))
             return false;
         return true;
     }
@@ -261,7 +261,7 @@ public class CurrencyTypeEntity implements Serializable{
         return "CurrencyTypeEntity [id=" + id + ", name=" + name + ", code=" + code + ", symbol=" + symbol
                 + ", isPriority=" + isPriority + ", location=" + location + ", exchangeRate=" + exchangeRate
                 + ", decimalPlaces=" + decimalPlaces + ", decimalSeparator=" + decimalSeparator + ", thousandSeparator="
-                + thousandSeparator + ", description=" + description + ", establishmentEntity=" + establishmentEntity
+                + thousandSeparator + ", description=" + description + ", establishmentEntity=" + establishment
                 + "]";
     }
 
