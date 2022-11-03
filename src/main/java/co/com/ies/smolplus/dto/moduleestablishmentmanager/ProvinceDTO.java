@@ -121,7 +121,7 @@ public class ProvinceDTO {
     @Override
     public String toString() {
         return "ProvinceDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode + ", phoneId="
-                + phoneId + ", countryDTO=" + country + "]";
+                + phoneId + ", country=" + country + "]";
     }
 
     

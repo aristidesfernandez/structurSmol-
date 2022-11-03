@@ -71,7 +71,7 @@ public class EventTypeModelDTO {
 
     @Override
     public String toString() {
-        return "EventTypeModelDTO [id=" + id + ", modelId=" + modelId + ", eventTypeDTO=" + eventType + "]";
+        return "EventTypeModelDTO [id=" + id + ", modelId=" + modelId + ", eventType=" + eventType + "]";
     }
 
     

@@ -172,7 +172,7 @@ public class OperatorDTO {
     public String toString() {
         return "OperatorDTO [id=" + id + ", permitDescription=" + permitDescription + ", startDate=" + startDate
                 + ", endDate=" + endDate + ", nit=" + nit + ", contractNumber=" + contractNumber + ", companyName="
-                + companyName + ", brand=" + brand + ", municipalityDTO=" + municipality + "]";
+                + companyName + ", brand=" + brand + ", municipality=" + municipality + "]";
     }
 
     

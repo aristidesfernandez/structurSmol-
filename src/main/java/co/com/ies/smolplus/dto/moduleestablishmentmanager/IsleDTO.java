@@ -88,7 +88,7 @@ public class IsleDTO {
 
     @Override
     public String toString() {
-        return "IsleDTO [id=" + id + ", description=" + description + ", name=" + name + ", establishmentDTO="
+        return "IsleDTO [id=" + id + ", description=" + description + ", name=" + name + ", establishment="
                 + establishment + "]";
     }
 

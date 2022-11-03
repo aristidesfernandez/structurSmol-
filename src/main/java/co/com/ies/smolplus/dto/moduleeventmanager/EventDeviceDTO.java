@@ -125,7 +125,7 @@ public class EventDeviceDTO {
   public String toString() {
     return "EventDeviceDTO [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
         + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId
-        + ", deviceCategory=" + eventType + "]";
+        + ", eventType=" + eventType + "]";
   }
   
 }

@@ -14,7 +14,7 @@ public class EstablishmentDTO {
 
     private String name;
 
-    private EstablishmentType establishmentType;
+    private EstablishmentType type;
 
     private String neighborhood;
 
@@ -60,12 +60,12 @@ public class EstablishmentDTO {
         this.name = name;
     }
 
-    public EstablishmentType getEstablishmentType() {
-        return establishmentType;
+    public EstablishmentType getType() {
+        return type;
     }
 
-    public void getEstablishmentType(EstablishmentType establishmentType) {
-        this.establishmentType = establishmentType;
+    public void setType(EstablishmentType type) {
+        this.type = type;
     }
 
     public String getNeighborhood() {
@@ -150,8 +150,8 @@ public class EstablishmentDTO {
 
     @Override
     public String toString() {
-        return "EstablishmentDTO [id=" + id + ", liquidationTime=" + liquidationTime + ", name=" + name + ", typeD="
-                + establishmentType + ", neighborhood=" + neighborhood + ", address=" + address + ", coljuegosCode=" + coljuegosCode
+        return "EstablishmentDTO [id=" + id + ", liquidationTime=" + liquidationTime + ", name=" + name + ", type="
+                + type + ", neighborhood=" + neighborhood + ", address=" + address + ", coljuegosCode=" + coljuegosCode
                 + ", startTime=" + startTime + ", closeTime=" + closeTime + ", longitude=" + longitude + ", latitude="
                 + latitude + ", mercantileRegistration=" + mercantileRegistration + ", operatorDTO=" + operator
                 + ", municipalityDTO=" + municipality + "]";

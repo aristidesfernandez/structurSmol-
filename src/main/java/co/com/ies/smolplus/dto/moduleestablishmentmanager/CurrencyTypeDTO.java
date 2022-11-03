@@ -219,7 +219,7 @@ public class CurrencyTypeDTO {
         return "CurrencyTypeDTO [id=" + id + ", name=" + name + ", code=" + code + ", symbol=" + symbol
                 + ", isPriority=" + isPriority + ", location=" + location + ", exchangeRate=" + exchangeRate
                 + ", decimalPlaces=" + decimalPlaces + ", decimalSeparator=" + decimalSeparator + ", thousandSeparator="
-                + thousandSeparator + ", description=" + description + ", establishmentDTO=" + establishment + "]";
+                + thousandSeparator + ", description=" + description + ", establishment=" + establishment + "]";
     }
 
     

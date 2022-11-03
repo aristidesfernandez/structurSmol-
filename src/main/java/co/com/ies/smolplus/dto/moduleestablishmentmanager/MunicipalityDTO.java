@@ -105,7 +105,7 @@ public class MunicipalityDTO {
     @Override
     public String toString() {
         return "MunicipalityDTO [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode
-                + ", provinceDTO=" + province + "]";
+                + ", province=" + province + "]";
     }
 
     

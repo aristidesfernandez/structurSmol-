@@ -88,8 +88,8 @@ public class OperationalPropertiesEstablishmentDTO {
 
     @Override
     public String toString() {
-        return "OperationalPropertiesEstablishmentDTO [id=" + id + ", value=" + value + ", keyOperatingPropertyDTO="
-                + keyOperatingProperty + ", establishmentDTO=" + establishment + "]";
+        return "OperationalPropertiesEstablishmentDTO [id=" + id + ", value=" + value + ", keyOperatingProperty="
+                + keyOperatingProperty + ", establishment=" + establishment + "]";
     }
 
     
