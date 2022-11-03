@@ -13,7 +13,7 @@ public class EventDeviceDTO {
 
   private Double moneyDenomination;
 
-  private UUID deviceEstablishmentId; 
+  private UUID deviceId; 
 
   private EventTypeDTO eventTypeDTO;
 
@@ -57,12 +57,12 @@ public class EventDeviceDTO {
     this.eventTypeDTO = eventTypeDTO;
   }
 
-  public UUID getDeviceEstablishmentId() {
-    return deviceEstablishmentId;
+  public UUID getDeviceId() {
+    return deviceId;
   }
 
-  public void setDeviceEstablishmentId(UUID deviceEstablishmentId) {
-    this.deviceEstablishmentId = deviceEstablishmentId;
+  public void setDeviceId(UUID deviceId) {
+    this.deviceId = deviceId;
   }
 
   @Override
@@ -73,7 +73,7 @@ public class EventDeviceDTO {
     result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
     result = prime * result + ((theoreticalPercentage == null) ? 0 : theoreticalPercentage.hashCode());
     result = prime * result + ((moneyDenomination == null) ? 0 : moneyDenomination.hashCode());
-    result = prime * result + ((deviceEstablishmentId == null) ? 0 : deviceEstablishmentId.hashCode());
+    result = prime * result + ((deviceId == null) ? 0 : deviceId.hashCode());
     result = prime * result + ((eventTypeDTO == null) ? 0 : eventTypeDTO.hashCode());
     return result;
   }
@@ -107,10 +107,10 @@ public class EventDeviceDTO {
         return false;
     } else if (!moneyDenomination.equals(other.moneyDenomination))
       return false;
-    if (deviceEstablishmentId == null) {
-      if (other.deviceEstablishmentId != null)
+    if (deviceId == null) {
+      if (other.deviceId != null)
         return false;
-    } else if (!deviceEstablishmentId.equals(other.deviceEstablishmentId))
+    } else if (!deviceId.equals(other.deviceId))
       return false;
     if (eventTypeDTO == null) {
       if (other.eventTypeDTO != null)
@@ -123,7 +123,7 @@ public class EventDeviceDTO {
   @Override
   public String toString() {
     return "EventDeviceDTO [id=" + id + ", createdAt=" + createdAt + ", theoreticalPercentage=" + theoreticalPercentage
-        + ", moneyDenomination=" + moneyDenomination + ", deviceEstablishmentId=" + deviceEstablishmentId
+        + ", moneyDenomination=" + moneyDenomination + ", deviceId=" + deviceId
         + ", deviceCategory=" + eventTypeDTO + "]";
   }
   
