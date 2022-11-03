@@ -41,7 +41,7 @@ public class MunicipalityEntity implements Serializable{
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "country" }, allowSetters = true)
-    private ProvinceEntity provinceEntity;
+    private ProvinceEntity province;
 
     public Long getId() {
         return id;
@@ -75,12 +75,12 @@ public class MunicipalityEntity implements Serializable{
         this.daneCode = daneCode;
     }
 
-    public ProvinceEntity getProvinceEntity() {
-        return provinceEntity;
+    public ProvinceEntity getProvince() {
+        return province;
     }
 
-    public void setProvinceEntity(ProvinceEntity provinceEntity) {
-        this.provinceEntity = provinceEntity;
+    public void setProvince(ProvinceEntity province) {
+        this.province = province;
     }
 
     @Override
@@ -91,7 +91,7 @@ public class MunicipalityEntity implements Serializable{
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
-        result = prime * result + ((provinceEntity == null) ? 0 : provinceEntity.hashCode());
+        result = prime * result + ((province == null) ? 0 : province.hashCode());
         return result;
     }
 
@@ -124,10 +124,10 @@ public class MunicipalityEntity implements Serializable{
                 return false;
         } else if (!daneCode.equals(other.daneCode))
             return false;
-        if (provinceEntity == null) {
-            if (other.provinceEntity != null)
+        if (province == null) {
+            if (other.province != null)
                 return false;
-        } else if (!provinceEntity.equals(other.provinceEntity))
+        } else if (!province.equals(other.province))
             return false;
         return true;
     }
@@ -135,7 +135,7 @@ public class MunicipalityEntity implements Serializable{
     @Override
     public String toString() {
         return "MunicipalityEntity [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode
-                + ", provinceEntity=" + provinceEntity + "]";
+                + ", province=" + province + "]";
     }
 
     

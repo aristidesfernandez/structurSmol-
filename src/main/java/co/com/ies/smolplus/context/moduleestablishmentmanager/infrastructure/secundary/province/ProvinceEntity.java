@@ -41,7 +41,7 @@ public class ProvinceEntity implements Serializable{
 
     @ManyToOne(optional = false)
     @NotNull
-    private CountryEntity countryEntity;
+    private CountryEntity country;
 
     public Long getId() {
         return id;
@@ -83,12 +83,12 @@ public class ProvinceEntity implements Serializable{
         this.phoneId = phoneId;
     }
 
-    public CountryEntity getCountryEntity() {
-        return countryEntity;
+    public CountryEntity getCountry() {
+        return country;
     }
 
-    public void setCountryEntity(CountryEntity countryEntity) {
-        this.countryEntity = countryEntity;
+    public void setCountry(CountryEntity country) {
+        this.country = country;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ProvinceEntity implements Serializable{
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((daneCode == null) ? 0 : daneCode.hashCode());
         result = prime * result + ((phoneId == null) ? 0 : phoneId.hashCode());
-        result = prime * result + ((countryEntity == null) ? 0 : countryEntity.hashCode());
+        result = prime * result + ((country == null) ? 0 : country.hashCode());
         return result;
     }
 
@@ -138,10 +138,10 @@ public class ProvinceEntity implements Serializable{
                 return false;
         } else if (!phoneId.equals(other.phoneId))
             return false;
-        if (countryEntity == null) {
-            if (other.countryEntity != null)
+        if (country == null) {
+            if (other.country != null)
                 return false;
-        } else if (!countryEntity.equals(other.countryEntity))
+        } else if (!country.equals(other.country))
             return false;
         return true;
     }
@@ -149,7 +149,7 @@ public class ProvinceEntity implements Serializable{
     @Override
     public String toString() {
         return "ProvinceEntity [id=" + id + ", code=" + code + ", name=" + name + ", daneCode=" + daneCode
-                + ", phoneId=" + phoneId + ", countryEntity=" + countryEntity + "]";
+                + ", phoneId=" + phoneId + ", country=" + country + "]";
     }
 
     

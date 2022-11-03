@@ -2,7 +2,6 @@ package co.com.ies.smolplus.context.moduledevicemanager.domain.countertype;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.validation.constraints.*;
 
 public class CounterType implements Serializable {
 

@@ -31,12 +31,12 @@ public class OperationalPropertiesEstablishmentEntity implements Serializable{
 
     @ManyToOne(optional = false)
     @NotNull
-    private KeyOperatingPropertyEntity keyOperatingPropertyEntity;
+    private KeyOperatingPropertyEntity keyOperatingProperty;
 
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "operator", "municipality" }, allowSetters = true)
-    private EstablishmentEntity establishmentEntity;
+    private EstablishmentEntity establishment;
 
     public Long getId() {
         return id;
@@ -54,20 +54,20 @@ public class OperationalPropertiesEstablishmentEntity implements Serializable{
         this.value = value;
     }
 
-    public KeyOperatingPropertyEntity getKeyOperatingPropertyEntity() {
-        return keyOperatingPropertyEntity;
+    public KeyOperatingPropertyEntity getKeyOperatingProperty() {
+        return keyOperatingProperty;
     }
 
-    public void setKeyOperatingPropertyEntity(KeyOperatingPropertyEntity keyOperatingPropertyEntity) {
-        this.keyOperatingPropertyEntity = keyOperatingPropertyEntity;
+    public void setKeyOperatingProperty(KeyOperatingPropertyEntity keyOperatingProperty) {
+        this.keyOperatingProperty = keyOperatingProperty;
     }
 
-    public EstablishmentEntity getEstablishmentEntity() {
-        return establishmentEntity;
+    public EstablishmentEntity getEstablishment() {
+        return establishment;
     }
 
-    public void setEstablishmentEntity(EstablishmentEntity establishmentEntity) {
-        this.establishmentEntity = establishmentEntity;
+    public void setEstablishment(EstablishmentEntity establishment) {
+        this.establishment = establishment;
     }
 
     @Override
@@ -76,8 +76,8 @@ public class OperationalPropertiesEstablishmentEntity implements Serializable{
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((value == null) ? 0 : value.hashCode());
-        result = prime * result + ((keyOperatingPropertyEntity == null) ? 0 : keyOperatingPropertyEntity.hashCode());
-        result = prime * result + ((establishmentEntity == null) ? 0 : establishmentEntity.hashCode());
+        result = prime * result + ((keyOperatingProperty == null) ? 0 : keyOperatingProperty.hashCode());
+        result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
         return result;
     }
 
@@ -100,15 +100,15 @@ public class OperationalPropertiesEstablishmentEntity implements Serializable{
                 return false;
         } else if (!value.equals(other.value))
             return false;
-        if (keyOperatingPropertyEntity == null) {
-            if (other.keyOperatingPropertyEntity != null)
+        if (keyOperatingProperty == null) {
+            if (other.keyOperatingProperty != null)
                 return false;
-        } else if (!keyOperatingPropertyEntity.equals(other.keyOperatingPropertyEntity))
+        } else if (!keyOperatingProperty.equals(other.keyOperatingProperty))
             return false;
-        if (establishmentEntity == null) {
-            if (other.establishmentEntity != null)
+        if (establishment == null) {
+            if (other.establishment != null)
                 return false;
-        } else if (!establishmentEntity.equals(other.establishmentEntity))
+        } else if (!establishment.equals(other.establishment))
             return false;
         return true;
     }
@@ -116,8 +116,8 @@ public class OperationalPropertiesEstablishmentEntity implements Serializable{
     @Override
     public String toString() {
         return "OperationalPropertiesEstablishmentEntity [id=" + id + ", value=" + value
-                + ", keyOperatingPropertyEntity=" + keyOperatingPropertyEntity + ", establishmentEntity="
-                + establishmentEntity + "]";
+                + ", keyOperatingProperty=" + keyOperatingProperty + ", establishment="
+                + establishment + "]";
     }
 
     

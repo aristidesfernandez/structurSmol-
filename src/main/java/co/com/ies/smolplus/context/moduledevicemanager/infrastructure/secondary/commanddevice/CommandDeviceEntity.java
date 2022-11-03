@@ -6,7 +6,6 @@ import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.
 import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.secondary.device.DeviceEntity;
 
 import java.io.Serializable;
-import java.util.UUID;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;

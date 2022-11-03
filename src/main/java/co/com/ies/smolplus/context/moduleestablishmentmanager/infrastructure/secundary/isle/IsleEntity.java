@@ -36,7 +36,7 @@ public class IsleEntity implements Serializable{
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "operator", "municipality" }, allowSetters = true)
-    private EstablishmentEntity establishmentEntity;
+    private EstablishmentEntity establishment;
 
     public Long getId() {
         return id;
@@ -62,12 +62,12 @@ public class IsleEntity implements Serializable{
         this.name = name;
     }
 
-    public EstablishmentEntity getEstablishmentEntity() {
-        return establishmentEntity;
+    public EstablishmentEntity getEstablishment() {
+        return establishment;
     }
 
-    public void setEstablishmentEntity(EstablishmentEntity establishmentEntity) {
-        this.establishmentEntity = establishmentEntity;
+    public void setEstablishment(EstablishmentEntity establishment) {
+        this.establishment = establishment;
     }
 
     @Override
@@ -77,7 +77,7 @@ public class IsleEntity implements Serializable{
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((establishmentEntity == null) ? 0 : establishmentEntity.hashCode());
+        result = prime * result + ((establishment == null) ? 0 : establishment.hashCode());
         return result;
     }
 
@@ -105,18 +105,18 @@ public class IsleEntity implements Serializable{
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (establishmentEntity == null) {
-            if (other.establishmentEntity != null)
+        if (establishment == null) {
+            if (other.establishment != null)
                 return false;
-        } else if (!establishmentEntity.equals(other.establishmentEntity))
+        } else if (!establishment.equals(other.establishment))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "IsleEntity [id=" + id + ", description=" + description + ", name=" + name + ", establishmentEntity="
-                + establishmentEntity + "]";
+        return "IsleEntity [id=" + id + ", description=" + description + ", name=" + name + ", establishment="
+                + establishment + "]";
     }
 
     

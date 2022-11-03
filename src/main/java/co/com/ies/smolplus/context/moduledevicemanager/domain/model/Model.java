@@ -3,7 +3,6 @@ package co.com.ies.smolplus.context.moduledevicemanager.domain.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
-import javax.validation.constraints.*;
 
 import co.com.ies.smolplus.context.moduledevicemanager.domain.formula.Formula;
 import co.com.ies.smolplus.context.moduledevicemanager.domain.manufacturer.Manufacturer;

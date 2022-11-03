@@ -79,7 +79,7 @@ public class EstablishmentEntity implements Serializable{
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "province" }, allowSetters = true)
-    private MunicipalityEntity municipalityEntity;
+    private MunicipalityEntity municipality;
 
     public Long getId() {
         return id;
@@ -185,12 +185,12 @@ public class EstablishmentEntity implements Serializable{
         this.operator = operator;
     }
 
-    public MunicipalityEntity getMunicipalityEntity() {
-        return municipalityEntity;
+    public MunicipalityEntity getMunicipality() {
+        return municipality;
     }
 
-    public void setMunicipalityEntity(MunicipalityEntity municipalityEntity) {
-        this.municipalityEntity = municipalityEntity;
+    public void setMunicipality(MunicipalityEntity municipality) {
+        this.municipality = municipality;
     }
 
     @Override
@@ -210,7 +210,7 @@ public class EstablishmentEntity implements Serializable{
         result = prime * result + ((latitude == null) ? 0 : latitude.hashCode());
         result = prime * result + ((mercantileRegistration == null) ? 0 : mercantileRegistration.hashCode());
         result = prime * result + ((operator == null) ? 0 : operator.hashCode());
-        result = prime * result + ((municipalityEntity == null) ? 0 : municipalityEntity.hashCode());
+        result = prime * result + ((municipality == null) ? 0 : municipality.hashCode());
         return result;
     }
 
@@ -285,10 +285,10 @@ public class EstablishmentEntity implements Serializable{
                 return false;
         } else if (!operator.equals(other.operator))
             return false;
-        if (municipalityEntity == null) {
-            if (other.municipalityEntity != null)
+        if (municipality == null) {
+            if (other.municipality != null)
                 return false;
-        } else if (!municipalityEntity.equals(other.municipalityEntity))
+        } else if (!municipality.equals(other.municipality))
             return false;
         return true;
     }
@@ -299,7 +299,7 @@ public class EstablishmentEntity implements Serializable{
                 + type + ", neighborhood=" + neighborhood + ", address=" + address + ", coljuegosCode=" + coljuegosCode
                 + ", startTime=" + startTime + ", closeTime=" + closeTime + ", longitude=" + longitude + ", latitude="
                 + latitude + ", mercantileRegistration=" + mercantileRegistration + ", operatorEntity=" + operator
-                + ", municipalityEntity=" + municipalityEntity + "]";
+                + ", municipality=" + municipality + "]";
     }
 
     

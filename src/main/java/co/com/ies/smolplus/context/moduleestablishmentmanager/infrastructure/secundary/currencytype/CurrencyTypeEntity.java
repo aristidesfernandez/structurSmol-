@@ -157,11 +157,11 @@ public class CurrencyTypeEntity implements Serializable{
         this.description = description;
     }
 
-    public EstablishmentEntity getEstablishmentEntity() {
+    public EstablishmentEntity getEstablishment() {
         return establishment;
     }
 
-    public void setEstablishmentEntity(EstablishmentEntity establishment) {
+    public void setEstablishment(EstablishmentEntity establishment) {
         this.establishment = establishment;
     }
 

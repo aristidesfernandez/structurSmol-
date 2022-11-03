@@ -2,7 +2,6 @@ package co.com.ies.smolplus.context.moduledevicemanager.domain.interfaceboard;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.validation.constraints.*;
 
 
 public class InterfaceBoard implements Serializable {

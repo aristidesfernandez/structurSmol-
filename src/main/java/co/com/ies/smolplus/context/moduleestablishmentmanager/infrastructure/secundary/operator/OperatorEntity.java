@@ -54,7 +54,7 @@ public class OperatorEntity implements Serializable{
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "province" }, allowSetters = true)
-    private MunicipalityEntity municipalityEntity;
+    private MunicipalityEntity municipality;
 
     public Long getId() {
         return id;
@@ -120,12 +120,12 @@ public class OperatorEntity implements Serializable{
         this.brand = brand;
     }
 
-    public MunicipalityEntity getMunicipalityEntity() {
-        return municipalityEntity;
+    public MunicipalityEntity getMunicipality() {
+        return municipality;
     }
 
-    public void setMunicipalityEntity(MunicipalityEntity municipalityEntity) {
-        this.municipalityEntity = municipalityEntity;
+    public void setMunicipality(MunicipalityEntity municipality) {
+        this.municipality = municipality;
     }
 
     @Override
@@ -140,7 +140,7 @@ public class OperatorEntity implements Serializable{
         result = prime * result + ((contractNumber == null) ? 0 : contractNumber.hashCode());
         result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
         result = prime * result + ((brand == null) ? 0 : brand.hashCode());
-        result = prime * result + ((municipalityEntity == null) ? 0 : municipalityEntity.hashCode());
+        result = prime * result + ((municipality == null) ? 0 : municipality.hashCode());
         return result;
     }
 
@@ -193,10 +193,10 @@ public class OperatorEntity implements Serializable{
                 return false;
         } else if (!brand.equals(other.brand))
             return false;
-        if (municipalityEntity == null) {
-            if (other.municipalityEntity != null)
+        if (municipality == null) {
+            if (other.municipality != null)
                 return false;
-        } else if (!municipalityEntity.equals(other.municipalityEntity))
+        } else if (!municipality.equals(other.municipality))
             return false;
         return true;
     }
@@ -205,7 +205,7 @@ public class OperatorEntity implements Serializable{
     public String toString() {
         return "OperatorEntity [id=" + id + ", permitDescription=" + permitDescription + ", startDate=" + startDate
                 + ", endDate=" + endDate + ", nit=" + nit + ", contractNumber=" + contractNumber + ", companyName="
-                + companyName + ", brand=" + brand + ", municipalityEntity=" + municipalityEntity + "]";
+                + companyName + ", brand=" + brand + ", municipality=" + municipality + "]";
     }
 
     
