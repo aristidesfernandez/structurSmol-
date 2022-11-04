@@ -28,7 +28,7 @@ import co.com.ies.smolplus.technical.infrastructure.primary.exception.BadRequest
 
 @RestController
 @RequestMapping("/api")
-public class EventTypeResource {
+public class  EventTypeResource {
 
   private final Logger log = LoggerFactory.getLogger(EventTypeResource.class);
 
