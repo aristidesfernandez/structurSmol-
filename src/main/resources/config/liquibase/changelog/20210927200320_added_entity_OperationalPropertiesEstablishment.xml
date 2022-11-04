@@ -14,7 +14,7 @@
             <column name="id" type="smallInt">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="value" type="varchar(255)">
+            <column name="value" type="${text}">
                 <constraints nullable="true" />
             </column>
             <column name="key_operating_property_id" type="smallInt">

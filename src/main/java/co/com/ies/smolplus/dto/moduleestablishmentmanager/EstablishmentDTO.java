@@ -30,6 +30,8 @@ public class EstablishmentDTO {
 
     private Float latitude;
 
+    private String timeZone;
+
     private String mercantileRegistration;
 
     private OperatorDTO operator;
@@ -114,6 +116,14 @@ public class EstablishmentDTO {
 
     public void setLongitude(Float longitude) {
         this.longitude = longitude;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public Float getLatitude() {

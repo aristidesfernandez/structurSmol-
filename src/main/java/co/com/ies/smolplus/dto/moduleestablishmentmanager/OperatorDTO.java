@@ -19,6 +19,8 @@ public class OperatorDTO {
 
     private String companyName;
 
+    private String timeZone;
+
     private String brand;
 
     private MunicipalityDTO municipality;
@@ -77,6 +79,14 @@ public class OperatorDTO {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public String getBrand() {

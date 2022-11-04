@@ -18,6 +18,7 @@
     <property name="smallSerial" value="smallserial" dbms="postgresql"/>
     <property name="smallInt" value="smallint" dbms="postgresql"/>
     <property name="integer" value="integer" dbms="postgresql"/> 
+    <property name="text" value="text" dbms="postgresql"/> 
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210927194520_added_entity_EventType.xml" relativeToChangelogFile="false"/>

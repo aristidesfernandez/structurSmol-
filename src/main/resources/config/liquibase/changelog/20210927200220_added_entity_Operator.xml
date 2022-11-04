@@ -32,6 +32,9 @@
             <column name="company_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="time_zone" type="${text}">
+                <constraints nullable="true" />
+            </column>
             <column name="brand" type="varchar(50)">
                 <constraints nullable="true" />
             </column>

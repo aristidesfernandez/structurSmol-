@@ -29,6 +29,8 @@ public class Establishment {
 
     private Float latitude;
 
+    private String timeZone;
+
     private String mercantileRegistration;
 
     private Operator operator;
@@ -121,6 +123,14 @@ public class Establishment {
 
     public void setLatitude(Float latitude) {
         this.latitude = latitude;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public String getMercantileRegistration() {

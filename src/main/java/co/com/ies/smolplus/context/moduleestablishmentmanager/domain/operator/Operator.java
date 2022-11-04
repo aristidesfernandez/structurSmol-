@@ -20,6 +20,8 @@ public class Operator {
 
     private String companyName;
 
+    private String timeZone;
+
     private String brand;
 
     private Municipality municipality;
@@ -79,6 +81,15 @@ public class Operator {
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
 
     public String getBrand() {
         return brand;

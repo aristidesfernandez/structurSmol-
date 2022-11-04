@@ -67,6 +67,9 @@ public class EstablishmentEntity implements Serializable{
     @Column(name = "latitude")
     private Float latitude;
 
+    @Column(name = "time_zone")
+    private String timeZone;
+
     @Size(max = 100)
     @Column(name = "mercantile_registration", length = 100)
     private String mercantileRegistration;
@@ -167,6 +170,19 @@ public class EstablishmentEntity implements Serializable{
 
     public void setLatitude(Float latitude) {
         this.latitude = latitude;
+    }
+
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public Operator timeZone(String timeZone) {
+        this.setTimeZone(timeZone);
+        return this;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public String getMercantileRegistration() {

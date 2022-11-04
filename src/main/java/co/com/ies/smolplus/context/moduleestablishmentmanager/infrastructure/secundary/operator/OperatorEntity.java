@@ -47,6 +47,9 @@ public class OperatorEntity implements Serializable{
     @Column(name = "company_name")
     private String companyName;
 
+    @Column(name = "time_zone")
+    private String timeZone;
+
     @Size(max = 50)
     @Column(name = "brand", length = 50)
     private String brand;
@@ -110,6 +113,19 @@ public class OperatorEntity implements Serializable{
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public Operator timeZone(String timeZone) {
+        this.setTimeZone(timeZone);
+        return this;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public String getBrand() {

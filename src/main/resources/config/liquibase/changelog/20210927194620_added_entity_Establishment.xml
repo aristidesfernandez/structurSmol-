@@ -44,6 +44,9 @@
             <column name="latitude" type="${floatType}">
                 <constraints nullable="true" />
             </column>
+            <column name="time_zone" type="${text}">
+                <constraints nullable="true" />
+            </column>
             <column name="mercantile_registration" type="varchar(100)">
                 <constraints nullable="true" />
             </column>
