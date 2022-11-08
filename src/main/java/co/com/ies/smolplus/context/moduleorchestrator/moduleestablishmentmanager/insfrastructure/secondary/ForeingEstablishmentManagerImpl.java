@@ -3,6 +3,8 @@ package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanage
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.EstablishmentManagerService;
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain.ForeingEstablishmentManager;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
 import co.com.ies.smolplus.dto.moduleeventmanager.EventDeviceDTO;
 
@@ -28,5 +30,15 @@ public class ForeingEstablishmentManagerImpl implements ForeingEstablishmentMana
   @Override
   public List<CounterEventDTO> getCounterEventByEventDeviceId(UUID id) {
     return eventManagerService.getCounterEventByEventDeviceId(id);
+  }
+
+  @Override
+  public List<OperatorDTO> getOperators() {
+    return establishmentManagerService.getOperators();
+  }
+
+  @Override
+  public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
+    return establishmentManagerService.getEstablishmentByOperatorId(id);
   }
 }
