@@ -3,6 +3,7 @@ package co.com.ies.smolplus.context.moduleestablishmentmanager.application.impl;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.establishment.EstablishmentService;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.operator.OperatorService;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operator.Operator;
+import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class EstablishmentManagerServiceImpl implements EstablishmentManagerServ
 
   private final EstablishmentService establishmentService;
 
+
   public EstablishmentManagerServiceImpl(OperatorService operatorService, EstablishmentService establishmentService) {
     this.operatorService = operatorService;
     this.establishmentService = establishmentService;
@@ -27,11 +29,12 @@ public class EstablishmentManagerServiceImpl implements EstablishmentManagerServ
 
   @Override
   public List<OperatorDTO> getOperators() {
-    return null;
+    return operatorService.getOperators();
   }
 
   @Override
   public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
-    return null;
+    return establishmentService.getEstablishmentByOperatorId(id);
   }
+
 }

@@ -1,6 +1,7 @@
 package co.com.ies.smolplus.context.moduleestablishmentmanager.application.operator.impl;
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.operator.OperatorService;
+import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operator.Operator;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operator.OperatorRepository;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.primary.mapper.operator.OperatorMapper;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
@@ -20,6 +21,8 @@ public class OperatorServiceImpl implements OperatorService {
 
   @Override
   public List<OperatorDTO> getOperators() {
-    return null;
+    List<Operator> operatorList = operatorRepository.getOperators();
+    List<OperatorDTO> operatorDTOList = operatorMapper.toDto(operatorList);
+    return operatorDTOList;
   }
 }

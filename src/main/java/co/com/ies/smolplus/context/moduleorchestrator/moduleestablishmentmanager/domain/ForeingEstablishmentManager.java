@@ -1,5 +1,6 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain;
 
+import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
@@ -19,4 +20,5 @@ public interface ForeingEstablishmentManager {
 
   List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id);
 
+  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(UUID id);
 }

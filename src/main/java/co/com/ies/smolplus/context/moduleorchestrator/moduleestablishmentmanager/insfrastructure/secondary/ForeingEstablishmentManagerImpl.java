@@ -1,8 +1,10 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.insfrastructure.secondary;
 
+import co.com.ies.smolplus.context.moduledevicemanager.application.DeviceManagerService;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.EstablishmentManagerService;
 import co.com.ies.smolplus.context.moduleeventmanager.application.EventManagerService;
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain.ForeingEstablishmentManager;
+import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
@@ -16,6 +18,8 @@ public class ForeingEstablishmentManagerImpl implements ForeingEstablishmentMana
 
   private EstablishmentManagerService establishmentManagerService;
   private EventManagerService eventManagerService;
+
+  private DeviceManagerService deviceManagerService;
 
   public ForeingEstablishmentManagerImpl(EstablishmentManagerService establishmentManagerService, EventManagerService eventManagerService) {
     this.establishmentManagerService = establishmentManagerService;
@@ -41,4 +45,10 @@ public class ForeingEstablishmentManagerImpl implements ForeingEstablishmentMana
   public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
     return establishmentManagerService.getEstablishmentByOperatorId(id);
   }
+
+  @Override
+  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(UUID id) {
+    return deviceManagerService.getDeviceEstablishmentByEstablishmentId(id);
+  }
+
 }

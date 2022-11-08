@@ -1,6 +1,7 @@
 package co.com.ies.smolplus.context.moduleestablishmentmanager.application.establishment.impl;
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.establishment.EstablishmentService;
+import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.establishment.Establishment;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.establishment.EstablishmentRepository;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.primary.mapper.establishment.EstablishmentMapper;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
@@ -22,6 +23,8 @@ public class EstablishmentServiceImpl implements EstablishmentService {
 
   @Override
   public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
+    List<Establishment> establishmentList = establishmentRepository.getEstablishmentByOperatorId(id);
+    List<EstablishmentDTO> establishmentDTOList = establishmentMapper.toDto(establishmentList);
     return null;
   }
 }

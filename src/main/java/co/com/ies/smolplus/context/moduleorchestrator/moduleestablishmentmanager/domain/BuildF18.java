@@ -1,5 +1,6 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain;
 
+import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
@@ -27,7 +28,7 @@ public class BuildF18 {
     List<OperatorDTO> operatorDTOList = foreingEstablishmentManager.getOperators();
     UUID id = new UUID(1,1);
     List<EstablishmentDTO> establishmentDTOList = foreingEstablishmentManager.getEstablishmentByOperatorId(id);
-
+    List<DeviceEstablishmentDTO> deviceEstablishmentDTOList = foreingEstablishmentManager.getDeviceEstablishmentByEstablishmentId(id);
 
 
     return null;
