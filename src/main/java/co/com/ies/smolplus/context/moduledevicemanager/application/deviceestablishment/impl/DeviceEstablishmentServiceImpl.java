@@ -23,7 +23,7 @@ public class DeviceEstablishmentServiceImpl implements DeviceEstablishmentServic
   }
 
   @Override
-  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id) {
+  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Long id) {
     List<DeviceEstablishment> deviceEstablishmentList = deviceEstablishmentRepository.getDeviceEstablishmentByEstablishmentId(id);
     List<DeviceEstablishmentDTO> deviceEstablishmentDTOList = deviceEstablishmentMapper.toDto(deviceEstablishmentList);
     return deviceEstablishmentDTOList;

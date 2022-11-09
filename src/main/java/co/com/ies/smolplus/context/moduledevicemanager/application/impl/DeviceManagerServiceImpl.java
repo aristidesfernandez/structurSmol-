@@ -20,7 +20,7 @@ public class DeviceManagerServiceImpl implements DeviceManagerService {
   }
 
   @Override
-  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id) {
+  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Long id) {
     return deviceEstablishmentService.getDeviceEstablishmentByEstablishmentId(id);
   }
 }

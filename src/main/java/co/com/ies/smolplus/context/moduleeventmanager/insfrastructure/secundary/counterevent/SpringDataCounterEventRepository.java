@@ -24,11 +24,8 @@ public class SpringDataCounterEventRepository implements CounterEventRepository 
 
   @Override
   public List<CounterEvent> getCounterEventByEventDeviceId(UUID id) {
-    Optional<List<CounterEventEntity>> counterEventEntityList = jpaCounterEventRepository.findAllByEventDeviceId(id);
-    System.out.println("**************** id : "+id);
-    System.out.println("**************** counterEventEntityList : "+counterEventEntityList);
-    List<CounterEvent> counterEventList = counterEventEntityMapper.toDomain(counterEventEntityList.get());
-    System.out.println("**************** counterEventList : "+counterEventList);
+    Optional<List<CounterEventEntity>> counterEventByEventDevice = jpaCounterEventRepository.findAllCounterEventByEventDeviceId(id);
+    List<CounterEvent> counterEventList = counterEventEntityMapper.toDomain(counterEventByEventDevice.get());
     return counterEventList;
   }
 }

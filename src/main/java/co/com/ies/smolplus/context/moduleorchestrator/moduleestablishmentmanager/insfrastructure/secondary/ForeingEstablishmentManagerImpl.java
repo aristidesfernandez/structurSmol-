@@ -52,7 +52,7 @@ public class ForeingEstablishmentManagerImpl implements ForeingEstablishmentMana
 
   @Override
   public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id) {
-    return deviceManagerService.getDeviceEstablishmentByEstablishmentId(id);
+    return deviceManagerService.getDeviceEstablishmentByEstablishmentId(Long.valueOf(id));
   }
 
 }

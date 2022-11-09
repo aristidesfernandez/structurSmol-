@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface DeviceManagerService {
 
-    List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id);
+    List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Long id);
 }

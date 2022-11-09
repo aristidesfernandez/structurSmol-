@@ -1,5 +1,6 @@
 package co.com.ies.smolplus.dto.moduleeventmanager;
 
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
@@ -9,7 +10,7 @@ public class EventDeviceDTO {
 
   private ZonedDateTime createdAt;
 
-  private Boolean theoreticalPercentage;
+  private BigDecimal theoreticalPercentage;
 
   private Double moneyDenomination;
 
@@ -33,11 +34,11 @@ public class EventDeviceDTO {
     this.createdAt = createdAt;
   }
 
-  public Boolean getTheoreticalPercentage() {
+  public BigDecimal getTheoreticalPercentage() {
     return theoreticalPercentage;
   }
 
-  public void setTheoreticalPercentage(Boolean theoreticalPercentage) {
+  public void setTheoreticalPercentage(BigDecimal theoreticalPercentage) {
     this.theoreticalPercentage = theoreticalPercentage;
   }
 

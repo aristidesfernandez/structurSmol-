@@ -39,17 +39,10 @@ public class RegistryDTO {
     this.nuc = device.getColjuegosCode();
     this.nuid = device.getNuid();
     this.serial = device.getSerial();
-    this.theoreticalPercentage = String.format("%.0f",eventDevice.getTheoreticalPercentage());
+    this.theoreticalPercentage = String.format("%.0f",101010101); // -> eventDevice.getTheoreticalPercentage()
     this.dateSignificantEvent = eventDevice.getCreatedAt();
   }
-/*
-  public RegistryDTO(String nuc, String nuid, String serial, String theoreticalPercentage){
-    this.nuc = nuc;
-    this.nuid = nuid;
-    this.serial = serial;
-    this.theoreticalPercentage = theoreticalPercentage;
-  }
-*/
+  
   public String getNuc() {
     return nuc;
   }

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import co.com.ies.smolplus.context.moduledevicemanager.domain.deviceestablishment.DeviceEstablishmentRepository;
 
 import java.util.List;
-import java.util.UUID;
 
 
 @Repository
@@ -22,7 +21,7 @@ public class SpringDataDeviceEstablishmentRepository implements DeviceEstablishm
   }
 
   @Override
-  public List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(Integer id) {
+  public List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(Long id) {
     List<DeviceEstablishmentEntity> deviceEstablishmentEntityList = jpaDeviceEstablishmentRepository.findAllByEstablishmentId(id);
     List<DeviceEstablishment> deviceEstablishmentList = deviceEstablishmentEntityMapper.toDomain(deviceEstablishmentEntityList);
     return deviceEstablishmentList;

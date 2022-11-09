@@ -5,5 +5,5 @@ import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import java.util.List;
 
 public interface DeviceEstablishmentService {
-  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id);
+  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Long id);
 }

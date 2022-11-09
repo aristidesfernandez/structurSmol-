@@ -2,10 +2,9 @@ package co.com.ies.smolplus.context.moduledevicemanager.domain.deviceestablishme
 
 
 import java.util.List;
-import java.util.UUID;
 
 public interface DeviceEstablishmentRepository {
 
 
-    List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(Integer id);
+    List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(Long id);
 }
