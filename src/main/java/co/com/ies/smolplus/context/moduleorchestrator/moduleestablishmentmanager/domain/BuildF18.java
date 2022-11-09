@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class BuildF18 {
@@ -19,14 +20,22 @@ public class BuildF18 {
   public static final BigInteger COUNTER_ON_ZERO = BigInteger.ZERO;
   private List<CounterEventDTO> notReportedCounterEventsDevice = new ArrayList<>();
   private static final int ZERO_DECIMALS = 0;
-
+  public static final String F_18 = "F18";
+  public static final String A_KEY = "A KEY";
+  public static final String FORMAT_YYYY_MM_DD = "yyyyMMdd";
+  private static final Integer CONTROL_HOUR = 6;
+  private static final Long ONE_DAY= 1L;
+  public static final int CONTROL_MINUTE = 0;
+  static ZonedDateTime controlTime = ZonedDateTime.now().withHour(CONTROL_HOUR)
+          .withMinute(CONTROL_MINUTE).withSecond(0);
+ 
 
   public BuildF18(ForeingEstablishmentManager foreingEstablishmentManager) {
     this.foreingEstablishmentManager = foreingEstablishmentManager;
   }
 
-  public List<ColjuegosRDDTO> getF18(){
-    List<ColjuegosRDDTO> registries = new ArrayList<>();
+  public List<ColjuegosF18DataDTO> getF18(){
+    List<ColjuegosF18DataDTO> coljuegosF18DataDTO = new ArrayList<>();
 
     ZonedDateTime controlTime = ZonedDateTime.now().withHour(6)
       .withMinute(0).withSecond(0);
@@ -36,10 +45,10 @@ public class BuildF18 {
 
     for (Map.Entry<Long, List<EstablishmentDTO>> operatorWithEstablishmentList : operatorsWithEstablishmentMap.entrySet()) {
       List<EstablishmentDTO> operatorWithEstablishments = operatorWithEstablishmentList.getValue();
-      registries = buildF18(operatorWithEstablishments, eventDeviceByDate, controlTime);
-      System.out.println("**** registries1 "+registries);
+      coljuegosF18DataDTO.add(buildF18(operatorWithEstablishments, eventDeviceByDate, controlTime));
+      System.out.println("**** coljuegosF18DataDTO "+coljuegosF18DataDTO);
     }
-    return registries;
+    return coljuegosF18DataDTO;
   }
 
   Map<Long,List<EstablishmentDTO>> getEstablishmentByOperator() {
@@ -55,32 +64,54 @@ public class BuildF18 {
     return operatorsWithEstablishmentMap;
   }
 
-  public List<ColjuegosRDDTO> buildF18(List<EstablishmentDTO> operatorWithEstablishments, List<EventDeviceDTO> eventDeviceByDate, ZonedDateTime controlTime) {
-    List<ColjuegosRDDTO> registries = new ArrayList<>();
-    Map<Integer,List<DeviceEstablishmentDTO>> deviceEstablishmentByEstablishmentId = new HashMap<>();
+  public ColjuegosF18DataDTO buildF18(List<EstablishmentDTO> operatorWithEstablishments, List<EventDeviceDTO> eventDeviceByDate, ZonedDateTime controlTime) {
+    
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(FORMAT_YYYY_MM_DD);
+    String dateReportFormatted = controlTime.minusDays(ONE_DAY).format(formatter); //TODO es ZonedDateTime o String
+    
+    
+    List<ColjuegosRCDTO> coljuegosRCDTOList = new ArrayList<>();
+    Map<String,List<DeviceEstablishmentDTO>> deviceEstablishmentByEstablishmentId = new HashMap<>();
+    ColjuegosF18DataDTO coljuegosF18DataDTO = new ColjuegosF18DataDTO();
 
     for (EstablishmentDTO establishmentByOperator : operatorWithEstablishments) {
+      System.out.println("*********** operatorWithEstablishments : "+operatorWithEstablishments);
       Integer establishmentId = establishmentByOperator.getId().intValue();
-      deviceEstablishmentByEstablishmentId.put(establishmentId, foreingEstablishmentManager.getDeviceEstablishmentByEstablishmentId(establishmentId));
+      String coljuegosCode = establishmentByOperator.getColjuegosCode();
+      deviceEstablishmentByEstablishmentId.put(coljuegosCode, foreingEstablishmentManager.getDeviceEstablishmentByEstablishmentId(establishmentId));
     }
 
-    for (Map.Entry<Integer,List<DeviceEstablishmentDTO>> deviceEstablishment : deviceEstablishmentByEstablishmentId.entrySet()) {
+    System.out.println("*********** operatorWithEstablishments : "+operatorWithEstablishments);
+
+    String nit = operatorWithEstablishments.get(0).getOperator().getNit();
+    String contract = operatorWithEstablishments.get(0).getOperator().getContractNumber();
+
+    ColjuegosRIDTO coljuegosRIDTO = getRiRegistry(dateReportFormatted,nit);
+
+    for (Map.Entry<String,List<DeviceEstablishmentDTO>> deviceEstablishment : deviceEstablishmentByEstablishmentId.entrySet()) {
       for (DeviceEstablishmentDTO valueDeviceEstablishment : deviceEstablishment.getValue()) {
-        registries = buildRegistry(eventDeviceByDate, valueDeviceEstablishment, controlTime);
-        System.out.println("**** registries2 "+registries); 
+        String coljuegosCode = deviceEstablishment.getKey();
+        ColjuegosRCDTO coljuegosRCDTO = buildRegistry(eventDeviceByDate, valueDeviceEstablishment, contract, controlTime, coljuegosCode);
+        coljuegosRCDTOList.add(coljuegosRCDTO);
       }
     }
-    return registries;
+    System.out.println("**** coljuegosRCDTOList "+ coljuegosRCDTOList); 
+
+    coljuegosF18DataDTO.setRI(coljuegosRIDTO);
+    coljuegosF18DataDTO.setRC(coljuegosRCDTOList);
+    coljuegosF18DataDTO.setRF(null);
+    return coljuegosF18DataDTO;
   }
 
 
-  public List<ColjuegosRDDTO> buildRegistry(List<EventDeviceDTO> eventDeviceByDate, DeviceEstablishmentDTO valueDeviceEstablishment, ZonedDateTime controlTime){
+  public ColjuegosRCDTO buildRegistry(List<EventDeviceDTO> eventDeviceByDate, DeviceEstablishmentDTO valueDeviceEstablishment, String contract, ZonedDateTime controlTime, String coljuegosCode){
 
     ZonedDateTime controlTimeDayBefore = controlTime.minusHours(ONE_HOUR);
 
     List<ColjuegosRDDTO> registries = new ArrayList<>();
     List<EventDeviceDTO> notReportedEvents = new ArrayList<>();
-    List<EventDeviceDTO>  eventDeviceByEstablishmentList = new ArrayList<>();
+    List<EventDeviceDTO> eventDeviceByEstablishmentList = new ArrayList<>();
+    
 
     for (EventDeviceDTO eventDeviceDTO : eventDeviceByDate) {
       if (eventDeviceDTO.getDeviceId().equals(valueDeviceEstablishment.getDevice().getId())) {
@@ -89,10 +120,11 @@ public class BuildF18 {
     }
 
     for (EventDeviceDTO eventDeviceByEstablishment : eventDeviceByEstablishmentList) {
+
       String eventCode = eventDeviceByEstablishment.getEventType().getEventCode();
       ZonedDateTime dateSignificantEvent = eventDeviceByEstablishment.getCreatedAt();
       String eventCodeColjuegos = changeEventCode(eventCode);
-
+      
       Boolean isSignificant = Boolean.FALSE;
       if (!eventCodeColjuegos.equals(NOT_FOUND_EVENT)) {
         isSignificant = Boolean.TRUE;
@@ -133,7 +165,9 @@ public class BuildF18 {
       registry.setSignificantEvent(eventCodeColjuegos);
       registries.add(registry);
     }
-    return registries;
+    BigInteger totalRDEventsLocal = BigInteger.valueOf(registries.size());
+    ColjuegosRCDTO coljuegosRCDTO = getRcRegistry(contract, coljuegosCode, registries, totalRDEventsLocal);
+    return coljuegosRCDTO;
   }
 
   private String changeEventCode(String eventCode) {
@@ -206,6 +240,41 @@ public class BuildF18 {
     return valueCounter.multiply(sale.multiply(money)).setScale(ZERO_DECIMALS, RoundingMode.HALF_UP);
   }
 
+  private static ColjuegosRIDTO getRiRegistry(String dateReport, String nit) {
+    ColjuegosRIDTO riRegistry = new ColjuegosRIDTO();
+    riRegistry.setFechaReporte(dateReport);
+    riRegistry.setNit(Long.valueOf(nit));
+    riRegistry.setFormato(F_18);
+    riRegistry.setClave(A_KEY);
+    return riRegistry;
+  }
 
+  private static ColjuegosRCDTO getRcRegistry(String contract, String localNumber,
+        List<ColjuegosRDDTO> allEventsLocal, BigInteger totalRDEventsLocal) {
+        ColjuegosRCDTO rcRegistry = new ColjuegosRCDTO();
+        rcRegistry.setContrato(contract);
+        rcRegistry.setCodigoLocal(localNumber);
+        List<ColjuegosRDDTO> rdRegistries = getRdRegistries(allEventsLocal);
+        rcRegistry.setRD(rdRegistries);
+        ColjuegosREDTO reRegistry = getReRegistry(contract, localNumber, totalRDEventsLocal);
+        rcRegistry.setRE(reRegistry);
+        return rcRegistry;
+  }
+  
+  private static List<ColjuegosRDDTO> getRdRegistries(List<ColjuegosRDDTO> allEventsLocal) {
+    List<ColjuegosRDDTO> registries = new ArrayList<>();
+    for (ColjuegosRDDTO event : allEventsLocal) {
+      ColjuegosRDDTO rdRegistry = event;
+        registries.add(rdRegistry);
+    }
+    return registries;
+}
 
+private static ColjuegosREDTO getReRegistry(String contract, String localNumber, BigInteger totalRDEventsLocal) {
+    ColjuegosREDTO reRegistry = new ColjuegosREDTO();
+    reRegistry.setContrato(contract);
+    reRegistry.setCodigoLocal(localNumber);
+    reRegistry.setTotalRD(totalRDEventsLocal);
+    return reRegistry;
+}
 }
