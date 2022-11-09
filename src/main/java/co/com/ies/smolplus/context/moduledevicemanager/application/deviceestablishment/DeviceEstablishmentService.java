@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface DeviceEstablishmentService {
-  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(UUID id);
+  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id);
 }

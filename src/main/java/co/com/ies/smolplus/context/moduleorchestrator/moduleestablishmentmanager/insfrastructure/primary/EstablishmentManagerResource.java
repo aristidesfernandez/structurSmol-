@@ -28,7 +28,7 @@ public class EstablishmentManagerResource {
   public ResponseEntity<EventDeviceDTO> buildF18() {
     log.debug("REST request to GET buildF18 : {}");
 
-    EventDeviceDTO eventDeviceDTOList = establishmentManagerRequest.buildF18();
+    EventDeviceDTO eventDeviceDTOList = establishmentManagerRequest.getF18();
     log.debug("REST RESPONSE to GET buildF18 : {}", eventDeviceDTOList );
     System.out.println("REST RESPONSE to save buildF18 : {}"+ eventDeviceDTOList );
 

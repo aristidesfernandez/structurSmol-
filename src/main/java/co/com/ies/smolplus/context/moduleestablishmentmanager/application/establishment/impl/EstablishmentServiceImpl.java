@@ -22,7 +22,7 @@ public class EstablishmentServiceImpl implements EstablishmentService {
 
 
   @Override
-  public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
+  public List<EstablishmentDTO> getEstablishmentByOperatorId(Long id) {
     List<Establishment> establishmentList = establishmentRepository.getEstablishmentByOperatorId(id);
     List<EstablishmentDTO> establishmentDTOList = establishmentMapper.toDto(establishmentList);
     return null;

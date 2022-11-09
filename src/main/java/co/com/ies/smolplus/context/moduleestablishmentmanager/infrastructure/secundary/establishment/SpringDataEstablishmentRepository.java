@@ -22,7 +22,7 @@ public class SpringDataEstablishmentRepository implements EstablishmentRepositor
   }
 
   @Override
-  public List<Establishment> getEstablishmentByOperatorId(UUID id) {
+  public List<Establishment> getEstablishmentByOperatorId(Long id) {
     List<EstablishmentEntity> establishmentEntityList= jpaEstablishmentRepository.findAllByOperatorId(id);
     List<Establishment> establishmentList = establishmentEntityMapper.toDomain(establishmentEntityList);
     return null;

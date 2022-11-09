@@ -22,7 +22,7 @@ public class EstablishmentManagerRequestImpl implements EstablishmentManagerRequ
   }
 
   @Override
-  public EventDeviceDTO buildF18() {
-    return buildF18.buildF18();
+  public EventDeviceDTO getF18() {
+    return buildF18.getF18();
   }
 }

@@ -33,7 +33,7 @@ public class EstablishmentManagerServiceImpl implements EstablishmentManagerServ
   }
 
   @Override
-  public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
+  public List<EstablishmentDTO> getEstablishmentByOperatorId(Long id) {
     return establishmentService.getEstablishmentByOperatorId(id);
   }
 

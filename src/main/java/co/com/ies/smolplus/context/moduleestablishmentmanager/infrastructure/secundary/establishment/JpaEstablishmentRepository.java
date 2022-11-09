@@ -8,5 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface JpaEstablishmentRepository extends JpaRepository<EstablishmentEntity, Long>, JpaSpecificationExecutor<EstablishmentEntity> {
-    List<EstablishmentEntity> findAllByOperatorId(UUID id);
+    List<EstablishmentEntity> findAllByOperatorId(Long id);
 }

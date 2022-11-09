@@ -5,5 +5,5 @@ import java.util.UUID;
 
 public interface EstablishmentRepository {
 
-    List<Establishment> getEstablishmentByOperatorId(UUID id);
+    List<Establishment> getEstablishmentByOperatorId(Long id);
 }

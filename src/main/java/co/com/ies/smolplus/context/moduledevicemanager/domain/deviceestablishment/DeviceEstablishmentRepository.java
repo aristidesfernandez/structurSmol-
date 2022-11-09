@@ -7,5 +7,5 @@ import java.util.UUID;
 public interface DeviceEstablishmentRepository {
 
 
-    List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(UUID id);
+    List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(Integer id);
 }

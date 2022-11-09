@@ -7,6 +7,6 @@ import java.util.UUID;
 
 public interface EstablishmentService {
 
-  List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id);
+  List<EstablishmentDTO> getEstablishmentByOperatorId(Long id);
 
 }

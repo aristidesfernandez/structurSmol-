@@ -12,5 +12,5 @@ import java.util.UUID;
 @Repository
 public interface JpaDeviceEstablishmentRepository extends JpaRepository<DeviceEstablishmentEntity, Long>, JpaSpecificationExecutor<DeviceEstablishmentEntity> {
 
-  List<DeviceEstablishmentEntity> findAllByEstablishmentId(UUID id);
+  List<DeviceEstablishmentEntity> findAllByEstablishmentId(Integer id);
 }

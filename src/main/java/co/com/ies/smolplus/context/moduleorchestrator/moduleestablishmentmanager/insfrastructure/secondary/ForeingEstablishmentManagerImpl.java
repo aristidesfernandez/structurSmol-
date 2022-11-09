@@ -42,12 +42,12 @@ public class ForeingEstablishmentManagerImpl implements ForeingEstablishmentMana
   }
 
   @Override
-  public List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id) {
+  public List<EstablishmentDTO> getEstablishmentByOperatorId(Long id) {
     return establishmentManagerService.getEstablishmentByOperatorId(id);
   }
 
   @Override
-  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(UUID id) {
+  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id) {
     return deviceManagerService.getDeviceEstablishmentByEstablishmentId(id);
   }
 

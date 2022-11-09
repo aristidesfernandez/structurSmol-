@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface EstablishmentManagerRequest {
 
-  EventDeviceDTO buildF18();
+  EventDeviceDTO getF18();
 
 }

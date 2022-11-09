@@ -17,7 +17,7 @@ public class DeviceManagerServiceImpl implements DeviceManagerService {
   private DeviceEstablishmentService deviceEstablishmentService;
 
   @Override
-  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(UUID id) {
+  public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id) {
     return deviceEstablishmentService.getDeviceEstablishmentByEstablishmentId(id);
   }
 }

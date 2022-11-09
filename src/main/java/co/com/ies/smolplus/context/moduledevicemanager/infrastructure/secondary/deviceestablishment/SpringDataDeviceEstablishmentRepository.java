@@ -22,7 +22,7 @@ public class SpringDataDeviceEstablishmentRepository implements DeviceEstablishm
   }
 
   @Override
-  public List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(UUID id) {
+  public List<DeviceEstablishment> getDeviceEstablishmentByEstablishmentId(Integer id) {
     List<DeviceEstablishmentEntity> deviceEstablishmentEntityList = jpaDeviceEstablishmentRepository.findAllByEstablishmentId(id);
     List<DeviceEstablishment> deviceEstablishmentList = deviceEstablishmentEntityMapper.toDomain(deviceEstablishmentEntityList);
     return deviceEstablishmentList;

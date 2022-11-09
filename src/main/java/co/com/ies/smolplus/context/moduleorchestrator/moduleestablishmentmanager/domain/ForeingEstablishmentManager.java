@@ -18,7 +18,7 @@ public interface ForeingEstablishmentManager {
 
   List<OperatorDTO> getOperators();
 
-  List<EstablishmentDTO> getEstablishmentByOperatorId(UUID id);
+  List<EstablishmentDTO> getEstablishmentByOperatorId(Long id);
 
-  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(UUID id);
+  List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id);
 }
