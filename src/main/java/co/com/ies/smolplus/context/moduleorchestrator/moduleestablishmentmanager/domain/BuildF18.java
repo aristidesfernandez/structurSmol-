@@ -97,9 +97,11 @@ public class BuildF18 {
     }
     System.out.println("**** coljuegosRCDTOList "+ coljuegosRCDTOList); 
 
+    ColjuegosRFDTO coljuegosRFDTO = getRfRegistry(dateReportFormatted, nit, 0);
+
     coljuegosF18DataDTO.setRI(coljuegosRIDTO);
     coljuegosF18DataDTO.setRC(coljuegosRCDTOList);
-    coljuegosF18DataDTO.setRF(null);
+    coljuegosF18DataDTO.setRF(coljuegosRFDTO);
     return coljuegosF18DataDTO;
   }
 
@@ -268,13 +270,22 @@ public class BuildF18 {
         registries.add(rdRegistry);
     }
     return registries;
-}
+  }
 
-private static ColjuegosREDTO getReRegistry(String contract, String localNumber, BigInteger totalRDEventsLocal) {
-    ColjuegosREDTO reRegistry = new ColjuegosREDTO();
-    reRegistry.setContrato(contract);
-    reRegistry.setCodigoLocal(localNumber);
-    reRegistry.setTotalRD(totalRDEventsLocal);
-    return reRegistry;
+  private static ColjuegosREDTO getReRegistry(String contract, String localNumber, BigInteger totalRDEventsLocal) {
+      ColjuegosREDTO reRegistry = new ColjuegosREDTO();
+      reRegistry.setContrato(contract);
+      reRegistry.setCodigoLocal(localNumber);
+      reRegistry.setTotalRD(totalRDEventsLocal);
+      return reRegistry;
+  }
+
+  private static ColjuegosRFDTO getRfRegistry(String dateReport, String nit, Integer totalRDEvents) {
+    ColjuegosRFDTO rfRegistry = new ColjuegosRFDTO();
+    rfRegistry.setFechaReporte(null);
+    rfRegistry.setNit(Long.valueOf(nit));
+    rfRegistry.setFormato(null);
+    rfRegistry.setTotalGlogalRegistrosListaRD(totalRDEvents.toString());
+    return rfRegistry;
 }
 }
