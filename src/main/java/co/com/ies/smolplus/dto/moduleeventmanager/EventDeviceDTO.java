@@ -10,7 +10,7 @@ public class EventDeviceDTO {
 
   private ZonedDateTime createdAt;
 
-  private BigDecimal theoreticalPercentage;
+  private Boolean theoreticalPercentage;
 
   private Double moneyDenomination;
 
@@ -34,11 +34,11 @@ public class EventDeviceDTO {
     this.createdAt = createdAt;
   }
 
-  public BigDecimal getTheoreticalPercentage() {
+  public Boolean getTheoreticalPercentage() {
     return theoreticalPercentage;
   }
 
-  public void setTheoreticalPercentage(BigDecimal theoreticalPercentage) {
+  public void setTheoreticalPercentage(Boolean theoreticalPercentage) {
     this.theoreticalPercentage = theoreticalPercentage;
   }
 

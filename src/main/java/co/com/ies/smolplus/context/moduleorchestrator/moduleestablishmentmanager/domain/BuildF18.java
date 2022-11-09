@@ -6,6 +6,7 @@ import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
 import co.com.ies.smolplus.dto.moduleeventmanager.EventDeviceDTO;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -15,7 +16,7 @@ public class BuildF18 {
   private final ForeingEstablishmentManager foreingEstablishmentManager;
   private static final Long ONE_HOUR= 1L;
   private static final String NOT_FOUND_EVENT = "notFound";
-  public static final String COUNTER_ON_ZERO = BigDecimal.ZERO.toString();
+  public static final BigInteger COUNTER_ON_ZERO = BigInteger.ZERO;
   private List<CounterEventDTO> notReportedCounterEventsDevice = new ArrayList<>();
   private static final int ZERO_DECIMALS = 0;
 
@@ -122,8 +123,12 @@ public class BuildF18 {
       setCounters(registry, countersEventDevice, eventDeviceByEstablishment.getMoneyDenomination());
 
       if (isMemoryWipeEvent) {
-        registry.setGamesPlayed(COUNTER_ON_ZERO).setCoinIn(COUNTER_ON_ZERO).setCoinOut(COUNTER_ON_ZERO)
-          .setJackPot(COUNTER_ON_ZERO).setHandPaid(COUNTER_ON_ZERO).setBillIn(COUNTER_ON_ZERO);
+        registry.setGamesPlayed(COUNTER_ON_ZERO);
+        registry.setCoinIn(COUNTER_ON_ZERO);
+        registry.setCoinOut(COUNTER_ON_ZERO);
+        registry.setJackPot(COUNTER_ON_ZERO);
+        registry.setHandPaid(COUNTER_ON_ZERO);
+        registry.setBillIn(COUNTER_ON_ZERO);
       }
       registry.setSignificantEvent(eventCodeColjuegos);
       registries.add(registry);
@@ -149,29 +154,29 @@ public class BuildF18 {
       BigDecimal valueCounter = BigDecimal.valueOf(counterEvent.getValueCounter());
 
       if (counterCode.equals(ColjuegosCountersEnum.PLAYED_GAMES.getCounterCode())) {
-        registry.setGamesPlayed(valueCounter.toString());
+        registry.setGamesPlayed(valueCounter.toBigInteger());
       }
 
       BigDecimal counterMoneyValue = counterToMoney(valueCounter, counterEvent.getDenominationSale(), moneyDenomination);
 
       if (counterCode.equals(ColjuegosCountersEnum.IN.getCounterCode())){
-        registry.setCoinIn(counterMoneyValue.toString());
+        registry.setCoinIn(counterMoneyValue.toBigInteger());
       }
 
       if (counterCode.equals(ColjuegosCountersEnum.OUT.getCounterCode())) {
-        registry.setCoinOut(counterMoneyValue.toString());
+        registry.setCoinOut(counterMoneyValue.toBigInteger());
       }
 
       if (counterCode.equals(ColjuegosCountersEnum.JP.getCounterCode())) {
-        registry.setJackPot(counterMoneyValue.toString());
+        registry.setJackPot(counterMoneyValue.toBigInteger());
       }
 
       if (counterCode.equals(ColjuegosCountersEnum.HP.getCounterCode())) {
-        registry.setHandPaid(counterMoneyValue.toString());
+        registry.setHandPaid(counterMoneyValue.toBigInteger());
       }
 
       if (counterCode.equals(ColjuegosCountersEnum.BILL.getCounterCode())) {
-        registry.setBillIn(counterMoneyValue.toString());
+        registry.setBillIn(counterMoneyValue.toBigInteger());
       }
     }
   }
