@@ -21,9 +21,10 @@ public class ForeingEstablishmentManagerImpl implements ForeingEstablishmentMana
 
   private DeviceManagerService deviceManagerService;
 
-  public ForeingEstablishmentManagerImpl(EstablishmentManagerService establishmentManagerService, EventManagerService eventManagerService) {
+  public ForeingEstablishmentManagerImpl(EstablishmentManagerService establishmentManagerService, EventManagerService eventManagerService, DeviceManagerService deviceManagerService) {
     this.establishmentManagerService = establishmentManagerService;
     this.eventManagerService = eventManagerService;
+    this.deviceManagerService = deviceManagerService;
   }
 
   @Override

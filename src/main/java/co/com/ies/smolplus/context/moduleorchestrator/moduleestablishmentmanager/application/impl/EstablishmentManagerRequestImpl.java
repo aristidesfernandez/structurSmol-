@@ -16,9 +16,9 @@ public class EstablishmentManagerRequestImpl implements EstablishmentManagerRequ
 
   private BuildF18 buildF18;
 
-  public EstablishmentManagerRequestImpl(ForeingEstablishmentManager foreingEstablishmentManager, BuildF18 buildF18) {
+  public EstablishmentManagerRequestImpl(ForeingEstablishmentManager foreingEstablishmentManager) {
     this.foreingEstablishmentManager = foreingEstablishmentManager;
-    this.buildF18 = new BuildF18(foreingEstablishmentManager);
+    this.buildF18 = new BuildF18(this.foreingEstablishmentManager);
   }
 
   @Override
