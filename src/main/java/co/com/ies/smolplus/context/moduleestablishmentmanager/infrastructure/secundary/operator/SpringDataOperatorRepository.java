@@ -2,7 +2,6 @@ package co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.se
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operator.Operator;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.primary.mapper.operator.OperatorEntityMapper;
-import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import org.springframework.stereotype.Repository;
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operator.OperatorRepository;
@@ -17,8 +16,10 @@ public class SpringDataOperatorRepository implements OperatorRepository {
 
   private OperatorEntityMapper operatorEntityMapper ;
 
-  public SpringDataOperatorRepository(JpaOperatorRepository jpaOperatorRepository) {
+  public SpringDataOperatorRepository(JpaOperatorRepository jpaOperatorRepository,
+      OperatorEntityMapper operatorEntityMapper) {
     this.jpaOperatorRepository = jpaOperatorRepository;
+    this.operatorEntityMapper = operatorEntityMapper;
   }
 
   @Override

@@ -15,6 +15,10 @@ public class DeviceManagerServiceImpl implements DeviceManagerService {
 
   private DeviceEstablishmentService deviceEstablishmentService;
 
+  public DeviceManagerServiceImpl(DeviceEstablishmentService deviceEstablishmentService) {
+    this.deviceEstablishmentService = deviceEstablishmentService;
+  }
+
   @Override
   public List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id) {
     return deviceEstablishmentService.getDeviceEstablishmentByEstablishmentId(id);

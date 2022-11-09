@@ -7,8 +7,10 @@ import co.com.ies.smolplus.context.moduledevicemanager.infrastructure.primary.ma
 import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 
 import java.util.List;
-import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class DeviceEstablishmentServiceImpl implements DeviceEstablishmentService {
 
   private DeviceEstablishmentRepository deviceEstablishmentRepository;

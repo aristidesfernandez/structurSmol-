@@ -1,10 +1,12 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.application;
 
-import co.com.ies.smolplus.dto.moduleeventmanager.EventDeviceDTO;
+import java.util.List;
+
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.RegistryDTO;
 
 
 public interface EstablishmentManagerRequest {
 
-  EventDeviceDTO getF18();
+  List<RegistryDTO> getF18();
 
 }

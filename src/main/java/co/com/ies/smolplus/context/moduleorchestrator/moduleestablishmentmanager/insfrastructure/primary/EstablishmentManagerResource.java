@@ -1,7 +1,10 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.insfrastructure.primary;
 
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.application.EstablishmentManagerRequest;
-import co.com.ies.smolplus.dto.moduleeventmanager.EventDeviceDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.RegistryDTO;
+
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +27,10 @@ public class EstablishmentManagerResource {
 
 
   @GetMapping("/buildF18")
-  public ResponseEntity<EventDeviceDTO> buildF18() {
+  public ResponseEntity<List<RegistryDTO>> buildF18() {
     log.debug("REST request to GET buildF18 : {}");
 
-    EventDeviceDTO eventDeviceDTOList = establishmentManagerRequest.getF18();
+    List<RegistryDTO> eventDeviceDTOList = establishmentManagerRequest.getF18();
     log.debug("REST RESPONSE to GET buildF18 : {}", eventDeviceDTOList );
     System.out.println("REST RESPONSE to save buildF18 : {}"+ eventDeviceDTOList );
 

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.establishment.EstablishmentRepository;
 
 import java.util.List;
-import java.util.UUID;
 
 
 @Repository
@@ -17,14 +16,17 @@ public class SpringDataEstablishmentRepository implements EstablishmentRepositor
 
   private EstablishmentEntityMapper establishmentEntityMapper;
 
-  public SpringDataEstablishmentRepository(JpaEstablishmentRepository jpaEstablishmentRepository) {
+  public SpringDataEstablishmentRepository(JpaEstablishmentRepository jpaEstablishmentRepository,
+      EstablishmentEntityMapper establishmentEntityMapper) {
     this.jpaEstablishmentRepository = jpaEstablishmentRepository;
+    this.establishmentEntityMapper = establishmentEntityMapper;
   }
+
 
   @Override
   public List<Establishment> getEstablishmentByOperatorId(Long id) {
     List<EstablishmentEntity> establishmentEntityList= jpaEstablishmentRepository.findAllByOperatorId(id);
     List<Establishment> establishmentList = establishmentEntityMapper.toDomain(establishmentEntityList);
-    return null;
+    return establishmentList;
   }
 }

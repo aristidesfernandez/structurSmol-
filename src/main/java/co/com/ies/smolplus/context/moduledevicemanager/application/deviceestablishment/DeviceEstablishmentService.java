@@ -3,7 +3,6 @@ package co.com.ies.smolplus.context.moduledevicemanager.application.deviceestabl
 import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface DeviceEstablishmentService {
   List<DeviceEstablishmentDTO> getDeviceEstablishmentByEstablishmentId(Integer id);
