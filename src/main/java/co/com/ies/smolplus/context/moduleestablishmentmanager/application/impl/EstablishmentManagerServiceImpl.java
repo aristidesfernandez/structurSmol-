@@ -2,8 +2,6 @@ package co.com.ies.smolplus.context.moduleestablishmentmanager.application.impl;
 
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.establishment.EstablishmentService;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.operator.OperatorService;
-import co.com.ies.smolplus.context.moduleestablishmentmanager.domain.operator.Operator;
-import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import co.com.ies.smolplus.context.moduleestablishmentmanager.application.EstablishmentManagerService;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Transactional

@@ -7,8 +7,10 @@ import co.com.ies.smolplus.context.moduleestablishmentmanager.infrastructure.pri
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.EstablishmentDTO;
 
 import java.util.List;
-import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class EstablishmentServiceImpl implements EstablishmentService {
 
   private EstablishmentRepository establishmentRepository;
@@ -25,6 +27,6 @@ public class EstablishmentServiceImpl implements EstablishmentService {
   public List<EstablishmentDTO> getEstablishmentByOperatorId(Long id) {
     List<Establishment> establishmentList = establishmentRepository.getEstablishmentByOperatorId(id);
     List<EstablishmentDTO> establishmentDTOList = establishmentMapper.toDto(establishmentList);
-    return null;
+    return establishmentDTOList;
   }
 }

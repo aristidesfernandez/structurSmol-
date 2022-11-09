@@ -8,6 +8,9 @@ import co.com.ies.smolplus.dto.moduleestablishmentmanager.OperatorDTO;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class OperatorServiceImpl implements OperatorService {
 
   private OperatorRepository operatorRepository;

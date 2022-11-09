@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import co.com.ies.smolplus.context.moduledevicemanager.application.DeviceManagerService;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Transactional
