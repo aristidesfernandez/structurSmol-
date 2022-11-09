@@ -1,7 +1,7 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.insfrastructure.primary;
 
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.application.EstablishmentManagerRequest;
-import co.com.ies.smolplus.dto.moduleestablishmentmanager.RegistryDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.ColjuegosRDDTO;
 
 import java.util.List;
 
@@ -27,10 +27,10 @@ public class EstablishmentManagerResource {
 
 
   @GetMapping("/buildF18")
-  public ResponseEntity<List<RegistryDTO>> buildF18() {
+  public ResponseEntity<List<ColjuegosRDDTO>> buildF18() {
     log.debug("REST request to GET buildF18 : {}");
 
-    List<RegistryDTO> eventDeviceDTOList = establishmentManagerRequest.getF18();
+    List<ColjuegosRDDTO> eventDeviceDTOList = establishmentManagerRequest.getF18();
     log.debug("REST RESPONSE to GET buildF18 : {}", eventDeviceDTOList );
     System.out.println("REST RESPONSE to save buildF18 : {}"+ eventDeviceDTOList );
 

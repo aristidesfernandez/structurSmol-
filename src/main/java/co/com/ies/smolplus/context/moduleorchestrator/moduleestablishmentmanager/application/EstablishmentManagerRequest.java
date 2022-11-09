@@ -2,11 +2,11 @@ package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanage
 
 import java.util.List;
 
-import co.com.ies.smolplus.dto.moduleestablishmentmanager.RegistryDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.ColjuegosRDDTO;
 
 
 public interface EstablishmentManagerRequest {
 
-  List<RegistryDTO> getF18();
+  List<ColjuegosRDDTO> getF18();
 
 }

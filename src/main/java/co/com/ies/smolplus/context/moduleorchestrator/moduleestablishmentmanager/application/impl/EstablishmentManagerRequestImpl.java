@@ -3,7 +3,7 @@ package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanage
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.application.EstablishmentManagerRequest;
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain.BuildF18;
 import co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain.ForeingEstablishmentManager;
-import co.com.ies.smolplus.dto.moduleestablishmentmanager.RegistryDTO;
+import co.com.ies.smolplus.dto.moduleestablishmentmanager.ColjuegosRDDTO;
 
 
 
@@ -27,7 +27,7 @@ public class EstablishmentManagerRequestImpl implements EstablishmentManagerRequ
   }
 
   @Override
-  public List<RegistryDTO> getF18() {
+  public List<ColjuegosRDDTO> getF18() {
     return buildF18.getF18();
   }
 }

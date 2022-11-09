@@ -24,8 +24,8 @@ public class BuildF18 {
     this.foreingEstablishmentManager = foreingEstablishmentManager;
   }
 
-  public List<RegistryDTO> getF18(){
-    List<RegistryDTO> registries = new ArrayList<>();
+  public List<ColjuegosRDDTO> getF18(){
+    List<ColjuegosRDDTO> registries = new ArrayList<>();
 
     ZonedDateTime controlTime = ZonedDateTime.now().withHour(6)
       .withMinute(0).withSecond(0);
@@ -54,8 +54,8 @@ public class BuildF18 {
     return operatorsWithEstablishmentMap;
   }
 
-  public List<RegistryDTO> buildF18(List<EstablishmentDTO> operatorWithEstablishments, List<EventDeviceDTO> eventDeviceByDate, ZonedDateTime controlTime) {
-    List<RegistryDTO> registries = new ArrayList<>();
+  public List<ColjuegosRDDTO> buildF18(List<EstablishmentDTO> operatorWithEstablishments, List<EventDeviceDTO> eventDeviceByDate, ZonedDateTime controlTime) {
+    List<ColjuegosRDDTO> registries = new ArrayList<>();
     Map<Integer,List<DeviceEstablishmentDTO>> deviceEstablishmentByEstablishmentId = new HashMap<>();
 
     for (EstablishmentDTO establishmentByOperator : operatorWithEstablishments) {
@@ -73,11 +73,11 @@ public class BuildF18 {
   }
 
 
-  public List<RegistryDTO> buildRegistry(List<EventDeviceDTO> eventDeviceByDate, DeviceEstablishmentDTO valueDeviceEstablishment, ZonedDateTime controlTime){
+  public List<ColjuegosRDDTO> buildRegistry(List<EventDeviceDTO> eventDeviceByDate, DeviceEstablishmentDTO valueDeviceEstablishment, ZonedDateTime controlTime){
 
     ZonedDateTime controlTimeDayBefore = controlTime.minusHours(ONE_HOUR);
 
-    List<RegistryDTO> registries = new ArrayList<>();
+    List<ColjuegosRDDTO> registries = new ArrayList<>();
     List<EventDeviceDTO> notReportedEvents = new ArrayList<>();
     List<EventDeviceDTO>  eventDeviceByEstablishmentList = new ArrayList<>();
 
@@ -108,7 +108,7 @@ public class BuildF18 {
         break;
       }
 
-      RegistryDTO registry = new RegistryDTO(eventDeviceByEstablishment, valueDeviceEstablishment.getDevice());
+      ColjuegosRDDTO registry = new ColjuegosRDDTO(eventDeviceByEstablishment, valueDeviceEstablishment.getDevice());
 
       List<CounterEventDTO> counterEventByEventDevice = foreingEstablishmentManager.getCounterEventByEventDeviceId(eventDeviceByEstablishment.getId());
       System.out.println("**** counterEventByEventDevice:  "+ counterEventByEventDevice);
@@ -143,7 +143,7 @@ public class BuildF18 {
     return NOT_FOUND_EVENT;
   }
 
-  private void setCounters(RegistryDTO registry, List<CounterEventDTO> counterEventDevices, Double moneyDenomination) {
+  private void setCounters(ColjuegosRDDTO registry, List<CounterEventDTO> counterEventDevices, Double moneyDenomination) {
     for (CounterEventDTO counterEvent : counterEventDevices) {
       String counterCode = counterEvent.getCounterCode();
       BigDecimal valueCounter = BigDecimal.valueOf(counterEvent.getValueCounter());
