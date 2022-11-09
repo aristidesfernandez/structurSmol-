@@ -1,6 +1,5 @@
 package co.com.ies.smolplus.context.moduleorchestrator.moduleestablishmentmanager.domain;
 
-import co.com.ies.smolplus.dto.moduledevicemanager.DeviceDTO;
 import co.com.ies.smolplus.dto.moduledevicemanager.DeviceEstablishmentDTO;
 import co.com.ies.smolplus.dto.moduleestablishmentmanager.*;
 import co.com.ies.smolplus.dto.moduleeventmanager.CounterEventDTO;
@@ -25,13 +24,26 @@ public class BuildF18 {
     this.foreingEstablishmentManager = foreingEstablishmentManager;
   }
 
-  public EventDeviceDTO getF18(){
+  public List<RegistryDTO> getF18(){
+    List<RegistryDTO> registries = new ArrayList<>();
+
     ZonedDateTime controlTime = ZonedDateTime.now().withHour(6)
       .withMinute(0).withSecond(0);
+    List<EventDeviceDTO> eventDeviceByDate = foreingEstablishmentManager.getEventDeviceByDate(controlTime);
+
+    Map<Long,List<EstablishmentDTO>> operatorsWithEstablishmentMap = getEstablishmentByOperator();
+
+    for (Map.Entry<Long, List<EstablishmentDTO>> operatorWithEstablishmentList : operatorsWithEstablishmentMap.entrySet()) {
+      List<EstablishmentDTO> operatorWithEstablishments = operatorWithEstablishmentList.getValue();
+      registries = buildF18(operatorWithEstablishments, eventDeviceByDate, controlTime);
+      System.out.println("**** registries1 "+registries);
+    }
+    return registries;
+  }
+
+  Map<Long,List<EstablishmentDTO>> getEstablishmentByOperator() {
 
     List<OperatorDTO> allOperators = foreingEstablishmentManager.getOperators();
-    List<EventDeviceDTO> eventDeviceByDate = foreingEstablishmentManager.getEventDeviceByDate(controlTime);
-    List<CounterEventDTO> counterEventByEventDeviceId = foreingEstablishmentManager.getCounterEventByEventDeviceId(null);
 
     Map<Long,List<EstablishmentDTO>> operatorsWithEstablishmentMap = new HashMap<>();
 
@@ -39,16 +51,11 @@ public class BuildF18 {
       Long idOperator = operatorDTO.getId();
       operatorsWithEstablishmentMap.put(idOperator, foreingEstablishmentManager.getEstablishmentByOperatorId(idOperator));
     }
-
-    for (Map.Entry<Long, List<EstablishmentDTO>> operatorWithEstablishmentList : operatorsWithEstablishmentMap.entrySet()) {
-      List<EstablishmentDTO> operatorWithEstablishments = operatorWithEstablishmentList.getValue();
-      List<RegistryDTO> registries = buildF18(operatorWithEstablishments, eventDeviceByDate, counterEventByEventDeviceId, controlTime);
-    }
-    return null;
+    return operatorsWithEstablishmentMap;
   }
 
-  public List<RegistryDTO> buildF18(List<EstablishmentDTO> operatorWithEstablishments, List<EventDeviceDTO> eventDeviceByDate, List<CounterEventDTO> counterEventByEventDeviceId, ZonedDateTime controlTime) {
-
+  public List<RegistryDTO> buildF18(List<EstablishmentDTO> operatorWithEstablishments, List<EventDeviceDTO> eventDeviceByDate, ZonedDateTime controlTime) {
+    List<RegistryDTO> registries = new ArrayList<>();
     Map<Integer,List<DeviceEstablishmentDTO>> deviceEstablishmentByEstablishmentId = new HashMap<>();
 
     for (EstablishmentDTO establishmentByOperator : operatorWithEstablishments) {
@@ -58,16 +65,19 @@ public class BuildF18 {
 
     for (Map.Entry<Integer,List<DeviceEstablishmentDTO>> deviceEstablishment : deviceEstablishmentByEstablishmentId.entrySet()) {
       for (DeviceEstablishmentDTO valueDeviceEstablishment : deviceEstablishment.getValue()) {
-        buildRegistry(eventDeviceByDate, valueDeviceEstablishment,controlTime);
+        registries = buildRegistry(eventDeviceByDate, valueDeviceEstablishment, controlTime);
+        System.out.println("**** registries2 "+registries); 
       }
     }
-    return null;
+    return registries;
   }
 
 
-  public List<RegistryDTO> buildRegistry(List<EventDeviceDTO> eventDeviceByDate, DeviceEstablishmentDTO valueDeviceEstablishment , ZonedDateTime controlTime){
-    List<RegistryDTO> registries = new ArrayList<>();
+  public List<RegistryDTO> buildRegistry(List<EventDeviceDTO> eventDeviceByDate, DeviceEstablishmentDTO valueDeviceEstablishment, ZonedDateTime controlTime){
+
     ZonedDateTime controlTimeDayBefore = controlTime.minusHours(ONE_HOUR);
+
+    List<RegistryDTO> registries = new ArrayList<>();
     List<EventDeviceDTO> notReportedEvents = new ArrayList<>();
     List<EventDeviceDTO>  eventDeviceByEstablishmentList = new ArrayList<>();
 
@@ -97,14 +107,20 @@ public class BuildF18 {
         notReportedEvents.add(eventDeviceByEstablishment);
         break;
       }
+
       RegistryDTO registry = new RegistryDTO(eventDeviceByEstablishment, valueDeviceEstablishment.getDevice());
 
-      List<CounterEventDTO> countersEventDevice = eventDeviceByEstablishment.getCountersEvent();
+      List<CounterEventDTO> counterEventByEventDevice = foreingEstablishmentManager.getCounterEventByEventDeviceId(eventDeviceByEstablishment.getId());
+      System.out.println("**** counterEventByEventDevice:  "+ counterEventByEventDevice);
+      List<CounterEventDTO> countersEventDevice = getCountersEvent(counterEventByEventDevice, eventDeviceByEstablishment);
+      
 
       if (!countersEventDevice.isEmpty()) {
         notReportedEvents.add(eventDeviceByEstablishment);
       }
+
       setCounters(registry, countersEventDevice, eventDeviceByEstablishment.getMoneyDenomination());
+
       if (isMemoryWipeEvent) {
         registry.setGamesPlayed(COUNTER_ON_ZERO).setCoinIn(COUNTER_ON_ZERO).setCoinOut(COUNTER_ON_ZERO)
           .setJackPot(COUNTER_ON_ZERO).setHandPaid(COUNTER_ON_ZERO).setBillIn(COUNTER_ON_ZERO);
@@ -114,26 +130,29 @@ public class BuildF18 {
     }
     return registries;
   }
+
   private String changeEventCode(String eventCode) {
+
     for (ColjuegosEventsEnum eventCodeColjuegos : ColjuegosEventsEnum.values()) {
       boolean isEventDeviceCodeEqualsSmolCode = eventCodeColjuegos.getSmolCode().equals(eventCode);
+
       if (isEventDeviceCodeEqualsSmolCode) {
         return eventCodeColjuegos.getColjuegosCode();
       }
     }
     return NOT_FOUND_EVENT;
   }
+
   private void setCounters(RegistryDTO registry, List<CounterEventDTO> counterEventDevices, Double moneyDenomination) {
     for (CounterEventDTO counterEvent : counterEventDevices) {
-      String counterCode = counterEvent.getCounterType().getCounterCode();
+      String counterCode = counterEvent.getCounterCode();
       BigDecimal valueCounter = BigDecimal.valueOf(counterEvent.getValueCounter());
 
       if (counterCode.equals(ColjuegosCountersEnum.PLAYED_GAMES.getCounterCode())) {
         registry.setGamesPlayed(valueCounter.toString());
       }
 
-      BigDecimal counterMoneyValue = counterToMoney(valueCounter,
-        counterEvent.getSaleDenomination(), moneyDenomination);
+      BigDecimal counterMoneyValue = counterToMoney(valueCounter, counterEvent.getDenominationSale(), moneyDenomination);
 
       if (counterCode.equals(ColjuegosCountersEnum.IN.getCounterCode())){
         registry.setCoinIn(counterMoneyValue.toString());
@@ -157,19 +176,18 @@ public class BuildF18 {
     }
   }
 
-  /**
-   * @deprecated
-   */
-  @Deprecated(forRemoval = true)
-  private List<CounterEventDTO> getCountersEvent (List<CounterEventDTO> counterEventsDevices, EventDeviceDTO eventDevice) {
+
+  private List<CounterEventDTO> getCountersEvent (List<CounterEventDTO> counterEventsDevices, EventDeviceDTO eventDeviceByEstablishment) {
     List<CounterEventDTO> countersEventDevice = new ArrayList<>();
 
     for (CounterEventDTO counterEvent : counterEventsDevices) {
-      boolean isCounterValueLessThanZero = counterEvent.getValueCounter().compareTo(BigDecimal.ZERO) < 0;
-      boolean isEventIdEqualsCounterEventId = eventDevice.getId().equals(counterEvent.getEventDevice().getId());
+      boolean isCounterValueLessThanZero = BigDecimal.valueOf(counterEvent.getValueCounter()).compareTo(BigDecimal.ZERO) < 0;
+      boolean isEventIdEqualsCounterEventId = eventDeviceByEstablishment.getId().equals(counterEvent.getEventDevice().getId());
+
       if (isCounterValueLessThanZero) {
         notReportedCounterEventsDevice.add(counterEvent);
       }
+      
       if(isEventIdEqualsCounterEventId) {
         countersEventDevice.add(counterEvent);
       }
@@ -177,7 +195,7 @@ public class BuildF18 {
     return countersEventDevice;
   }
 
-  private BigDecimal counterToMoney(BigDecimal valueCounter, Double saleDenomination, Double moneyDenomination){
+  private BigDecimal counterToMoney(BigDecimal valueCounter, Float saleDenomination, Double moneyDenomination){
     BigDecimal sale = saleDenomination == null ? BigDecimal.ONE : BigDecimal.valueOf(saleDenomination);
     BigDecimal money = moneyDenomination == null ? BigDecimal.ONE : BigDecimal.valueOf(moneyDenomination);
     return valueCounter.multiply(sale.multiply(money)).setScale(ZERO_DECIMALS, RoundingMode.HALF_UP);
